@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "SaaS marketing starter with pricing, proof, and conversion-focused product positioning pages.",
+      "color": "#0a7d5a",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your SaaS Company",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Your SaaS Product",
+      "url": "https://www.example.com"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "Minimal starter for a small Synticore site.",
+      "color": "#1f4b99",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your Company Name",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Your Minimal Site",
+      "url": "https://www.example.com"
+    }
+  }
+}

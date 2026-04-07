@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "Clear value proposition for your company, product, or service.",
+      "color": "#0f3d63",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your Company Name",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Your Site Name",
+      "url": "https://www.example.com"
+    }
+  }
+}

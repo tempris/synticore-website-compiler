@@ -1,0 +1,6 @@
+{
+  "id": "content",
+  "label": "Content",
+  "path": "content",
+  "description": "Blog/docs/content-heavy starter with article templates, typography-first styles, sitemap/package-friendly defaults, and markdown workflow examples."
+}

@@ -1,0 +1,19 @@
+@@include('_html/frame/top.html')
+
+<h1>[[CONFIG_REQUIRE_SITE_TITLE]]</h1>
+
+<p>[[CONFIG_CUSTOM_BRAND_SLOGAN]]</p>
+
+<hr>
+
+<p>This is a minimal Synticore project used to build Browsersync-only development toolkit assets.</p>
+<p>The toolkit contract and intended purpose are documented in <code>source/project/browser/README.md</code> and explicitly forbid layout-affecting debug behavior.</p>
+<p>The watch overlay uses the built files at <code>/asset/css/dev/dev-page.min.css</code>, <code>/asset/css/dev/dev-panel.min.css</code>, and <code>/asset/js/dev-overlay.min.js</code>.</p>
+<p>The fallback page for missing routes is built from <code>in/404.html</code> into <code>out/404.html</code>.</p>
+
+<hr>
+
+<p><a href="/console-playground.html" title="Open the Console Playground page">Open the console playground page</a></p>
+<p><a href="/404.html" title="Open the built 404 page">Open the built 404 page</a></p>
+
+@@include('_html/frame/bottom.html')

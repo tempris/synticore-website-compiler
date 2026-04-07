@@ -1,0 +1,117 @@
+@use './_config/variable' as config_variable;
+
+$color-brand: config_variable.$CONFIG_CUSTOM_BRAND_COLOR;
+$color-bg: #f2fbf8;
+$color-surface: #ffffff;
+$color-text: #0f1720;
+$color-muted: #4a5b55;
+$color-border: #d3e9e1;
+$color-panel: #f4fcf9;
+$radius: 0.9rem;
+$shadow-soft: 0 0.8rem 2rem rgba(15, 23, 32, 0.07);
+
+html { line-height: 1.5; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at 0% 0%, #f8fffc 0%, #eefaf5 45%, #eaf7f2 100%);
+  color: $color-text;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+a { color: $color-brand; text-underline-offset: 0.14em; &:hover { opacity: 0.84; } }
+.frame--content { width: min(76rem, calc(100vw - 2rem)); margin-inline: auto; }
+@mixin stack-vertical($space: 1rem) { > * + * { margin-top: $space; } }
+.stack--vertical { @include stack-vertical(1rem); }
+
+header {
+  position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(15,23,32,0.06);
+  .frame--content { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:4rem; }
+  nav { display:flex; flex-wrap:wrap; gap:0.85rem; align-items:center; }
+}
+#nav_header__brand { font-weight:700; color:$color-text; text-decoration:none; margin-right:0.6rem; }
+.skip_to_main {
+  position: fixed; top: -5rem; left: 0.75rem; z-index: 20;
+  background: $color-text; color:#fff; padding:0.5rem 0.75rem; border-radius:0.4rem; text-decoration:none;
+  &:focus { top: 0.75rem; }
+}
+
+main { padding: 1.25rem 0 2rem; }
+main .frame--content { @include stack-vertical(1.25rem); }
+main section {
+  background: $color-surface; border:1px solid $color-border; border-radius:$radius;
+  box-shadow:$shadow-soft; padding:1.25rem; @include stack-vertical(1rem);
+}
+.panel { background:$color-panel; }
+
+.hero {
+  padding:1.75rem; border-top:0.35rem solid $color-brand;
+  background: radial-gradient(circle at 100% 0%, rgba(10,125,90,0.12) 0%, rgba(10,125,90,0) 50%), $color-surface;
+}
+.eyebrow { margin:0; color:$color-muted; text-transform:uppercase; letter-spacing:0.08em; font-size:0.78rem; font-weight:600; }
+.lead { font-size:1.1rem; color:$color-muted; max-width:60ch; }
+.hero__actions { display:flex; flex-wrap:wrap; gap:0.75rem; }
+.button {
+  display:inline-flex; align-items:center; justify-content:center; gap:0.4rem;
+  padding:0.72rem 1rem; border-radius:999px; border:1px solid $color-brand;
+  background:$color-brand; color:#fff; text-decoration:none; font-weight:600;
+}
+.button--ghost { background:transparent; color:$color-brand; }
+.button--full { width: 100%; }
+
+.logo-row {
+  display:grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  span {
+    display:grid; place-items:center; min-height:3.25rem;
+    border:1px dashed rgba(10,125,90,0.25); border-radius:0.65rem; color:$color-muted;
+    background: rgba(255,255,255,0.65);
+  }
+}
+
+.feature-grid, .pricing-grid { display:grid; gap:1rem; }
+.feature-card {
+  border:1px solid $color-border; border-radius:0.75rem; padding:1rem; background:#fff;
+}
+.section--split { display:grid; gap:1rem; }
+
+.plan-card {
+  border:1px solid $color-border; border-radius:0.85rem; padding:1rem; background:#fff;
+  @include stack-vertical(0.75rem);
+}
+.plan-card > * { margin: 0; }
+.plan-card ul { margin: 0; }
+.plan-card--featured {
+  border-color: rgba(10,125,90,0.35);
+  box-shadow: 0 0.8rem 2rem rgba(10,125,90,0.08);
+}
+.badge {
+  display:inline-block; padding:0.25rem 0.5rem; border-radius:999px;
+  background: rgba(10,125,90,0.12); color:$color-brand; font-size:0.82rem; font-weight:700;
+}
+.price { font-weight: 700; font-size: 1.5rem; }
+.price span { font-weight: 500; font-size: 0.9rem; color: $color-muted; }
+
+.comparison-table {
+  width:100%; border-collapse:collapse; font-size:0.95rem;
+  th, td { border:1px solid $color-border; padding:0.65rem; text-align:left; }
+  thead th { background:$color-panel; }
+  tbody th { color:$color-muted; width: 28%; }
+}
+
+ul, ol { padding-left: 1.25rem; }
+li + li { margin-top: 0.45rem; }
+
+footer {
+  padding:1rem 0 2rem;
+  .frame--content { color:$color-muted; font-size:0.95rem; @include stack-vertical(0.5rem); }
+}
+
+@media (min-width: 48rem) {
+  main { padding-top: 1.75rem; }
+  .hero { padding: 2rem; }
+  .feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pricing-grid--plans { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items:start; }
+  .section--split { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items:start; }
+  main section { padding: 1.5rem; }
+}

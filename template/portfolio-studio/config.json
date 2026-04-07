@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "A portfolio starter for studios, agencies, and freelancers showcasing selected work and process.",
+      "color": "#8a3ffc",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your Studio Name",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Your Studio Name",
+      "url": "https://www.example.com"
+    }
+  }
+}

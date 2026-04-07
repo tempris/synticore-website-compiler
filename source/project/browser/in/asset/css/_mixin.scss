@@ -1,0 +1,12 @@
+@function synticore-unit($scale: 1) {
+  @return 1rem * $scale;
+}
+
+@mixin container-pill(
+  $padding-block: 0.5rem,
+  $padding-inline: 1rem,
+  $radius: 1rem
+) {
+  padding: $padding-block $padding-inline;
+  border-radius: $radius;
+}

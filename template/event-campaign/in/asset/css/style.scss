@@ -1,0 +1,103 @@
+@use './_config/variable' as config_variable;
+
+$color-brand: config_variable.$CONFIG_CUSTOM_BRAND_COLOR;
+$color-bg: #fff7f1;
+$color-surface: #ffffff;
+$color-text: #2a160d;
+$color-muted: #6b4a3a;
+$color-border: #f0d9cb;
+$color-panel: #fff4ec;
+$radius: 0.9rem;
+$shadow-soft: 0 0.8rem 2rem rgba(42, 22, 13, 0.08);
+
+html { line-height: 1.5; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: radial-gradient(circle at 5% 0%, #fffaf6 0%, #fff4ec 45%, #fff0e4 100%);
+  color: $color-text;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+a { color: $color-brand; text-underline-offset: 0.14em; &:hover { opacity: 0.84; } }
+.frame--content { width: min(76rem, calc(100vw - 2rem)); margin-inline: auto; }
+@mixin stack-vertical($space: 1rem) { > * + * { margin-top: $space; } }
+.stack--vertical { @include stack-vertical(1rem); }
+
+header {
+  position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.9); border-bottom: 1px solid rgba(42,22,13,0.06);
+  .frame--content { display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:4rem; }
+  nav { display:flex; flex-wrap:wrap; gap:0.85rem; align-items:center; }
+}
+#nav_header__brand { font-weight:700; color:$color-text; text-decoration:none; margin-right:0.6rem; }
+.skip_to_main {
+  position: fixed; top: -5rem; left: 0.75rem; z-index: 20;
+  background: $color-text; color:#fff; padding:0.5rem 0.75rem; border-radius:0.4rem; text-decoration:none;
+  &:focus { top: 0.75rem; }
+}
+
+main { padding: 1.25rem 0 2rem; }
+main .frame--content { @include stack-vertical(1.25rem); }
+main section {
+  background: $color-surface; border:1px solid $color-border; border-radius:$radius;
+  box-shadow:$shadow-soft; padding:1.25rem; @include stack-vertical(1rem);
+}
+.hero {
+  padding:1.75rem; border-top:0.35rem solid $color-brand;
+  background: radial-gradient(circle at 100% 0%, rgba(194,65,12,0.14) 0%, rgba(194,65,12,0) 50%), $color-surface;
+}
+.eyebrow { margin:0; color:$color-muted; text-transform:uppercase; letter-spacing:0.08em; font-size:0.78rem; font-weight:600; }
+.lead { font-size:1.1rem; color:$color-muted; max-width:58ch; }
+.hero__meta { margin:0; font-weight:600; color:$color-text; }
+.hero__actions { display:flex; flex-wrap:wrap; gap:0.75rem; }
+.button {
+  display:inline-flex; align-items:center; justify-content:center; gap:0.4rem;
+  padding:0.72rem 1rem; border-radius:999px; border:1px solid $color-brand;
+  background:$color-brand; color:#fff; text-decoration:none; font-weight:600;
+}
+.button--ghost { background:transparent; color:$color-brand; }
+
+.grid-cards, .pricing-grid, .faq-list { display:grid; gap:1rem; }
+.card { background:#fff; border:1px solid $color-border; border-radius:0.75rem; padding:1rem; }
+.speaker-card { text-align:left; }
+.avatar {
+  width: 4rem; height: 4rem; border-radius: 999px;
+  background: linear-gradient(145deg, #ffe9da 0%, #fff7f1 100%);
+  border: 1px solid $color-border; display:grid; place-items:center; color:$color-muted;
+}
+.avatar--large { width: min(18rem, 100%); aspect-ratio: 1 / 1; height: auto; border-radius: 1rem; }
+.muted { color: $color-muted; }
+.price { margin: 0; font-size: 1.35rem; font-weight: 700; }
+
+.schedule-list { display:grid; gap:0.75rem; }
+.schedule-item {
+  display:grid; gap:0.75rem;
+  border:1px solid $color-border; border-radius:0.75rem; padding:0.9rem;
+  background: $color-panel;
+}
+.schedule-item .time { margin:0; font-weight:700; color:$color-brand; }
+.schedule-item h3, .schedule-item p { margin:0; }
+
+.section--split { display:grid; gap:1rem; }
+.map-placeholder {
+  min-height: 14rem; border:1px dashed rgba(194,65,12,0.35); border-radius:0.75rem;
+  background: $color-panel; display:grid; place-items:center; text-align:center; color:$color-muted; padding:1rem;
+}
+.section--alt { background: linear-gradient(180deg, #fffaf6 0%, #fff4ec 100%); }
+
+ul, ol { padding-left: 1.25rem; }
+li + li { margin-top: 0.45rem; }
+
+footer {
+  padding:1rem 0 2rem;
+  .frame--content { color:$color-muted; font-size:0.95rem; @include stack-vertical(0.5rem); }
+}
+
+@media (min-width: 48rem) {
+  main { padding-top: 1.75rem; }
+  .hero { padding: 2rem; }
+  .grid-cards, .pricing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .faq-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .section--split { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items:start; }
+  .schedule-item { grid-template-columns: 7rem minmax(0, 1fr); align-items:start; }
+  main section { padding: 1.5rem; }
+}

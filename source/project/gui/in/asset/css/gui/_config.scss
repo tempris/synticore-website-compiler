@@ -1,0 +1,1280 @@
+@use '../_variable-font-icon/_interface' as interface-icon;
+
+.config-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.config-toolbar + .config-intro {
+    margin-top: 1rem;
+}
+
+.config-meta {
+    display: grid;
+    gap: 0.2rem;
+    justify-items: end;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.config-meta__line {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.config-meta__label {
+    color: color-mix(in srgb, var(--muted) 82%, var(--text));
+    font-size: 0.82em;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.config-meta__value {
+    color: var(--text);
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.config-meta__value--missing {
+    color: var(--muted);
+}
+
+.config-intro {
+    display: grid;
+    gap: 1rem;
+    margin: 0 0 1rem;
+}
+
+.panel-intro {
+    margin: 0 0 1rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.panel-intro.gui-icon-label {
+    font-weight: 400;
+    align-items: flex-start;
+}
+
+.config-form {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.config-empty {
+    margin: 0;
+    padding: 1rem;
+    border: 1px dashed var(--border);
+    border-radius: 0.8rem;
+    color: var(--muted);
+    background: var(--section-soft);
+}
+
+.config-children > .config-empty {
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    &:last-child {
+        border-bottom: none;
+        border-bottom-left-radius: 0px;
+    }
+}
+
+.config-node {
+    border: 1px solid var(--border);
+    border-radius: 0.9rem;
+    background: var(--section-soft);
+    overflow: hidden;
+
+    & & {
+        border-right: none;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+        &:last-child {
+            border-bottom: none;
+            border-bottom-left-radius: 0px;
+        }
+    }
+}
+
+.config-node__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1rem;
+    padding: 0.8rem 0.95rem;
+    background: var(--section-bg);
+    border-bottom: 1px solid var(--section-border);
+
+    .config-node[data-collapsed='true'] & {
+        border-bottom: none;
+    }
+}
+
+.config-node__header--collapsible {
+    align-items: stretch;
+    cursor: pointer;
+}
+
+.config-node__heading {
+    min-width: 0;
+    flex: 1 1 auto;
+    align-self: center;
+}
+
+.config-node__toggle {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.8rem;
+    align-items: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    border-radius: .6rem;
+}
+
+.config-node__toggle-copy {
+    min-width: 0;
+    width: 100%;
+    display: grid;
+    gap: 0.3rem 0.75rem;
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.config-node__toggle-chevron {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 160ms ease;
+    opacity: 0.72;
+    align-self: center;
+}
+
+.config-node[data-collapsed='true'] .config-node__toggle-chevron {
+    transform: rotate(-45deg);
+}
+
+.config-node__title {
+    margin: 0;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.config-node__path {
+    display: inline-block;
+}
+
+.config-node__type {
+    display: inline-block;
+}
+
+.config-node__meta {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.config-node__description {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.45;
+}
+
+@media (min-width: 44rem) {
+    .config-node__toggle-copy,
+    .config-node__heading {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        row-gap: 0.25rem;
+        align-items: center;
+    }
+
+    .config-node__title {
+        grid-column: 1;
+        grid-row: 1;
+        min-width: 0;
+    }
+
+    .config-node__meta {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+    .config-node__description {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        min-width: 0;
+        text-align: left;
+    }
+}
+
+@media (min-width: 68rem) {
+    .config-node__toggle-copy,
+    .config-node__heading,
+    .config-object-entry__header .config-inline-grid,
+    .config-array-entry__header .config-inline-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        row-gap: 0.2rem;
+    }
+
+    .config-node__title {
+        grid-column: 1;
+        grid-row: 1;
+        min-width: 0;
+    }
+
+    .config-node__description {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        min-width: 0;
+        text-align: left;
+    }
+
+    .config-node__meta {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+        justify-content: flex-end;
+        margin-left: 0;
+    }
+}
+
+.config-node__actions {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    justify-content: end;
+    flex: 0 0 auto;
+    align-self: center;
+    height: auto;
+}
+
+.config-node__actions--object {
+    display: grid;
+    gap: 0.55rem;
+    min-width: min(28rem, 100%);
+}
+
+.config-node__body {
+    display: grid;
+    gap: 0.85rem;
+    padding: 0.9rem;
+    // padding-right: 0px;
+}
+
+// .config-node__body:not(:has(.config-node__body)) {
+//     padding-right: 0.9rem;
+// }
+
+// .config-node__body:has(.config-node__body) {
+//     padding-right: 0px;
+// }
+
+.config-node__body > .config-children {
+    margin-right: -0.9rem;
+    margin-bottom: -0.9rem;
+}
+
+.config-node__body[hidden] {
+    display: none !important;
+}
+
+.config-children {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.config-children.config-custom__children {
+    padding-right: 0px;
+    padding-bottom: 0px;
+    overflow: hidden;
+}
+
+.config-custom__children .config-custom-schema {
+    margin-right: -0.9rem;
+    padding: 0px;
+    gap: 0px;
+}
+
+.config-object-entry,
+.config-array-entry {
+    border: 1px solid var(--section-border);
+    border-radius: 0.85rem;
+    background: var(--section-soft);
+    overflow: hidden;
+
+    .config-node & {
+        border-right: none;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+        &:last-child {
+            border-bottom: none;
+            border-bottom-left-radius: 0px;
+        }
+    }
+}
+
+.config-object-entry__header,
+.config-array-entry__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.7rem 0.8rem;
+    background: var(--panel-soft);
+    border-bottom: 1px solid var(--section-border);
+}
+
+.config-object-entry__copy,
+.config-array-entry__copy {
+    min-width: 0;
+    flex: 1 1 auto;
+    display: grid;
+    gap: 0.25rem 0.45rem;
+    align-items: center;
+}
+
+.config-object-entry__key,
+.config-array-entry__index {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.config-object-entry__key-input {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    width: 100%;
+    // padding: 0;
+    // border: 0;
+    // border-radius: 0;
+    // background: transparent;
+    // color: var(--text);
+    font-family: Consolas, "Courier New", monospace;
+    // font-size: 0.92rem;
+    // font-weight: 700;
+    // box-shadow: none;
+}
+
+.config-object-entry__key-input:focus {
+    outline: 0;
+}
+
+.config-object-entry__key-input[aria-invalid='true'],
+.config-inline-add__input[aria-invalid='true'],
+.config-custom__field input[aria-invalid='true'] {
+    color: var(--danger);
+    border-color: color-mix(in srgb, var(--danger) 55%, var(--section-border));
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--danger) 25%, transparent);
+}
+
+.config-object-entry__key-edit {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    display: grid;
+    gap: 0.2rem;
+}
+
+.config-validation-message {
+    min-width: 0;
+    color: var(--danger);
+    font-size: 0.78rem;
+    line-height: 1.3;
+}
+
+.config-object-entry__header > .button,
+.config-array-entry__header > .button,
+.config-array-entry__actions {
+    flex: 0 0 auto;
+    align-self: center;
+    height: auto;
+}
+
+.config-array-entry__actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.45rem;
+}
+
+.config-move-button--up::before {
+    transform: rotate(180deg);
+}
+
+.config-object-entry__body,
+.config-array-entry__body {
+    display: grid;
+    gap: 0.85rem;
+    padding: 0.8rem;
+}
+
+.config-object-entry__meta,
+.config-array-entry__meta {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 100%;
+    min-width: 0;
+    justify-self: start;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.config-object-entry__hint,
+.config-array-entry__hint {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    min-width: 0;
+    text-align: left;
+}
+
+@media (min-width: 44rem) {
+    .config-object-entry__copy,
+    .config-array-entry__copy {
+        grid-template-columns: minmax(0, 1fr) auto;
+        row-gap: 0.25rem;
+        align-items: center;
+    }
+
+    .config-object-entry__meta,
+    .config-array-entry__meta {
+        grid-column: 2;
+        grid-row: 1;
+        justify-content: flex-end;
+        justify-self: end;
+        text-align: right;
+    }
+
+    .config-object-entry__hint,
+    .config-array-entry__hint {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        min-width: 0;
+        text-align: left;
+    }
+}
+
+@media (min-width: 68rem) {
+    .config-object-entry__copy,
+    .config-array-entry__copy {
+        grid-template-columns: minmax(0, 1fr) auto;
+        row-gap: 0.2rem;
+        align-items: center;
+    }
+}
+
+.config-primitive {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.config-primitive input,
+.config-primitive select,
+.config-primitive textarea {
+    width: 100%;
+}
+
+.config-primitive textarea {
+    min-height: 6.5rem;
+    resize: vertical;
+}
+
+.config-primitive input[type='color'] {
+    width: 3.6rem;
+    min-width: 3.6rem;
+    padding: 0.2rem;
+    min-height: 3.1rem;
+    border-radius: 0.85rem;
+    cursor: pointer;
+}
+
+.config-primitive input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.config-primitive input[type='color']::-webkit-color-swatch {
+    border: 0;
+    border-radius: 0.65rem;
+}
+
+.config-primitive .field-with-action {
+    align-items: center;
+}
+
+.config-format-editor__controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.55rem;
+    align-items: center;
+}
+
+.config-format-editor__preview {
+    padding: 0.75rem 0.85rem;
+    border: 1px solid var(--section-border);
+    border-radius: 0.75rem;
+    background: var(--section-soft);
+    color: var(--muted);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.config-regex-editor__controls,
+.config-glob-editor__controls {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.config-regex-editor__controls > input,
+.config-glob-editor__controls > input {
+    flex: 1 1 14rem;
+}
+
+.config-regex-editor__controls > .config-picker,
+.config-glob-editor__controls > .config-picker {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.config-regex-editor__status,
+.config-glob-editor__status,
+.config-regex-editor__preview {
+    padding: 0.75rem 0.85rem;
+    border: 1px solid var(--section-border);
+    border-radius: 0.75rem;
+    overflow-wrap: anywhere;
+}
+
+.config-regex-editor__status,
+.config-glob-editor__status {
+    background: var(--section-soft);
+    color: var(--muted);
+
+    &[data-state='valid'] {
+        color: color-mix(in srgb, var(--success) 84%, var(--text));
+        border-color: color-mix(in srgb, var(--success) 45%, var(--section-border));
+    }
+
+    &[data-state='invalid'] {
+        color: var(--danger);
+        border-color: color-mix(in srgb, var(--danger) 55%, var(--section-border));
+    }
+}
+
+.config-regex-editor__status[data-state='valid'],
+.config-regex-editor__status[data-state='invalid'],
+.config-glob-editor__status[data-state='valid'],
+.config-glob-editor__status[data-state='invalid'] {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.config-regex-editor__status[data-state='valid']::before,
+.config-regex-editor__status[data-state='invalid']::before,
+.config-glob-editor__status[data-state='valid']::before,
+.config-glob-editor__status[data-state='invalid']::before {
+    display: inline-block;
+    font-family: 'font-icon--interface';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.config-regex-editor__status[data-state='valid']::before {
+    content: interface-icon.$font-icon--interface--log-success;
+}
+
+.config-regex-editor__status[data-state='invalid']::before,
+.config-glob-editor__status[data-state='invalid']::before {
+    content: interface-icon.$font-icon--interface--log-error;
+}
+
+.config-glob-editor__status[data-state='valid']::before {
+    content: interface-icon.$font-icon--interface--log-success;
+}
+
+.config-regex-editor__preview {
+    background: color-mix(in srgb, var(--panel-bg) 82%, transparent);
+    color: var(--text);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.config-regex-editor__preview-label {
+    color: var(--muted);
+}
+
+.config-regex-editor__preview-values {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.config-regex-editor__preview-empty {
+    color: var(--muted);
+}
+
+.config-regex-editor__sample {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.config-regex-editor__sample-input,
+.config-glob-editor__sample-input {
+    width: 100%;
+}
+
+.config-glob-editor__preview {
+    background: color-mix(in srgb, var(--panel-bg) 82%, transparent);
+    color: var(--text);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    padding: 0.75rem 0.85rem;
+    border: 1px solid var(--section-border);
+    border-radius: 0.75rem;
+    overflow-wrap: anywhere;
+}
+
+.config-glob-editor__preview-label {
+    color: var(--muted);
+}
+
+.config-glob-editor__preview-values {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.config-glob-editor__preview-empty {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    background: var(--code-bg);
+    color: var(--muted);
+}
+
+.config-glob-editor__preview-empty::before {
+    display: inline-block;
+    font-family: 'font-icon--interface';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: interface-icon.$font-icon--interface--log-notice;
+}
+
+.config-glob-editor__preview[data-state='warn'] .config-glob-editor__preview-empty {
+    color: color-mix(in srgb, var(--warn) 84%, var(--text));
+}
+
+.config-glob-editor__preview[data-state='warn'] .config-glob-editor__preview-empty::before {
+    content: interface-icon.$font-icon--interface--log-warn;
+}
+
+.config-glob-editor__preview[data-state='error'] .config-glob-editor__preview-empty {
+    color: var(--danger);
+}
+
+.config-glob-editor__preview[data-state='error'] .config-glob-editor__preview-empty::before {
+    content: interface-icon.$font-icon--interface--log-error;
+}
+
+.config-glob-editor__preview[data-state='success'] .config-primitive__tag {
+    color: color-mix(in srgb, var(--success) 84%, var(--text));
+}
+
+.config-glob-editor__preview[data-state='error'] .config-primitive__tag {
+    color: var(--danger);
+}
+
+.config-glob-editor__preview[data-state='success'] .config-primitive__tag,
+.config-glob-editor__preview[data-state='error'] .config-primitive__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.config-glob-editor__preview[data-state='success'] .config-primitive__tag::before,
+.config-glob-editor__preview[data-state='error'] .config-primitive__tag::before {
+    display: inline-block;
+    font-family: 'font-icon--interface';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.config-glob-editor__preview[data-state='success'] .config-primitive__tag::before {
+    content: interface-icon.$font-icon--interface--log-success;
+}
+
+.config-glob-editor__preview[data-state='error'] .config-primitive__tag::before {
+    content: interface-icon.$font-icon--interface--log-error;
+}
+
+.config-glob-editor__sample {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.config-format-editor__tokens {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.config-format-editor__token-section {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.config-format-editor__token-heading {
+    align-items: center;
+}
+
+.config-format-editor__token {
+    min-height: 2.9rem;
+    padding: 0.45rem 0.7rem;
+    display: grid;
+    justify-items: start;
+    gap: 0.15rem;
+    text-align: left;
+}
+
+.config-format-editor__token-value,
+.config-format-editor__token-name,
+.config-format-editor__token-preview {
+    display: block;
+    line-height: 1.15;
+}
+
+.config-format-editor__token-value {
+    font-family: Consolas, "Courier New", monospace;
+    font-weight: 700;
+}
+
+.config-format-editor__token-name {
+    color: var(--text);
+    font-size: 0.8rem;
+}
+
+.config-format-editor__token-preview {
+    color: var(--muted);
+    font-size: 0.82rem;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.config-picker {
+    position: relative;
+    width: 100%;
+}
+
+.config-picker__toggle {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.config-picker__options {
+    display: grid;
+    gap: 0.2rem;
+}
+
+.config-picker__option {
+    border-radius: 0.55rem;
+}
+
+.config-primitive__hint {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.config-primitive__tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.config-union__controls {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: end;
+}
+
+.config-union__type {
+    min-width: 10rem;
+}
+
+.config-picker--inline {
+    width: auto;
+    flex: 0 0 auto;
+}
+
+.config-picker--compact {
+    width: fit-content;
+    max-width: 100%;
+    flex: 0 0 auto;
+}
+
+.config-picker--compact .config-picker__toggle {
+    width: auto;
+    min-width: 0;
+}
+
+.config-union__controls > .config-picker--inline {
+    flex: 1 1 14rem;
+    min-width: 0;
+    width: auto;
+}
+
+.config-union__controls > .config-picker--inline .config-picker__toggle {
+    width: 100%;
+    min-width: 0;
+}
+
+.config-union__actions {
+    display: flex;
+    gap: 0.55rem;
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.config-union__composite {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.config-primitive__tag {
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    background: var(--code-bg);
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.config-primitive__tag--path {
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.config-inline-grid {
+    display: inline-grid;
+    grid-template-columns: max-content;
+    gap: 0.7rem;
+    justify-items: start;
+    align-content: start;
+    width: fit-content;
+    max-width: 100%;
+}
+
+@media (min-width: 52rem) {
+    .config-inline-grid {
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: start;
+        column-gap: 0.75rem;
+        row-gap: 0.2rem;
+        width: 100%;
+    }
+
+    .config-primitive__tags {
+        flex-wrap: nowrap;
+    }
+
+    .config-primitive__hint {
+        min-width: 0;
+        align-self: center;
+    }
+}
+
+@media (max-width: 40rem) {
+    .config-format-editor__controls {
+        grid-template-columns: 1fr;
+    }
+
+    .config-regex-editor__controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .config-glob-editor__controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .config-regex-editor__controls > .config-picker,
+    .config-glob-editor__controls > .config-picker {
+        width: 100%;
+    }
+
+    .config-picker__toggle,
+    .config-picker__panel {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+.config-inline-add {
+    display: grid;
+    grid-template-columns: minmax(11rem, 1fr) auto;
+    gap: 0.55rem;
+    align-items: center;
+}
+
+.config-inline-add > .config-validation-message {
+    grid-column: 1 / -1;
+}
+
+.config-inline-add__input {
+    width: 100%;
+}
+
+.config-node--custom {
+    border-color: color-mix(in srgb, var(--accent) 22%, var(--border));
+}
+
+.config-custom__body {
+    display: grid;
+    gap: 1rem;
+}
+
+.config-custom__add-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.config-custom__add-heading {
+    grid-column: 1 / -1;
+    align-items: center;
+}
+
+.config-custom__children-heading {
+    align-items: center;
+}
+
+.config-custom__field--value {
+    grid-column: auto;
+}
+
+.config-custom__field {
+    gap: 0.45rem;
+}
+
+.config-custom__field textarea {
+    min-height: 5.25rem;
+    resize: vertical;
+}
+
+.config-custom__value-control,
+.config-custom__value-control .config-primitive {
+    width: 100%;
+}
+
+.config-custom__value-control .field-with-action {
+    width: 100%;
+}
+
+.config-custom__value-control .config-primitive > .button {
+    width: 100%;
+}
+
+.config-custom__add-actions {
+    display: flex;
+    justify-content: start;
+    grid-column: auto;
+    justify-self: start;
+}
+
+.config-custom-schema--draft {
+    display: grid;
+    gap: 0.75rem;
+    grid-column: 1 / -1;
+}
+
+.config-custom-schema__heading {
+    align-items: center;
+}
+
+.config-custom-schema > .config-node__body {
+    padding: 0.9rem 0.95rem;
+}
+
+.config-custom-schema__body {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.config-custom-schema__grid {
+    display: grid;
+    grid-template-columns: max-content max-content minmax(0, 1fr);
+    gap: 0.8rem 0.9rem;
+    align-items: start;
+}
+
+.config-custom-schema__field {
+    gap: 0.45rem;
+}
+
+.config-custom-schema__field--description {
+    grid-column: 1 / -1;
+    min-width: 0;
+    width: 100%;
+    justify-self: stretch;
+}
+
+.config-actions {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.config-actions__heading {
+    color: var(--muted);
+}
+
+.config-actions__buttons {
+    display: flex;
+    gap: 0.7rem;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 58rem) {
+    .config-intro {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+}
+
+.config-raw {
+    margin-top: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.85rem;
+    background: var(--section-soft);
+}
+
+.config-raw:not([open]) {
+    overflow: hidden;
+}
+
+.config-raw summary {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    padding: 0.85rem 1rem;
+    font-weight: 700;
+    background: var(--section-bg);
+    border-radius: 0.85rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.config-editor {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 16rem;
+    border: 0;
+    padding: 1rem;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: transparent;
+    caret-color: var(--text);
+    background: transparent;
+    resize: vertical;
+    white-space: pre;
+    overflow: auto;
+    tab-size: 4;
+}
+
+.config-editor::selection {
+    background: color-mix(in srgb, var(--accent) 38%, transparent);
+}
+
+.config-editor-shell {
+    position: relative;
+    min-height: 16rem;
+    border-top: 1px solid var(--border);
+    border-radius: 0.85rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: var(--section-strong);
+    overflow: hidden;
+}
+
+.config-editor-highlight,
+.config-editor {
+    margin: 0;
+    min-height: 16rem;
+}
+
+.config-editor-highlight {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    white-space: pre;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+.config-editor-highlight code {
+    display: block;
+    min-height: 100%;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    padding: 1rem;
+    padding-bottom: 3rem;
+}
+
+.config-editor-shell .token.property {
+    color: #7dd3fc;
+}
+
+.config-editor-shell .token.string {
+    color: #86efac;
+}
+
+.config-editor-shell .token.number {
+    color: #f9a8d4;
+}
+
+.config-editor-shell .token.boolean {
+    color: #fcd34d;
+}
+
+.config-editor-shell .token.null {
+    color: #fca5a5;
+}
+
+.config-editor-shell .token.punctuation,
+.config-editor-shell .token.operator {
+    color: color-mix(in srgb, var(--text) 74%, var(--muted));
+}
+
+.config-editor-shell.is-empty .config-editor-highlight code {
+    color: transparent;
+}
+
+html[data-theme='light'] {
+    .config-editor-shell .token.property {
+        color: #0f5a7a;
+    }
+
+    .config-editor-shell .token.string {
+        color: #1f6a2e;
+    }
+
+    .config-editor-shell .token.number {
+        color: #9d174d;
+    }
+
+    .config-editor-shell .token.boolean {
+        color: #8a5700;
+    }
+
+    .config-editor-shell .token.null {
+        color: #b42318;
+    }
+}
+
+@media (min-width: 58rem) {
+    .config-custom-schema__grid {
+        grid-template-columns: max-content minmax(0, 1fr);
+        align-items: center;
+    }
+
+    .config-custom-schema--has-item-type .config-custom-schema__grid {
+        grid-template-columns: max-content max-content minmax(0, 1fr);
+    }
+
+    .config-custom-schema__field--description {
+        grid-column: 2;
+    }
+
+    .config-custom-schema--has-item-type .config-custom-schema__field--description {
+        grid-column: 3;
+    }
+}
+
+@media (max-width: 64rem) {
+    .config-custom-schema__grid {
+        grid-template-columns: max-content max-content minmax(0, 1fr);
+    }
+
+    .config-custom-schema__field--description {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 42rem) {
+    .config-custom__add-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .config-custom__add-actions {
+        grid-column: 1;
+        justify-self: start;
+    }
+}

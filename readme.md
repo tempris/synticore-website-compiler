@@ -1,49 +1,59 @@
-# Staticus Website Compiler - Readme
+# Synticore Website Compiler
 
-Welcome to **Staticus Website Compiler**, a powerful static site generator designed for developers comfortable with managing their own web servers.
+Synticore is a static-site build pipeline for HTML, CSS/SCSS, JavaScript, and assets.
 
-## 🚀 Features
+This repository contains the compiler itself, the browser GUI, bundled resources, project templates, and the documentation source.
 
-- **Automated Build Process** – Minify HTML, CSS, and JS.
-- **Optimized Asset Management** – Image compression and font generation.
-- **Dynamic Content Handling** – Auto-generated navigation and metadata.
-- **Cross-Platform Support** – Works on Windows and Linux.
-- **Deployment Ready** – Creates production-optimized ZIP packages.
+## Documentation
 
-## 📖 Documentation
+- Builder docs: [Synticore Builder Guide](/wiki/builder.md)
+- Developer docs: [Synticore Developer Docs](/wiki/developer.md)
+- Changelog: [Synticore Changelog](/wiki/changelog.md)
 
-- For installation, read the **[Staticus Setup Page](./wiki/setup.md)**.
-- For a complete list of available build commands and automation tasks, refer to the **[Staticus Task Page](./wiki/task.md)**.
-- For details on the project configuration options, see the **[Staticus Project Configuration Page](./wiki/config.md)**.
-- For an overview of the GUI application, see the **[Staticus GUI Page](./wiki/gui.md)**.
+Use the builder docs if you are trying to get a site running.
 
-## 📂 Requirements
+Use the developer docs if you are maintaining or extending the compiler itself.
 
-- **Operating System**: Windows or Linux (Mac support is theoretical and untested)
-- **Dependencies**: Node.js, Python
+## Quick Entry Points
 
-## 🎯 Get Started
+Repository root commands:
 
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/tempris/staticus-website-compiler.git
-   ```
+```bash
+./setup.sh
+setup.cmd
+```
 
-2. Follow instructions on the **[Staticus Setup Page](./wiki/setup.md)**.
+After dependencies are installed:
 
-## 🛠️ Contributing & Forking
+- GUI-first usage: [Synticore Builder Guide - GUI Guide](/wiki/builder/gui.md)
+- First successful build: [Synticore Builder Guide - Build Your First Site](/wiki/builder/first-site.md)
+- Terminal task reference: [Synticore Builder Guide - Terminal Task Reference](/wiki/builder/terminal.md)
 
-Staticus **welcomes and encourage forking this project**! If you'd like to contribute, the best way to expand the project is by submitting **bug reports** and **feature requests** via **[GitHub Issues](https://github.com/tempris/staticus-website-compiler/issues)**. Feel free to fork, modify and build upon this project as you see fit.
+Node-only browser GUI entry points:
 
-## 📜 License
+```bash
+npm run gui:web
+./gui.sh
+gui.cmd
+```
 
-Staticus Website Compiler is licensed under the **GNU General Public License v3 (GPL v3)**.
+For browser GUI usage, start with [Synticore Builder Guide - GUI Guide](/wiki/builder/gui.md).
 
-**Key Points:**
-- The software itself is **free to use, modify, and distribute** under GPL v3.
-- **Websites and content created using this compiler are not subject to GPL**—you may license them under any terms you choose.
-- For more details, see the **[LICENSE](./license.txt)**.
+For browser GUI internals and maintainer-facing details, use [Synticore Developer Docs - Browser Tooling Notes](/wiki/developer/browser.md) and [Synticore Internal Docs - GUI](/_development/wiki/gui.md).
 
-## ⚠️ Disclaimer
+## Repository Layout
 
-**Staticus Website Compiler is provided "as-is" without warranty of any kind.** Use this software at your own risk. The author assumes no liability for any issues that arise from its use, including data loss or misconfigurations. **Support is not guaranteed**, though community discussions and contributions are welcome.
+- `gulpfile.js` - compiler pipeline and task registration
+- `gui.cmd` / `gui.sh` - browser GUI launchers
+- `setup.cmd` / `setup.sh` - repository npm setup helpers
+- `config/` - compiler defaults and app settings
+- `source/` - bundled resources, custom modules, migration/test data
+- `project/` - example and template projects
+- `wiki/builder/` - builder-facing documentation pages
+- `wiki/developer/` - developer-facing documentation pages
+
+## Related
+
+- [Synticore Example Site](https://example.synticore.cureinteractive.com)
+- [Synticore Website Compiler Releases](https://github.com/cureinteractive/synticore-website-compiler/releases)
+- [Synticore Website Compiler Issue Tracker](https://github.com/cureinteractive/synticore-website-compiler/issues)

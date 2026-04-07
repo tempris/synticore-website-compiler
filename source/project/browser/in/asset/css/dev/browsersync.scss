@@ -1,0 +1,163 @@
+$bs-text-heading: #fbfbfb;
+$bs-text-primary: #fff;
+$bs-text-primary-hover: #aaa;
+
+$bs-bg-body: #777;
+
+$bs-bg-content: #222;
+
+$bs-bg-panel: #444;
+
+$bs-bg-control: #555;
+
+$bs-bg-button: #555;
+$bs-bg-button-hover: #7f7f7f;
+$bs-bg-button-active: #333;
+
+$bs-bg-inline-control: #222;
+$bs-bg-inline-control-hover: #333;
+
+$bs-bg-code: #333;
+
+$bs-border-subtle: #7f7f7f;
+$bs-code-accent: #f54747;
+
+body {
+  color: $bs-text-primary;
+  background: $bs-bg-body;
+}
+
+*, a {
+  &:hover, &:focus {
+    transition-duration: 0ms !important;
+  }
+}
+
+[bs-content] {
+  background: $bs-bg-content;
+}
+
+[bs-heading] {
+  background: $bs-bg-panel;
+  color: $bs-text-heading;
+}
+
+[bs-label-heading] {
+  color: $bs-text-primary;
+}
+
+[bs-panel] {
+  background: $bs-bg-panel;
+  border-bottom: 1px solid $bs-border-subtle;
+
+  [bs-text] {
+    color: $bs-text-primary;
+  }
+
+  [bs-text~=lede] {
+    margin-bottom: 0.25em;
+  }
+}
+
+[bs-panel-icon] [bs-svg-icon] {
+  color: $bs-text-primary;
+}
+
+a:active, a:focus, a:hover {
+  color: $bs-text-primary;
+}
+
+[bs-button-row] {
+  background: $bs-bg-panel;
+  border-bottom: 1px solid $bs-border-subtle;
+}
+
+[bs-button],
+[bs-button~=subtle-alt] {
+  background: $bs-bg-button !important;
+  color: $bs-text-primary !important;
+
+  // padding: 1em;
+  border-radius: 1em;
+
+  &:hover, &:focus {
+    background: $bs-bg-button-hover !important;
+    color: $bs-text-primary !important;
+  }
+
+  &:active {
+    background: $bs-bg-button-active !important;
+  }
+}
+
+[bs-button~=subtle-alt] {
+  border-color: $bs-border-subtle;
+}
+
+[bs-panel~=switch].disabled {
+  background: $bs-bg-content;
+}
+
+.cmn-toggle + label {
+  background: $bs-bg-control;
+}
+
+input.cmn-toggle-round + label:before {
+  background-color: $bs-bg-control;
+}
+
+[bs-list~=bordered] > li:first-child {
+  border-top: 1px solid $bs-border-subtle;
+}
+
+[bs-list~=inline-controls] li {
+  background: $bs-bg-inline-control;
+
+  &:hover {
+    background: $bs-bg-inline-control-hover;
+  }
+}
+
+code {
+  background: $bs-bg-code;
+  border: 1px solid $bs-border-subtle;
+  color: $bs-code-accent;
+  border-radius: 1em;
+  padding: 0.25em 0.75em;
+}
+
+[bs-input] input[type="radio"] + label,
+[bs-input] label {
+  color: $bs-text-primary;
+
+  &:hover {
+    color: $bs-text-primary-hover;
+  }
+}
+
+[bs-input] input[type=radio]:checked + label {
+  color: $bs-code-accent !important;
+}
+
+[bs-input] input[type="radio"] {
+  accent-color: $bs-code-accent;
+}
+
+[bs-input] input {
+  background-color: $bs-bg-button;
+  color: $bs-text-primary !important;
+  border-bottom: 1px dashed $bs-border-subtle;
+
+  padding: 1em;
+  border-radius: 1em;
+}
+
+[bs-button-group] [bs-button]:first-child {
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+
+[bs-button-group] [bs-button]:last-child {
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+}

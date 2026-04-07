@@ -1,0 +1,39 @@
+@@include('_html/frame/top.html', { "title": "Docs v1" })
+
+<section class="hero">
+  <p class="eyebrow">Legacy Version</p>
+  <h1>Documentation v1</h1>
+  <p class="lead">Maintenance docs for existing users. Add migration guidance to move to v2.</p>
+</section>
+
+<section class="docs-layout">
+  <aside class="docs-sidebar">
+    <h2>v1 Contents</h2>
+    <nav aria-label="v1 docs navigation">
+      <a href="#quickstart">Quickstart</a>
+      <a href="#configuration">Configuration</a>
+      <a href="#reference">Reference</a>
+      <a href="/changelog.html">Changelog</a>
+    </nav>
+  </aside>
+
+  <div class="docs-main">
+    <article id="quickstart" class="doc-card">
+      <h2>Quickstart</h2>
+      <p>Document installation and first-use steps for v1 users.</p>
+      <pre><code>npm install your-package@1</code></pre>
+    </article>
+
+    <article id="configuration" class="doc-card">
+      <h2>Configuration</h2>
+      <p>List required environment variables, keys, and defaults.</p>
+    </article>
+
+    <article id="reference" class="doc-card">
+      <h2>Reference</h2>
+      <p>Link to endpoint/module reference pages here.</p>
+    </article>
+  </div>
+</section>
+
+@@include('_html/frame/bottom.html')

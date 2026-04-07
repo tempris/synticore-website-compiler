@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="temperature-svgrepo-com.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.9625"
+     inkscape:cx="400"
+     inkscape:cy="400"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="1671"
+     inkscape:window-y="1071"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+  <title
+     id="title1">ic_fluent_temperature_24_filled</title>
+  <desc
+     id="desc1">Created with Sketch.</desc>
+  <path
+     d="m 12,0 c 2.570634,0 4.669295,2.0207622 4.794126,4.5602351 L 16.8,4.7997845 16.8012,12.8736 l 0.06653,0.06912 c 0.955009,1.041905 1.5558,2.365934 1.699033,3.792328 l 0.02488,0.330903 L 18.6,17.4 C 18.6,21.045079 15.645079,24 12,24 8.354921,24 5.4,21.045079 5.4,17.4 5.4,15.833972 5.949501,14.354666 6.919261,13.186837 L 7.133452,12.941437 7.1988,12.8724 7.2,4.8 c 0,-2.4877108 1.892493,-4.5334061 4.316327,-4.7759338 l 0.244105,-0.018192 z m 0,2.4 C 10.734766,2.4 9.698202,3.3790533 9.606583,4.6209255 L 9.6,4.8000463 9.599648,13.911682 9.200039,14.269401 C 8.314359,15.062236 7.8,16.188252 7.8,17.4 c 0,2.319596 1.880404,4.2 4.2,4.2 2.319596,0 4.2,-1.880404 4.2,-4.2 0,-1.124784 -0.443177,-2.175705 -1.215162,-2.954864 L 14.800903,14.270244 14.401636,13.912617 14.4,4.8 C 14.4,3.4745166 13.325483,2.4 12,2.4 Z m 0,4.8 c 0.662742,0 1.2,0.5372583 1.2,1.2 l 9.96e-4,6.250062 C 14.260007,15.113223 15,16.170194 15,17.4 c 0,1.656854 -1.343146,3 -3,3 -1.656854,0 -3,-1.343146 -3,-3 0,-1.230273 0.740555,-2.287579 1.80021,-2.750465 L 10.8,8.4 c 0,-0.6627417 0.537258,-1.2 1.2,-1.2 z"
+     id="🎨-Color"
+     style="stroke-width:1.2" />
+</svg>

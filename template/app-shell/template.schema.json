@@ -1,0 +1,6 @@
+{
+  "id": "app-shell",
+  "label": "App Shell",
+  "path": "app-shell",
+  "description": "Dashboard/web-app shell starter with route-like pages, stronger JS starter hooks, and reusable shell/component layout patterns."
+}

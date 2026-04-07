@@ -1,0 +1,19 @@
+{
+  "grid": {
+    "alpha": "0.25",
+    "anchorX": "center",
+    "anchorY": "top",
+    "color": "#60fa68",
+    "size": "1",
+    "unit": "rem"
+  },
+  "log": {
+    "filters": {
+      "error": true,
+      "info": true,
+      "log": true,
+      "warn": true
+    },
+    "searchText": ""
+  }
+}

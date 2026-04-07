@@ -1,0 +1,837 @@
+@use '../_variable-font-icon/_interface' as interface-icon;
+
+/* ANSI Terminal Mimic
+ * Read this file top to bottom:
+ * 1. cure-ansi 1:1 list
+ * 2. cure-log 1:1 list
+ * 3. selectors that use only the cure-log list
+ */
+
+/* cure-ansi 1:1: style */
+@mixin cure-ansi-style-bold {
+    font-weight: 700;
+}
+
+@mixin cure-ansi-style-dim {
+    opacity: 0.72;
+}
+
+@mixin cure-ansi-style-italic {
+    font-style: italic;
+}
+
+@mixin cure-ansi-style-underline {
+    text-decoration: underline;
+}
+
+@mixin cure-ansi-style-blink {
+    text-decoration: underline;
+}
+
+@mixin cure-ansi-style-reverse {
+    filter: invert(1);
+}
+
+@mixin cure-ansi-style-hidden {
+    opacity: 0;
+}
+
+@mixin cure-ansi-style-strikethrough {
+    text-decoration: line-through;
+}
+
+@mixin cure-ansi-style-double-underline {
+    text-decoration-line: underline;
+    text-decoration-style: double;
+}
+
+@mixin cure-ansi-style-framed {
+    box-shadow: inset 0 0 0 1px currentColor;
+}
+
+@mixin cure-ansi-style-encircled {
+    box-shadow: inset 0 0 0 1px currentColor;
+    border-radius: 999px;
+}
+
+@mixin cure-ansi-style-overlined {
+    text-decoration-line: overline;
+}
+
+/* cure-ansi 1:1: dark-theme palette */
+:root {
+    /* Log entry surfaces */
+    --log-console-bg: rgba(7, 10, 18, 0.78);
+    --log-console-border: rgba(255, 255, 255, 0.08);
+    --log-message-bg: rgba(13, 17, 24, 0.38);
+    --log-message-border: rgba(255, 255, 255, 0.06);
+
+    /* this.fg */
+    --cure-ansi-fg-reset: currentColor;
+    --cure-ansi-fg-black: #0c0c0c;
+    --cure-ansi-fg-red: #c50f1f;
+    --cure-ansi-fg-green: #13a10e;
+    --cure-ansi-fg-yellow: #c19c00;
+    --cure-ansi-fg-blue: #0037da;
+    --cure-ansi-fg-magenta: #881798;
+    --cure-ansi-fg-cyan: #3a96dd;
+    --cure-ansi-fg-white: #cccccc;
+    --cure-ansi-fg-bright-black: #767676;
+    --cure-ansi-fg-bright-red: #e74856;
+    --cure-ansi-fg-bright-green: #16c60c;
+    --cure-ansi-fg-bright-yellow: #f9f1a5;
+    --cure-ansi-fg-bright-blue: #3b78ff;
+    --cure-ansi-fg-bright-magenta: #b4009e;
+    --cure-ansi-fg-bright-cyan: #61d6d6;
+    --cure-ansi-fg-bright-white: #f2f2f2;
+
+    /* this.bg */
+    --cure-ansi-bg-reset: transparent;
+    --cure-ansi-bg-black: #0c0c0c;
+    --cure-ansi-bg-red: #c50f1f;
+    --cure-ansi-bg-green: #13a10e;
+    --cure-ansi-bg-yellow: #c19c00;
+    --cure-ansi-bg-blue: #0037da;
+    --cure-ansi-bg-magenta: #881798;
+    --cure-ansi-bg-cyan: #3a96dd;
+    --cure-ansi-bg-white: #cccccc;
+    --cure-ansi-bg-bright-black: #767676;
+    --cure-ansi-bg-bright-red: #e74856;
+    --cure-ansi-bg-bright-green: #16c60c;
+    --cure-ansi-bg-bright-yellow: #f9f1a5;
+    --cure-ansi-bg-bright-blue: #3b78ff;
+    --cure-ansi-bg-bright-magenta: #b4009e;
+    --cure-ansi-bg-bright-cyan: #61d6d6;
+    --cure-ansi-bg-bright-white: #f2f2f2;
+
+    /* this.hc.fg */
+    --cure-ansi-hc-fg-black: var(--cure-ansi-fg-bright-black);
+    --cure-ansi-hc-fg-red: var(--cure-ansi-fg-bright-red);
+    --cure-ansi-hc-fg-green: var(--cure-ansi-fg-bright-green);
+    --cure-ansi-hc-fg-yellow: var(--cure-ansi-fg-bright-yellow);
+    --cure-ansi-hc-fg-blue: var(--cure-ansi-fg-bright-blue);
+    --cure-ansi-hc-fg-magenta: var(--cure-ansi-fg-bright-magenta);
+    --cure-ansi-hc-fg-cyan: var(--cure-ansi-fg-bright-cyan);
+    --cure-ansi-hc-fg-white: var(--cure-ansi-fg-bright-white);
+
+    /* this.hc.bg */
+    --cure-ansi-hc-bg-black: var(--cure-ansi-bg-black);
+    --cure-ansi-hc-bg-red: var(--cure-ansi-bg-red);
+    --cure-ansi-hc-bg-green: var(--cure-ansi-bg-green);
+    --cure-ansi-hc-bg-yellow: var(--cure-ansi-bg-yellow);
+    --cure-ansi-hc-bg-blue: var(--cure-ansi-bg-blue);
+    --cure-ansi-hc-bg-magenta: var(--cure-ansi-bg-magenta);
+    --cure-ansi-hc-bg-cyan: var(--cure-ansi-bg-cyan);
+    --cure-ansi-hc-bg-white: var(--cure-ansi-bg-white);
+
+    /* this.bc.fg */
+    --cure-ansi-bc-fg-black: var(--cure-ansi-fg-bright-black);
+    --cure-ansi-bc-fg-red: var(--cure-ansi-fg-bright-red);
+    --cure-ansi-bc-fg-green: var(--cure-ansi-fg-bright-green);
+    --cure-ansi-bc-fg-yellow: var(--cure-ansi-fg-yellow);
+    --cure-ansi-bc-fg-blue: var(--cure-ansi-fg-bright-blue);
+    --cure-ansi-bc-fg-magenta: var(--cure-ansi-fg-bright-magenta);
+    --cure-ansi-bc-fg-cyan: var(--cure-ansi-fg-bright-cyan);
+    --cure-ansi-bc-fg-white: var(--cure-ansi-fg-bright-white);
+
+    /* this.bc.bg */
+    --cure-ansi-bc-bg-black: var(--cure-ansi-bg-black);
+    --cure-ansi-bc-bg-red: var(--cure-ansi-bg-red);
+    --cure-ansi-bc-bg-green: var(--cure-ansi-bg-green);
+    --cure-ansi-bc-bg-yellow: var(--cure-ansi-bg-yellow);
+    --cure-ansi-bc-bg-blue: var(--cure-ansi-bg-blue);
+    --cure-ansi-bc-bg-magenta: var(--cure-ansi-bg-magenta);
+    --cure-ansi-bc-bg-cyan: var(--cure-ansi-bg-cyan);
+    --cure-ansi-bc-bg-white: var(--cure-ansi-bg-white);
+
+    /* ANSI SGR code aliases used by the browser ANSI parser */
+    --log-ansi-default-fg: #cccccc;
+    --log-ansi-default-bg: #0c0c0c;
+    --log-ansi-cursor-color: #ffffff;
+    --log-ansi-fg-30: var(--cure-ansi-fg-black);
+    --log-ansi-fg-31: var(--cure-ansi-fg-red);
+    --log-ansi-fg-32: var(--cure-ansi-fg-green);
+    --log-ansi-fg-33: var(--cure-ansi-fg-yellow);
+    --log-ansi-fg-34: var(--cure-ansi-fg-blue);
+    --log-ansi-fg-35: var(--cure-ansi-fg-magenta);
+    --log-ansi-fg-36: var(--cure-ansi-fg-cyan);
+    --log-ansi-fg-37: var(--cure-ansi-fg-white);
+    --log-ansi-fg-90: var(--cure-ansi-fg-bright-black);
+    --log-ansi-fg-91: var(--cure-ansi-fg-bright-red);
+    --log-ansi-fg-92: var(--cure-ansi-fg-bright-green);
+    --log-ansi-fg-93: var(--cure-ansi-fg-bright-yellow);
+    --log-ansi-fg-94: var(--cure-ansi-fg-bright-blue);
+    --log-ansi-fg-95: var(--cure-ansi-fg-bright-magenta);
+    --log-ansi-fg-96: var(--cure-ansi-fg-bright-cyan);
+    --log-ansi-fg-97: var(--cure-ansi-fg-bright-white);
+    --log-ansi-bg-40: var(--cure-ansi-bg-black);
+    --log-ansi-bg-41: var(--cure-ansi-bg-red);
+    --log-ansi-bg-42: var(--cure-ansi-bg-green);
+    --log-ansi-bg-43: var(--cure-ansi-bg-yellow);
+    --log-ansi-bg-44: var(--cure-ansi-bg-blue);
+    --log-ansi-bg-45: var(--cure-ansi-bg-magenta);
+    --log-ansi-bg-46: var(--cure-ansi-bg-cyan);
+    --log-ansi-bg-47: var(--cure-ansi-bg-white);
+    --log-ansi-bg-100: var(--cure-ansi-bg-bright-black);
+    --log-ansi-bg-101: var(--cure-ansi-bg-bright-red);
+    --log-ansi-bg-102: var(--cure-ansi-bg-bright-green);
+    --log-ansi-bg-103: var(--cure-ansi-bg-bright-yellow);
+    --log-ansi-bg-104: var(--cure-ansi-bg-bright-blue);
+    --log-ansi-bg-105: var(--cure-ansi-bg-bright-magenta);
+    --log-ansi-bg-106: var(--cure-ansi-bg-bright-cyan);
+    --log-ansi-bg-107: var(--cure-ansi-bg-bright-white);
+    --log-ansi-bg-contrast-dark: #0c0c0c;
+    --log-ansi-bg-contrast-light: #f2f2f2;
+}
+
+/* cure-ansi 1:1: light-theme palette */
+html[data-theme='light'] {
+    /* Log entry surfaces */
+    --log-console-bg: rgba(236, 232, 224, 0.94);
+    --log-console-border: rgba(83, 76, 66, 0.2);
+    --log-message-bg: rgba(255, 253, 249, 0.98);
+    --log-message-border: rgba(83, 76, 66, 0.18);
+
+    /* this.fg */
+    --cure-ansi-fg-reset: currentColor;
+    --cure-ansi-fg-black: #0c0c0c;
+    --cure-ansi-fg-red: #c50f1f;
+    --cure-ansi-fg-green: #13a10e;
+    --cure-ansi-fg-yellow: #b39100;
+    --cure-ansi-fg-blue: #0037da;
+    --cure-ansi-fg-magenta: #881798;
+    --cure-ansi-fg-cyan: #3a96dd;
+    --cure-ansi-fg-white: #ffffff;
+    --cure-ansi-fg-bright-black: #767676;
+    --cure-ansi-fg-bright-red: #e74856;
+    --cure-ansi-fg-bright-green: #16c60c;
+    --cure-ansi-fg-bright-yellow: #f9f1a5;
+    --cure-ansi-fg-bright-blue: #3b78ff;
+    --cure-ansi-fg-bright-magenta: #b4009e;
+    --cure-ansi-fg-bright-cyan: #00b7b7;
+    --cure-ansi-fg-bright-white: #f2f2f2;
+
+    /* this.bg */
+    --cure-ansi-bg-reset: transparent;
+    --cure-ansi-bg-black: #0c0c0c;
+    --cure-ansi-bg-red: #c50f1f;
+    --cure-ansi-bg-green: #13a10e;
+    --cure-ansi-bg-yellow: #b39100;
+    --cure-ansi-bg-blue: #0037da;
+    --cure-ansi-bg-magenta: #881798;
+    --cure-ansi-bg-cyan: #3a96dd;
+    --cure-ansi-bg-white: #ffffff;
+    --cure-ansi-bg-bright-black: #767676;
+    --cure-ansi-bg-bright-red: #e74856;
+    --cure-ansi-bg-bright-green: #16c60c;
+    --cure-ansi-bg-bright-yellow: #f9f1a5;
+    --cure-ansi-bg-bright-blue: #3b78ff;
+    --cure-ansi-bg-bright-magenta: #b4009e;
+    --cure-ansi-bg-bright-cyan: #00b7b7;
+    --cure-ansi-bg-bright-white: #f2f2f2;
+
+    /* this.hc.fg */
+    --cure-ansi-hc-fg-black: var(--cure-ansi-fg-bright-black);
+    --cure-ansi-hc-fg-red: var(--cure-ansi-fg-bright-red);
+    --cure-ansi-hc-fg-green: var(--cure-ansi-fg-bright-green);
+    --cure-ansi-hc-fg-yellow: var(--cure-ansi-fg-bright-yellow);
+    --cure-ansi-hc-fg-blue: var(--cure-ansi-fg-bright-blue);
+    --cure-ansi-hc-fg-magenta: var(--cure-ansi-fg-bright-magenta);
+    --cure-ansi-hc-fg-cyan: var(--cure-ansi-fg-bright-cyan);
+    --cure-ansi-hc-fg-white: var(--cure-ansi-fg-bright-white);
+
+    /* this.hc.bg */
+    --cure-ansi-hc-bg-black: var(--cure-ansi-bg-black);
+    --cure-ansi-hc-bg-red: var(--cure-ansi-bg-red);
+    --cure-ansi-hc-bg-green: var(--cure-ansi-bg-green);
+    --cure-ansi-hc-bg-yellow: var(--cure-ansi-bg-yellow);
+    --cure-ansi-hc-bg-blue: var(--cure-ansi-bg-blue);
+    --cure-ansi-hc-bg-magenta: var(--cure-ansi-bg-magenta);
+    --cure-ansi-hc-bg-cyan: var(--cure-ansi-bg-cyan);
+    --cure-ansi-hc-bg-white: var(--cure-ansi-bg-white);
+
+    /* this.bc.fg */
+    --cure-ansi-bc-fg-black: var(--cure-ansi-fg-bright-black);
+    --cure-ansi-bc-fg-red: var(--cure-ansi-fg-bright-red);
+    --cure-ansi-bc-fg-green: var(--cure-ansi-fg-bright-green);
+    --cure-ansi-bc-fg-yellow: var(--cure-ansi-fg-yellow);
+    --cure-ansi-bc-fg-blue: var(--cure-ansi-fg-bright-blue);
+    --cure-ansi-bc-fg-magenta: var(--cure-ansi-fg-bright-magenta);
+    --cure-ansi-bc-fg-cyan: var(--cure-ansi-fg-bright-cyan);
+    --cure-ansi-bc-fg-white: var(--cure-ansi-fg-bright-white);
+
+    /* this.bc.bg */
+    --cure-ansi-bc-bg-black: var(--cure-ansi-bg-black);
+    --cure-ansi-bc-bg-red: var(--cure-ansi-bg-red);
+    --cure-ansi-bc-bg-green: var(--cure-ansi-bg-green);
+    --cure-ansi-bc-bg-yellow: var(--cure-ansi-bg-yellow);
+    --cure-ansi-bc-bg-blue: var(--cure-ansi-bg-blue);
+    --cure-ansi-bc-bg-magenta: var(--cure-ansi-bg-magenta);
+    --cure-ansi-bc-bg-cyan: var(--cure-ansi-bg-cyan);
+    --cure-ansi-bc-bg-white: var(--cure-ansi-bg-white);
+
+    /* ANSI SGR code aliases used by the browser ANSI parser */
+    --log-ansi-default-fg: #333333;
+    --log-ansi-default-bg: #f3f3f3;
+    --log-ansi-cursor-color: #000000;
+    --log-ansi-fg-30: var(--cure-ansi-fg-black);
+    --log-ansi-fg-31: var(--cure-ansi-fg-red);
+    --log-ansi-fg-32: var(--cure-ansi-fg-green);
+    --log-ansi-fg-33: var(--cure-ansi-fg-yellow);
+    --log-ansi-fg-34: var(--cure-ansi-fg-blue);
+    --log-ansi-fg-35: var(--cure-ansi-fg-magenta);
+    --log-ansi-fg-36: var(--cure-ansi-fg-cyan);
+    --log-ansi-fg-37: var(--cure-ansi-fg-white);
+    --log-ansi-fg-90: var(--cure-ansi-fg-bright-black);
+    --log-ansi-fg-91: var(--cure-ansi-fg-bright-red);
+    --log-ansi-fg-92: var(--cure-ansi-fg-bright-green);
+    --log-ansi-fg-93: var(--cure-ansi-fg-bright-yellow);
+    --log-ansi-fg-94: var(--cure-ansi-fg-bright-blue);
+    --log-ansi-fg-95: var(--cure-ansi-fg-bright-magenta);
+    --log-ansi-fg-96: var(--cure-ansi-fg-bright-cyan);
+    --log-ansi-fg-97: var(--cure-ansi-fg-bright-white);
+    --log-ansi-bg-40: var(--cure-ansi-bg-black);
+    --log-ansi-bg-41: var(--cure-ansi-bg-red);
+    --log-ansi-bg-42: var(--cure-ansi-bg-green);
+    --log-ansi-bg-43: var(--cure-ansi-bg-yellow);
+    --log-ansi-bg-44: var(--cure-ansi-bg-blue);
+    --log-ansi-bg-45: var(--cure-ansi-bg-magenta);
+    --log-ansi-bg-46: var(--cure-ansi-bg-cyan);
+    --log-ansi-bg-47: var(--cure-ansi-bg-white);
+    --log-ansi-bg-100: var(--cure-ansi-bg-bright-black);
+    --log-ansi-bg-101: var(--cure-ansi-bg-bright-red);
+    --log-ansi-bg-102: var(--cure-ansi-bg-bright-green);
+    --log-ansi-bg-103: var(--cure-ansi-bg-bright-yellow);
+    --log-ansi-bg-104: var(--cure-ansi-bg-bright-blue);
+    --log-ansi-bg-105: var(--cure-ansi-bg-bright-magenta);
+    --log-ansi-bg-106: var(--cure-ansi-bg-bright-cyan);
+    --log-ansi-bg-107: var(--cure-ansi-bg-bright-white);
+    --log-ansi-bg-contrast-dark: var(--cure-ansi-fg-black);
+    --log-ansi-bg-contrast-light: var(--cure-ansi-fg-bright-white);
+}
+
+/* cure-log 1:1: this.ansiCodes */
+:root {
+    --cure-log-ansi-codes-trace-color: var(--cure-ansi-bc-fg-yellow);
+    --cure-log-ansi-codes-trace-background-color: transparent;
+
+    --cure-log-ansi-codes-fatal-color: var(--cure-ansi-fg-white);
+    --cure-log-ansi-codes-fatal-background-color: var(--cure-ansi-bc-bg-red);
+
+    --cure-log-ansi-codes-error-color: var(--cure-ansi-bc-fg-red);
+    --cure-log-ansi-codes-error-background-color: transparent;
+
+    --cure-log-ansi-codes-warn-color: var(--cure-ansi-bc-fg-yellow);
+    --cure-log-ansi-codes-warn-background-color: transparent;
+
+    --cure-log-ansi-codes-log-color: var(--log-ansi-default-fg);
+    --cure-log-ansi-codes-log-background-color: transparent;
+
+    --cure-log-ansi-codes-info-color: var(--cure-ansi-bc-fg-cyan);
+    --cure-log-ansi-codes-info-background-color: transparent;
+
+    --cure-log-ansi-codes-notice-color: var(--cure-ansi-bc-fg-yellow);
+    --cure-log-ansi-codes-notice-background-color: transparent;
+
+    --cure-log-ansi-codes-success-color: var(--cure-ansi-bc-fg-green);
+    --cure-log-ansi-codes-success-background-color: transparent;
+
+    --cure-log-ansi-codes-begin-color: var(--cure-ansi-fg-white);
+    --cure-log-ansi-codes-begin-background-color: var(--cure-ansi-bc-bg-magenta);
+
+    --cure-log-ansi-codes-end-color: var(--cure-ansi-fg-white);
+    --cure-log-ansi-codes-end-background-color: var(--cure-ansi-bc-bg-magenta);
+
+    --cure-log-ansi-codes-init-color: var(--cure-ansi-fg-white);
+    --cure-log-ansi-codes-init-background-color: var(--cure-ansi-bc-bg-blue);
+
+    --cure-log-ansi-codes-shutdown-color: var(--cure-ansi-fg-white);
+    --cure-log-ansi-codes-shutdown-background-color: var(--cure-ansi-bc-bg-blue);
+
+    --cure-log-ansi-codes-detail-color: var(--cure-ansi-bc-fg-blue);
+    --cure-log-ansi-codes-detail-background-color: transparent;
+
+    --cure-log-ansi-codes-debug-color: var(--cure-ansi-bc-fg-green);
+    --cure-log-ansi-codes-debug-background-color: transparent;
+}
+
+/* cure-log 1:1: this.ansiCodesFollow */
+:root {
+    --cure-log-ansi-codes-follow-begin-color: var(--cure-ansi-bc-fg-magenta);
+    --cure-log-ansi-codes-follow-end-color: var(--cure-ansi-bc-fg-magenta);
+    --cure-log-ansi-codes-follow-init-color: var(--cure-ansi-bc-fg-blue);
+    --cure-log-ansi-codes-follow-shutdown-color: var(--cure-ansi-bc-fg-blue);
+}
+
+/* selectors: use only cure-log 1:1 lists */
+.log-filter-groups {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+}
+
+@media (min-width: 42rem) {
+    .log-filter-groups {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 78rem) {
+    .log-filter-groups {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.log-filter-group {
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
+    border-radius: 0.85rem;
+    background: color-mix(in srgb, var(--panel-soft) 82%, transparent);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
+    transition: background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
+}
+
+.log-filter-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    min-width: 0;
+}
+
+.log-filter-group-toggle {
+    justify-content: flex-start;
+    width: calc(100% + 2rem);
+    margin: -1rem -1rem 0;
+    min-height: 2.7rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 0.85rem 0.85rem 0.6rem 0.6rem;
+    border-color: color-mix(in srgb, var(--border) 92%, transparent);
+    background: color-mix(in srgb, var(--panel) 62%, transparent);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.03);
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+
+.log-filter-group-toggle:hover {
+    background: color-mix(in srgb, var(--button-hover) 52%, var(--panel-strong));
+}
+
+.log-filter-group-toggle[data-state='on'] {
+    color: var(--text);
+}
+
+.log-filter-group-toggle[data-state='mixed'] {
+    color: color-mix(in srgb, var(--text) 88%, var(--muted));
+}
+
+.log-filter-group-toggle__label {
+    display: inline-flex;
+    align-items: center;
+}
+
+.log-filter-button {
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--button-bg) 78%, var(--panel-soft));
+    color: var(--muted);
+    transition: background-color 160ms ease, border-color 160ms ease, opacity 160ms ease, color 160ms ease;
+}
+
+.log-filter-button[aria-pressed='true'] {
+    color: var(--cure-log-ansi-codes-log-color);
+    border-color: color-mix(in srgb, var(--accent) 28%, var(--border));
+    background: color-mix(in srgb, var(--button-hover) 72%, var(--panel-strong));
+}
+
+.log-filter-button.font-icon--interface--log-log[aria-pressed='true'] {
+    color: var(--cure-log-ansi-codes-log-color);
+}
+
+.log-filter-button.font-icon--interface--log-info[aria-pressed='true'],
+.log-filter-button.font-icon--interface--log-init[aria-pressed='true'],
+.log-filter-button.font-icon--interface--log-shutdown[aria-pressed='true'] {
+    color: var(--cure-log-ansi-codes-info-color);
+}
+
+.log-filter-button.font-icon--interface--log-notice[aria-pressed='true'],
+.log-filter-button.font-icon--interface--log-warn[aria-pressed='true'],
+.log-filter-button.font-icon--interface--log-trace[aria-pressed='true'] {
+    color: var(--cure-log-ansi-codes-warn-color);
+}
+
+.log-filter-button.font-icon--interface--log-error[aria-pressed='true'],
+.log-filter-button.font-icon--interface--log-fatal[aria-pressed='true'] {
+    color: var(--cure-log-ansi-codes-error-color);
+}
+
+.log-filter-button.font-icon--interface--log-success[aria-pressed='true'],
+.log-filter-button.font-icon--interface--log-debug[aria-pressed='true'] {
+    color: var(--cure-log-ansi-codes-success-color);
+}
+
+.log-filter-button.font-icon--interface--log-begin[aria-pressed='true'],
+.log-filter-button.font-icon--interface--log-end[aria-pressed='true'] {
+    color: var(--cure-log-ansi-codes-follow-begin-color);
+}
+
+.log-filter-button.font-icon--interface--log-detail[aria-pressed='true'] {
+    color: var(--cure-log-ansi-codes-detail-color);
+}
+
+html[data-theme='light'] .log-filter-button[aria-pressed='true'] {
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.78);
+}
+
+html[data-theme='light'] .log-filter-group {
+    border-color: color-mix(in srgb, var(--border) 92%, #ffffff);
+    background: color-mix(in srgb, #f9f5ee 86%, #ffffff);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9);
+}
+
+html[data-theme='light'] .log-filter-group-toggle {
+    border-color: color-mix(in srgb, var(--border) 94%, #ffffff);
+    background: color-mix(in srgb, #ffffff 68%, var(--panel));
+}
+
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-log[aria-pressed='true'] {
+    border-color: color-mix(in srgb, var(--cure-log-ansi-codes-log-color) 34%, var(--border));
+    background: color-mix(in srgb, var(--cure-log-ansi-codes-log-color) 12%, #ffffff);
+}
+
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-info[aria-pressed='true'],
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-init[aria-pressed='true'],
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-shutdown[aria-pressed='true'] {
+    border-color: color-mix(in srgb, var(--cure-log-ansi-codes-info-color) 34%, var(--border));
+    background: color-mix(in srgb, var(--cure-log-ansi-codes-info-color) 12%, #ffffff);
+}
+
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-notice[aria-pressed='true'],
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-warn[aria-pressed='true'],
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-trace[aria-pressed='true'] {
+    border-color: color-mix(in srgb, var(--cure-log-ansi-codes-warn-color) 38%, var(--border));
+    background: color-mix(in srgb, var(--cure-log-ansi-codes-warn-color) 16%, #fffaf0);
+}
+
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-error[aria-pressed='true'],
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-fatal[aria-pressed='true'] {
+    border-color: color-mix(in srgb, var(--cure-log-ansi-codes-error-color) 34%, var(--border));
+    background: color-mix(in srgb, var(--cure-log-ansi-codes-error-color) 12%, #ffffff);
+}
+
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-success[aria-pressed='true'],
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-debug[aria-pressed='true'] {
+    border-color: color-mix(in srgb, var(--cure-log-ansi-codes-success-color) 34%, var(--border));
+    background: color-mix(in srgb, var(--cure-log-ansi-codes-success-color) 12%, #ffffff);
+}
+
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-begin[aria-pressed='true'],
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-end[aria-pressed='true'] {
+    border-color: color-mix(in srgb, var(--cure-log-ansi-codes-follow-begin-color) 34%, var(--border));
+    background: color-mix(in srgb, var(--cure-log-ansi-codes-follow-begin-color) 12%, #ffffff);
+}
+
+html[data-theme='light'] .log-filter-button.font-icon--interface--log-detail[aria-pressed='true'] {
+    border-color: color-mix(in srgb, var(--cure-log-ansi-codes-detail-color) 34%, var(--border));
+    background: color-mix(in srgb, var(--cure-log-ansi-codes-detail-color) 12%, #ffffff);
+}
+
+.log-entries {
+    display: grid;
+    align-content: start;
+    gap: 0.3rem;
+    height: min(36rem, 60vh);
+    overflow-y: auto;
+    padding: 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 0.6rem;
+    background: var(--log-console-bg);
+}
+
+html[data-theme='light'] .log-entries {
+    border-color: color-mix(in srgb, var(--log-console-border) 82%, var(--border));
+    background:
+        linear-gradient(180deg, rgb(255 255 255 / 0.22), rgb(255 255 255 / 0)),
+        color-mix(in srgb, var(--log-console-bg) 88%, #d7d0c2);
+    box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 0.42),
+        inset 0 0 0 1px rgb(83 76 66 / 0.05);
+}
+
+.log-entry {
+    --log-entry-level-color: var(--cure-log-ansi-codes-info-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-info-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-info-color);
+    --log-entry-level-decoration: none;
+
+    display: grid;
+    gap: 0.3rem;
+    margin: 0;
+    padding: 0 0 0.55rem;
+    border: 0;
+    border-bottom: 1px solid var(--log-console-border);
+    background: none;
+    box-shadow: none;
+
+}
+
+.log-entry[data-level='log'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-log-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-log-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-log-color);
+}
+
+.log-entry[data-level='trace'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-trace-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-trace-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-trace-color);
+}
+
+.log-entry[data-level='fatal'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-fatal-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-fatal-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-fatal-background-color);
+}
+
+.log-entry[data-level='error'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-error-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-error-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-error-color);
+}
+
+.log-entry[data-level='warn'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-warn-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-warn-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-warn-color);
+}
+
+.log-entry[data-level='info'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-info-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-info-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-info-color);
+}
+
+.log-entry[data-level='notice'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-notice-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-notice-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-notice-color);
+}
+
+.log-entry[data-level='success'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-success-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-success-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-success-color);
+}
+
+.log-entry[data-level='begin'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-begin-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-begin-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-follow-begin-color);
+}
+
+.log-entry[data-level='end'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-end-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-end-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-follow-end-color);
+}
+
+.log-entry[data-level='init'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-init-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-init-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-follow-init-color);
+}
+
+.log-entry[data-level='shutdown'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-shutdown-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-shutdown-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-follow-shutdown-color);
+}
+
+.log-entry[data-level='detail'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-detail-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-detail-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-detail-color);
+}
+
+.log-entry[data-level='debug'] {
+    --log-entry-level-color: var(--cure-log-ansi-codes-debug-color);
+    --log-entry-level-background-color: var(--cure-log-ansi-codes-debug-background-color);
+    --log-entry-follow-color: var(--cure-log-ansi-codes-debug-color);
+    --log-entry-level-decoration: underline;
+}
+
+.log-entry:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.log-entry__content {
+    display: grid;
+    align-items: start;
+    gap: 0.3rem;
+    min-width: 0;
+}
+
+.log-entry__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    user-select: none;
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.log-entry__level {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.16rem 0.42rem;
+    border-radius: 0.34rem;
+    color: var(--log-entry-level-color);
+    background: var(--log-entry-level-background-color);
+    font-weight: 700;
+    text-decoration: var(--log-entry-level-decoration);
+}
+
+.log-entry__level::before {
+    display: inline-block;
+    margin-right: 0.4rem;
+    font-family: 'font-icon--interface';
+    font-size: 0.95em;
+    line-height: 1;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
+.log-entry__time {
+    white-space: nowrap;
+}
+
+.log-entry[data-root-type='log'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-log;
+}
+
+.log-entry[data-level='trace'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-trace;
+}
+
+.log-entry[data-root-type='info'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-info;
+}
+
+.log-entry[data-level='notice'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-notice;
+}
+
+.log-entry[data-level='success'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-success;
+}
+
+.log-entry[data-level='begin'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-begin;
+}
+
+.log-entry[data-level='end'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-end;
+}
+
+.log-entry[data-level='init'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-init;
+}
+
+.log-entry[data-level='shutdown'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-shutdown;
+}
+
+.log-entry[data-root-type='warn'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-warn;
+}
+
+.log-entry[data-root-type='error'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-error;
+}
+
+.log-entry[data-level='fatal'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-fatal;
+}
+
+.log-entry[data-level='detail'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-detail;
+}
+
+.log-entry[data-level='debug'] .log-entry__level::before {
+    content: interface-icon.$font-icon--interface--log-debug;
+}
+
+.log-entry__render-error {
+    margin: 0 0 0.2rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--cure-log-ansi-codes-error-color);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.76rem;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.log-entry__message {
+    margin: 0;
+    flex: 1 1 auto;
+    min-width: 0;
+    // -- Card Style: Commented out on purpose in case of future need. Begin:
+    // padding: 0.45rem 0.55rem;
+    // border: 1px solid var(--log-message-border);
+    // border-radius: 0.45rem;
+    // border-left-width: 0.28rem;
+    // border-left-color: color-mix(in srgb, var(--log-entry-follow-color) 58%, transparent);
+    // background: var(--log-message-bg);
+    // box-shadow: inset 0 1px 0 rgb(255 255 255 / 18%);
+    // -- Card Style: Commented out on purpose in case of future need. End.
+    color: var(--log-ansi-default-fg);
+    font-family: Consolas, "Courier New", monospace;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.log-entry__message .log-entry__ansi-segment {
+    white-space: inherit;
+    border-radius: 0.32rem;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 0.05em 0.18em;
+}
+
+html[data-theme='light'] .log-entry {
+    border-bottom-color: color-mix(in srgb, var(--log-console-border) 86%, transparent);
+}
+
+html[data-theme='light'] .log-entry__meta {
+    color: color-mix(in srgb, var(--muted) 84%, #4b4338);
+}
+
+html[data-theme='light'] .log-entry__message {
+    border-color: color-mix(in srgb, var(--log-message-border) 88%, var(--border));
+    background:
+        linear-gradient(180deg, rgb(255 255 255 / 0.24), rgb(255 255 255 / 0)),
+        color-mix(in srgb, var(--log-message-bg) 86%, #f1ece2);
+    box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 0.46),
+        0 1px 0 rgb(83 76 66 / 0.04);
+}

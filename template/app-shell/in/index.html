@@ -1,0 +1,38 @@
+@@include('_html/frame/top.html')
+
+<section class="app-hero">
+  <p class="eyebrow">App Shell Starter</p>
+  <h1>[[CONFIG_REQUIRE_SITE_TITLE]]</h1>
+  <p class="lead">[[CONFIG_CUSTOM_BRAND_SLOGAN]]</p>
+  <div class="hero-actions">
+    <a class="button" href="/dashboard.html">Open Dashboard Route</a>
+    <a class="button button--ghost" href="/settings/profile.html">Open Settings Route</a>
+  </div>
+</section>
+
+<section class="panel-grid">
+  <article class="panel">
+    <h2>Route-Like Pages</h2>
+    <p>
+      This template includes starter pages such as <code>/dashboard.html</code> and
+      <code>/settings/profile.html</code> to mimic route segments in static builds.
+    </p>
+  </article>
+
+  <article class="panel">
+    <h2>Component Areas</h2>
+    <p>
+      Shared app shell structure lives in frame partials so you can reuse navigation, header,
+      and content regions across pages.
+    </p>
+  </article>
+
+  <article class="panel">
+    <h2>JS Starter Hooks</h2>
+    <p>
+      The JS entry initializes app-shell UI behaviors and exposes a simple route marker pattern.
+    </p>
+  </article>
+</section>
+
+@@include('_html/frame/bottom.html')

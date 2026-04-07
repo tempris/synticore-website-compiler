@@ -1,0 +1,340 @@
+<div
+  class="synticore-dev-shadow-host"
+  data-synticore-dev-panel-host
+  data-synticore-browser-dev-overlay
+>
+  <div
+    class="synticore-dev-shell synticore-dev-shell--right"
+    data-synticore-dev-panel
+  >
+    <aside class="synticore-dev-panel" aria-labelledby="synticore-dev-panel-title">
+      <button
+        type="button"
+        class="synticore-dev-panel__dock-toggle"
+        title="Toggle Developer Panel"
+      ></button>
+
+      <div
+        class="synticore-dev-panel__header interact"
+        title="Click/tap and drag to move"
+      >
+        <h2 class="synticore-dev-panel__title" id="synticore-dev-panel-title">Synticore Developer Panel</h2>
+      </div>
+
+      <div class="synticore-dev-panel__body">
+        <div class="synticore-dev-panel__tab-list" role="tablist" aria-label="Developer tools panel sections">
+          <button
+            type="button"
+            class="synticore-dev-panel__tab synticore-dev-panel__tab--tools"
+            data-synticore-dev-tab="tools"
+            id="synticore-dev-tab-tools"
+            role="tab"
+            aria-controls="synticore-dev-view-tools"
+            aria-selected="true"
+            title="Switch to Tool tab"
+          >
+            Tool
+          </button>
+
+          <button
+            type="button"
+            class="synticore-dev-panel__tab synticore-dev-panel__tab--console"
+            data-synticore-dev-tab="console"
+            id="synticore-dev-tab-console"
+            role="tab"
+            aria-controls="synticore-dev-view-console"
+            aria-selected="false"
+            title="Switch to Log tab"
+          >
+            Log
+          </button>
+        </div>
+
+        <section
+          class="synticore-dev-panel__view"
+          data-synticore-dev-view="tools"
+          id="synticore-dev-view-tools"
+          role="tabpanel"
+          aria-labelledby="synticore-dev-tab-tools"
+        >
+          <p class="synticore-dev-panel__text synticore-dev-panel__tool-text">
+            Applies only during watch/serve, not built site assets.
+          </p>
+
+          <div class="synticore-dev-panel__link-row" data-synticore-browsersync-ui-row hidden>
+            <span class="synticore-dev-panel__link-label">Browsersync Controls</span>
+            <a
+              class="button synticore-dev-panel__link"
+              data-synticore-browsersync-ui-link
+              href="/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <span data-synticore-browsersync-ui-link-text>Open</span>
+            </a>
+          </div>
+
+          <label class="synticore-dev-panel__toggle synticore-dev-panel__toggle--heatmap" title="Toggle Heatmap View">
+            <input type="checkbox" aria-label="Toggle Heatmap View">
+            <span>Heatmap View</span>
+          </label>
+
+          <div class="synticore-dev-panel__section synticore-dev-panel__section--grid" data-synticore-grid-section>
+            <div class="synticore-dev-panel__section-heading">
+              <label class="synticore-dev-panel__toggle synticore-dev-panel__toggle--grid" title="Toggle Grid Overlay">
+                <input type="checkbox" data-synticore-grid-toggle aria-label="Toggle Grid Overlay">
+                <span>Grid Overlay</span>
+              </label>
+
+              <button
+                type="button"
+                class="synticore-dev-panel__section-toggle"
+                data-synticore-grid-options-toggle
+                data-synticore-options-label="Grid Overlay"
+                aria-controls="synticore-dev-grid-options"
+                aria-expanded="false"
+                aria-label="Expand Grid Overlay Options"
+                title="Expand Grid Overlay Options"
+              ></button>
+            </div>
+
+            <div
+              class="synticore-dev-panel__section-body"
+              id="synticore-dev-grid-options"
+              data-synticore-grid-options
+              hidden
+            >
+              <div class="synticore-dev-panel__field-grid">
+                <div class="synticore-dev-panel__field">
+                  <label class="synticore-dev-panel__field-label synticore-dev-panel__field-label--shared-cache" for="synticore-dev-grid-size" title="Grid overlay size (Saved in Project Cache)">Grid size</label>
+                  <input
+                    id="synticore-dev-grid-size"
+                    class="synticore-dev-panel__input"
+                    type="number"
+                    value="1"
+                    min="0.1"
+                    step="0.1"
+                    inputmode="decimal"
+                    data-synticore-grid-size
+                  >
+                </div>
+
+                <div class="synticore-dev-panel__field">
+                  <label class="synticore-dev-panel__field-label synticore-dev-panel__field-label--shared-cache" for="synticore-dev-grid-unit" title="Grid overlay unit (Saved in Project Cache)">Unit</label>
+                  <select
+                    id="synticore-dev-grid-unit"
+                    class="synticore-dev-panel__select"
+                    data-synticore-grid-unit
+                  >
+                    <option value="rem">rem</option>
+                    <option value="px">px</option>
+                    <option value="em">em</option>
+                    <option value="%">%</option>
+                    <option value="vw">vw</option>
+                    <option value="vh">vh</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="synticore-dev-panel__field-grid">
+                <div class="synticore-dev-panel__field">
+                  <label class="synticore-dev-panel__field-label synticore-dev-panel__field-label--shared-cache" for="synticore-dev-grid-color" title="Grid overlay color (Saved in Project Cache)">Grid color</label>
+                  <input
+                    id="synticore-dev-grid-color"
+                    class="synticore-dev-panel__input synticore-dev-panel__input--color"
+                    type="color"
+                    value="#60fa68"
+                    data-synticore-grid-color
+                  >
+                </div>
+
+                <div class="synticore-dev-panel__field">
+                  <label class="synticore-dev-panel__field-label synticore-dev-panel__field-label--shared-cache" for="synticore-dev-grid-alpha" title="Grid overlay opacity (Saved in Project Cache)">Alpha</label>
+                  <input
+                    id="synticore-dev-grid-alpha"
+                    class="synticore-dev-panel__input"
+                    type="number"
+                    value="0.25"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    inputmode="decimal"
+                    data-synticore-grid-alpha
+                  >
+                </div>
+              </div>
+
+              <div class="synticore-dev-panel__field-grid">
+                <div class="synticore-dev-panel__field">
+                  <label class="synticore-dev-panel__field-label synticore-dev-panel__field-label--shared-cache" for="synticore-dev-grid-anchor-x" title="Grid horizontal anchor (Saved in Project Cache)">X anchor</label>
+                  <select
+                    id="synticore-dev-grid-anchor-x"
+                    class="synticore-dev-panel__select"
+                    data-synticore-grid-anchor-x
+                  >
+                    <option value="left">left</option>
+                    <option value="center" selected>center</option>
+                    <option value="right">right</option>
+                  </select>
+                </div>
+
+                <div class="synticore-dev-panel__field">
+                  <label class="synticore-dev-panel__field-label synticore-dev-panel__field-label--shared-cache" for="synticore-dev-grid-anchor-y" title="Grid vertical anchor (Saved in Project Cache)">Y anchor</label>
+                  <select
+                    id="synticore-dev-grid-anchor-y"
+                    class="synticore-dev-panel__select"
+                    data-synticore-grid-anchor-y
+                  >
+                    <option value="top">top</option>
+                    <option value="center">center</option>
+                    <option value="bottom">bottom</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="synticore-dev-panel__view synticore-dev-panel__view--console"
+          data-synticore-dev-view="console"
+          id="synticore-dev-view-console"
+          role="tabpanel"
+          aria-labelledby="synticore-dev-tab-console"
+          hidden
+        >
+          <div class="synticore-dev-panel__section synticore-dev-panel__section--console" data-synticore-console-section>
+            <div class="synticore-dev-panel__section-heading">
+              <p class="synticore-dev-panel__text synticore-dev-panel__log-text">
+                Captures console logs for this page session.
+              </p>
+
+              <button
+                type="button"
+                class="synticore-dev-panel__section-toggle synticore-dev-panel__section-toggle--console"
+                data-synticore-console-options-toggle
+                data-synticore-options-label="Log"
+                aria-controls="synticore-dev-console-options"
+                aria-expanded="false"
+                aria-label="Expand Log Options"
+                title="Expand Log Options"
+              ></button>
+            </div>
+
+            <div
+              class="synticore-dev-panel__section-body"
+              id="synticore-dev-console-options"
+              data-synticore-console-options
+              hidden
+            >
+              <div class="synticore-dev-panel__field">
+                <span
+                  class="synticore-dev-panel__field-label synticore-dev-panel__field-label--filter-text synticore-dev-panel__field-label--shared-cache"
+                  title="Visible log levels (Saved in Project Cache)"
+                >
+                  Visible Levels
+                </span>
+
+                <div class="synticore-dev-panel__log-filters" aria-label="Log filters">
+                  <label class="synticore-dev-panel__log-filter synticore-dev-panel__log-filter--log" title="Toggle log entries (Saved in Project Cache)">
+                    <input
+                      type="checkbox"
+                      data-synticore-dev-console-filter="log"
+                      aria-label="Toggle log entries (Saved in Project Cache)"
+                      checked
+                    >
+                    <span>Log</span>
+                  </label>
+
+                  <label class="synticore-dev-panel__log-filter synticore-dev-panel__log-filter--info" title="Toggle info entries (Saved in Project Cache)">
+                    <input
+                      type="checkbox"
+                      data-synticore-dev-console-filter="info"
+                      aria-label="Toggle info entries (Saved in Project Cache)"
+                      checked
+                    >
+                    <span>Info</span>
+                  </label>
+
+                  <label class="synticore-dev-panel__log-filter synticore-dev-panel__log-filter--warn" title="Toggle warn entries (Saved in Project Cache)">
+                    <input
+                      type="checkbox"
+                      data-synticore-dev-console-filter="warn"
+                      aria-label="Toggle warn entries (Saved in Project Cache)"
+                      checked
+                    >
+                    <span>Warn</span>
+                  </label>
+
+                  <label class="synticore-dev-panel__log-filter synticore-dev-panel__log-filter--error" title="Toggle error entries (Saved in Project Cache)">
+                    <input
+                      type="checkbox"
+                      data-synticore-dev-console-filter="error"
+                      aria-label="Toggle error entries (Saved in Project Cache)"
+                      checked
+                    >
+                    <span>Error</span>
+                  </label>
+                </div>
+              </div>
+
+              <label class="synticore-dev-panel__log-search" title="Filter console output by text (Saved in Project Cache)">
+                <span class="synticore-dev-panel__field-label synticore-dev-panel__field-label--shared-cache synticore-dev-panel__log-search-label">
+                  Search
+                </span>
+                <input
+                  type="search"
+                  class="synticore-dev-panel__input synticore-dev-panel__log-search-input"
+                  data-synticore-dev-console-search
+                  placeholder="Filter text"
+                  aria-label="Filter console output by text (Saved in Project Cache)"
+                >
+              </label>
+
+              <div class="synticore-dev-panel__field">
+                <span
+                  class="synticore-dev-panel__field-label synticore-dev-panel__field-label--actions-text"
+                  title="Console actions"
+                >
+                  Actions
+                </span>
+
+                <div class="synticore-dev-panel__log-actions">
+                  <button
+                    type="button"
+                    class="synticore-dev-panel__log-copy"
+                    data-synticore-dev-console-copy
+                    title="Copy visible console output"
+                  >
+                    Copy
+                  </button>
+
+                  <button
+                    type="button"
+                    class="synticore-dev-panel__log-clear"
+                    data-synticore-dev-console-clear
+                    title="Clear console output"
+                  >
+                    Clear
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="synticore-dev-panel__log-log"
+            data-synticore-dev-console-log
+            role="log"
+            aria-live="polite"
+            aria-label="Developer console output"
+          >
+            <p class="synticore-dev-panel__log-empty" data-synticore-dev-console-empty>
+              Console log output will appear here.
+            </p>
+          </div>
+        </section>
+      </div>
+    </aside>
+  </div>
+</div>

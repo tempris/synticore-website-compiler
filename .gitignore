@@ -87,4 +87,8 @@ __pycache__/
 _log
 
 # Ignore custom configs
-/config/settings.json
+/config/gui.json
+/config/log.json
+/_cache
+/_development/_test
+/_test

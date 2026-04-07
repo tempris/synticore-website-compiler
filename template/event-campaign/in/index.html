@@ -1,0 +1,119 @@
+@@include('_html/frame/top.html')
+
+<section class="hero">
+  <p class="eyebrow">Event Campaign</p>
+  <h1>[[CONFIG_REQUIRE_SITE_TITLE]]</h1>
+  <p class="lead">[[CONFIG_CUSTOM_BRAND_SLOGAN]]</p>
+  <p class="hero__meta">October 00, 2026 • City, ST • Venue Name</p>
+  <p class="hero__actions">
+    <a class="button" href="#tickets">Get Tickets</a>
+    <a class="button button--ghost" href="#schedule">View Schedule</a>
+  </p>
+</section>
+
+<section id="about">
+  <h2>About the Event</h2>
+  <p>
+    Describe what the event is, who it is for, and why someone should attend. Keep this concise and outcome-driven.
+  </p>
+</section>
+
+<section id="speakers">
+  <h2>Featured Speakers</h2>
+  <div class="grid-cards">
+    <article class="card speaker-card">
+      <div class="avatar" aria-hidden="true">Photo</div>
+      <h3><a href="/speaker/keynote.html">Speaker Name</a></h3>
+      <p class="muted">Title / Company</p>
+      <p>Short speaker bio and relevance to the event topic.</p>
+    </article>
+    <article class="card speaker-card">
+      <div class="avatar" aria-hidden="true">Photo</div>
+      <h3><a href="/speaker/keynote.html">Speaker Name</a></h3>
+      <p class="muted">Title / Company</p>
+      <p>Short speaker bio and session focus.</p>
+    </article>
+    <article class="card speaker-card">
+      <div class="avatar" aria-hidden="true">Photo</div>
+      <h3><a href="/speaker/keynote.html">Speaker Name</a></h3>
+      <p class="muted">Title / Company</p>
+      <p>Short speaker bio and perspective they bring.</p>
+    </article>
+  </div>
+</section>
+
+<section id="schedule">
+  <h2>Schedule</h2>
+  <div class="schedule-list">
+    <div class="schedule-item">
+      <p class="time">9:00 AM</p>
+      <div>
+        <h3>Doors / Registration</h3>
+        <p>Arrival, check-in, and networking.</p>
+      </div>
+    </div>
+    <div class="schedule-item">
+      <p class="time">10:00 AM</p>
+      <div>
+        <h3>Opening Keynote</h3>
+        <p>Featured session introducing the event theme.</p>
+      </div>
+    </div>
+    <div class="schedule-item">
+      <p class="time">1:00 PM</p>
+      <div>
+        <h3>Breakout Sessions</h3>
+        <p>Track-based talks and workshops.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="venue" class="section--split">
+  <div>
+    <h2>Venue</h2>
+    <p><strong>Venue Name</strong><br />Street Address<br />City, ST 00000</p>
+    <p>Include parking, transit, accessibility, and hotel notes here.</p>
+  </div>
+  <div class="map-placeholder" aria-label="Venue map placeholder">
+    Venue map / directions placeholder
+  </div>
+</section>
+
+<section id="tickets" class="section--alt">
+  <h2>Tickets</h2>
+  <div class="pricing-grid">
+    <article class="card">
+      <h3>General Admission</h3>
+      <p class="price">$99</p>
+      <p>Core event access and sessions.</p>
+    </article>
+    <article class="card">
+      <h3>VIP</h3>
+      <p class="price">$249</p>
+      <p>Priority seating, VIP lounge, and bonus session.</p>
+    </article>
+    <article class="card">
+      <h3>Team Bundle</h3>
+      <p class="price">$699</p>
+      <p>Multi-ticket discount for teams.</p>
+    </article>
+  </div>
+  <p><a class="button" href="#">Ticket Link Placeholder</a></p>
+</section>
+
+<section id="faq">
+  <h2>FAQ</h2>
+  <div class="faq-list">
+    <article class="card">
+      <h3>What is included?</h3>
+      <p>List access details, meals, recordings, swag, or follow-up content.</p>
+    </article>
+    <article class="card">
+      <h3>Can I transfer a ticket?</h3>
+      <p>Document ticket transfer / refund policy.</p>
+    </article>
+  </div>
+</section>
+
+@@include('_html/frame/bottom.html')

@@ -1,0 +1,53 @@
+@use 'sass:color';
+@use 'sass:list';
+
+/* Debug Heatmap View for visualizing nested layout structure. */
+
+$heatmap-alpha: 0.125;
+$heatmap-outline-alpha: 0.5;
+$heatmap-shadow-alpha: 0.25;
+
+$heatmap-colors: (
+  #7f7f7f,
+  #5a00ff,
+  #008cff,
+  #00c800,
+  #ffe100,
+  #ff8000,
+  #ff0000
+);
+
+$heatmap-exclude-selector: ':not(#__bs_notify__):not(#__bs_notify__ *)';
+
+html.synticore-dev-heatmap {
+  @for $depth from 1 through list.length($heatmap-colors) {
+    $selector: '*';
+
+    @for $level from 2 through $depth {
+      $selector: '#{$selector} *';
+    }
+
+    #{$selector}#{$heatmap-exclude-selector},
+    #{$selector}#{$heatmap-exclude-selector}::before,
+    #{$selector}#{$heatmap-exclude-selector}::after {
+      background-color: color.change(
+        list.nth($heatmap-colors, $depth),
+        $alpha: $heatmap-alpha
+      ) !important;
+      outline: 1px solid color.change(
+        list.nth($heatmap-colors, $depth),
+        $alpha: $heatmap-outline-alpha
+      ) !important;
+      box-shadow: inset 0 0 0 1px color.change(
+        list.nth($heatmap-colors, $depth),
+        $alpha: $heatmap-shadow-alpha
+      ) !important;
+    }
+  }
+
+  // *#{$heatmap-exclude-selector},
+  // *#{$heatmap-exclude-selector}::before,
+  // *#{$heatmap-exclude-selector}::after {
+  //   background-image: none !important;
+  // }
+}

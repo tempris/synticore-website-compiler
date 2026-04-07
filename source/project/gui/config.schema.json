@@ -1,0 +1,27 @@
+{
+    "keys": [
+        {
+            "description": "Container object for project-specific brand configuration.",
+            "key": "custom.brand",
+            "structure": {
+                "kind": "object"
+            },
+            "type": "object"
+        },
+        {
+            "description": "Primary brand color used for custom GUI branding accents.",
+            "key": "custom.brand.color",
+            "type": "color"
+        },
+        {
+            "description": "Copyright year or year range displayed for the branded browser GUI content.",
+            "key": "custom.brand.copyright_years",
+            "type": "number"
+        },
+        {
+            "description": "Short brand slogan shown in the browser GUI header and related surfaces.",
+            "key": "custom.brand.slogan",
+            "type": "string"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "Launch your next campaign, product, or offer with a focused conversion page.",
+      "color": "#8c2f1f",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your Brand Team",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Your Landing Page",
+      "url": "https://launch.example.com"
+    }
+  }
+}

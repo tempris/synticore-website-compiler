@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "Application shell starter with route-like pages, components, and dashboard-oriented layout patterns.",
+      "color": "#1d4ed8",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your Product Team",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Your App Shell",
+      "url": "https://app.example.com"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@@include('_html/frame/top.html', {
+  "title": "404 Not Found",
+  "stylesheets": [
+    "/asset/css/content/404.min.css"
+  ]
+})
+
+<img class="logo" src="../../../resource/logo.svg" alt="Synticore logo">
+
+@@include('include/warning.svg')
+
+<h1>404 Not Found</h1>
+
+<hr>
+
+<p><code id="page-url">This page</code> could not be located.</p>
+<p>This request did not match a built page.</p>
+<p class="note">
+  This fallback is active because <code>out/404.html</code> is missing.
+  This page may appear temporarily while the watch task is building. Wait for watch build to complete before treating this as an error.
+</p>
+
+<hr>
+
+<p><a href="/" title="Return to Homepage">Return to Homepage</a></p>
+
+@@include('_html/frame/bottom.html')
+
+<script type="text/javascript">
+  (function () {
+    var pageUrl = document.getElementById('page-url');
+    if (!pageUrl) return;
+
+    var url = window.location.href.split('#')[0];
+    if (url) pageUrl.textContent = url;
+  })();
+</script>

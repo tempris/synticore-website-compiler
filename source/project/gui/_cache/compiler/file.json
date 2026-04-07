@@ -1,0 +1,78 @@
+{
+  "font_icon": {
+    "config/default/project/font-icon-template.scss": {
+      "signature": "42aac2183b350de93fac8229789bcf8fbb5f14af109a5c4afae4be95f844c194"
+    }
+  },
+  "highlight_syntax": {
+    "node_modules/prismjs/components/prism-bash.js": {
+      "signature": "6c67db1a4c86269dc754b588d0ad3a0cdb295044fd466ea6f66bbf01dec306bd"
+    },
+    "node_modules/prismjs/components/prism-clike.js": {
+      "signature": "6a7e077bbcb4a2259bc3152e55681f804ec8a3c2b969f234bb220df0f2d79654"
+    },
+    "node_modules/prismjs/components/prism-css.js": {
+      "signature": "f802a0b3827470dadbbf2841cabd6832fc2d28124ded564d9a590285c627d65d"
+    },
+    "node_modules/prismjs/components/prism-javascript.js": {
+      "signature": "7be3e7caf699bfddcd6d94d01e9df233257477f7f521e6c6765f03bd936a2d3e"
+    },
+    "node_modules/prismjs/components/prism-json.js": {
+      "signature": "835c44857c3f295f2c5bd70316006e455779da76287b0e14d93bbc995f658e4b"
+    },
+    "node_modules/prismjs/components/prism-markup.js": {
+      "signature": "981ea1865e1dbe304b661196fac6a6103b4ab19080c58c5b5d8ef2767e905df4"
+    },
+    "node_modules/prismjs/components/prism-powershell.js": {
+      "signature": "dd20d617bd4a01c5a51f0956714f8e5311920dcfcff05e4205c991374316fc30"
+    },
+    "node_modules/prismjs/components/prism-sass.js": {
+      "signature": "57786f7de0a85849a3d8c612b3697e4f1a2703098363515f041a5423fce5b152"
+    },
+    "node_modules/prismjs/components/prism-scss.js": {
+      "signature": "5dacec1f79ad499a76c156b0ae776c622c230fe0fcd3a05f173c9192e8b5aa7b"
+    },
+    "node_modules/prismjs/plugins/show-language/prism-show-language.js": {
+      "signature": "fc97dfa40b395195c664f99ca080920565428989a4d40fc47df5dab545f819c9"
+    },
+    "node_modules/prismjs/plugins/toolbar/prism-toolbar.css": {
+      "signature": "6f0a4dde539c11b570d7abbdb3865e1f9eff0472ad2acdba728f161b7df046a7"
+    },
+    "node_modules/prismjs/plugins/toolbar/prism-toolbar.js": {
+      "signature": "554725500b76d19d69471b9f67e11bba7d7da893f8403d03fea293ab5ef5d2f1"
+    },
+    "node_modules/prismjs/themes/prism.css": {
+      "signature": "87faadabd6d49d76ce3b03f811c6cbb5833d324de241070764067e273e72d164"
+    }
+  },
+  "highlight_syntax_overlay_core": {
+    "source/project/module/prism/prism.js": {
+      "signature": "49312027dfd098e62b051ad52fef284911376fb3a1cf01db767914c4bd91b732"
+    }
+  },
+  "highlight_syntax_overlay_plugin_js": {
+    "source/project/module/prism/plugins/autolinker/prism-autolinker.js": {
+      "signature": "953043f289bb489ba6ff93ac54c1ff277d4021a6e682c7b47344bd41bf760569"
+    },
+    "source/project/module/prism/plugins/autoloader/prism-autoloader.js": {
+      "signature": "63649a9e58ddbc78d946f9e163e31f2c9a9baa0f1c55bbb5a8694e8bb1dde47e"
+    },
+    "source/project/module/prism/plugins/data-uri-highlight/prism-data-uri-highlight.js": {
+      "signature": "d4780a8d684119ef4751bffe34459c2e8d78e43fe0b1389b673d9b5dd8c15262"
+    },
+    "source/project/module/prism/plugins/show-invisibles/prism-show-invisibles.js": {
+      "signature": "9eea4d5308a6f01e60e93dc39badd415eba43c569279382f3b89485f86e4f9b4"
+    },
+    "source/project/module/prism/plugins/wpd/prism-wpd.js": {
+      "signature": "6cccb16892fc8aa96b0703402f6def8c64dd0debcb661a7e5a4218f28f528122"
+    }
+  },
+  "highlight_syntax_theme_public": {
+    "node_modules/prismjs/themes/prism-okaidia.css": {
+      "signature": "9f00e2a5d2e7f773b50991a8443a2bd22e022e60d06fe99d83fc9a60c502b8b3"
+    },
+    "node_modules/prismjs/themes/prism.css": {
+      "signature": "87faadabd6d49d76ce3b03f811c6cbb5833d324de241070764067e273e72d164"
+    }
+  }
+}

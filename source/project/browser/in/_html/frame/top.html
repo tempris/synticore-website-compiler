@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/__synticore_source__/browsersync/out/">
+    <link rel="icon" href="../../../resource/icon.ico" sizes="any">
+    <link rel="icon" href="../../../resource/icon.png" type="image/png">
+
+    @@if (context.title) {
+      <title>@@title - [[CONFIG_REQUIRE_SITE_TITLE]]</title>
+      <meta property="og:site_name" content="@@title - [[CONFIG_REQUIRE_SITE_TITLE]]"/>
+      <meta property="og:title" content="@@title - [[CONFIG_REQUIRE_SITE_TITLE]]"/>
+    }
+    @@else {
+      <title>[[AUTOMATIC_TITLE_FULL]]</title>
+      <meta property="og:site_name" content="[[AUTOMATIC_TITLE_FULL]]"/>
+      <meta property="og:title" content="[[AUTOMATIC_TITLE_FULL]]"/>
+    }
+
+    <link rel="stylesheet" href="/asset/css/style.min.css?v=[[AUTOMATIC_FILE_CHECKSUM(/asset/css/style.min.css)]]">
+
+    @@if (context.stylesheets) {
+      @@for (var i = 0; i < context.stylesheets.length; i++) {
+        <link rel="stylesheet" href="`+context.stylesheets[i]+`?v=[[AUTOMATIC_FILE_CHECKSUM(`+context.stylesheets[i]+`)]]">
+      }
+    }
+  </head>
+
+  <body>
+    <main>

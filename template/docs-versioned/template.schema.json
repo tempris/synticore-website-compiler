@@ -1,0 +1,6 @@
+{
+  "id": "docs-versioned",
+  "label": "Docs Versioned",
+  "path": "docs-versioned",
+  "description": "Versioned documentation starter with v1/v2 docs pages, changelog/release notes structure, sidebar-style navigation patterns, and docs-first typography/layout defaults."
+}

@@ -1,0 +1,50 @@
+{
+  "debug": false,
+  "filter": {
+    "exclude": [],
+    "include": []
+  },
+  "level": {
+    "console": "DETAIL",
+    "file": "ALL"
+  },
+  "timestamp": {
+    "format": "YYYY-MM-DD hh:mm:ssA z",
+    "zone": "local",
+    "locale": "auto"
+  },
+  "type": {
+    "console": {
+      "trace": true,
+      "fatal": true,
+      "error": true,
+      "warn": true,
+      "log": true,
+      "info": true,
+      "detail": true,
+      "debug": true,
+      "notice": true,
+      "success": true,
+      "begin": true,
+      "end": true,
+      "init": true,
+      "shutdown": true
+    },
+    "file": {
+      "trace": true,
+      "fatal": true,
+      "error": true,
+      "warn": true,
+      "log": true,
+      "info": true,
+      "detail": true,
+      "debug": true,
+      "notice": true,
+      "success": true,
+      "begin": true,
+      "end": true,
+      "init": true,
+      "shutdown": true
+    }
+  }
+}

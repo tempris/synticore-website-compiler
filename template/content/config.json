@@ -1,0 +1,37 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "Publishing articles, guides, and documentation with a clean reading experience.",
+      "color": "#1f4b3f",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your Editorial Team",
+        "url": "/about/"
+      }
+    }
+  },
+  "option": {
+    "package": {
+      "targets": [
+        {
+          "suffix": "",
+          "paths": [
+            {
+              "source": "out",
+              "destination": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Your Docs or Blog",
+      "url": "https://docs.example.com"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "id": "minimal",
+  "label": "Minimal",
+  "path": "minimal",
+  "description": "Smallest practical site starter with one page, very light framing, minimal SCSS, and only the core structure needed to begin."
+}

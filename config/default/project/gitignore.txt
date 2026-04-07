@@ -1,0 +1,17 @@
+# Ignore _log directories #
+_log
+
+# Ignore _package directories #
+_package
+
+# Ignore checksum caches #
+#cache.json
+
+# Ignore compiled files #
+#out
+
+# Ignore gui cache #
+_cache/project/gui.json
+
+# Ignore dev panel shared state #
+_cache/project/dev-panel.json

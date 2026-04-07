@@ -1,0 +1,58 @@
+@use '../_variable-font-icon/_synticore-dev-interface' as dev-interface-icon;
+
+@font-face {
+  font-family: 'font-icon--synticore-dev-interface';
+  src: url('../../font-icon/synticore-dev-interface/font-icon--synticore-dev-interface.eot');
+  src:
+    url('../../font-icon/synticore-dev-interface/font-icon--synticore-dev-interface.eot?#iefix') format('embedded-opentype'),
+    local('font-icon--synticore-dev-interface'),
+    url('../../font-icon/synticore-dev-interface/font-icon--synticore-dev-interface.woff2') format('woff2'),
+    url('../../font-icon/synticore-dev-interface/font-icon--synticore-dev-interface.woff') format('woff'),
+    url('../../font-icon/synticore-dev-interface/font-icon--synticore-dev-interface.ttf') format('truetype'),
+    url('../../font-icon/synticore-dev-interface/font-icon--synticore-dev-interface.svg#font-icon--synticore-dev-interface') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.synticore-dev-shell {
+  [class^='font-icon--synticore-dev-interface--'],
+  [class*=' font-icon--synticore-dev-interface--'] {
+    font-family: 'font-icon--synticore-dev-interface';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-icon--synticore-dev-interface--arrow-down::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--arrow-down;
+  }
+
+  .font-icon--synticore-dev-interface--grip::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--grip;
+  }
+
+  .font-icon--synticore-dev-interface--information::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--information;
+  }
+
+  .font-icon--synticore-dev-interface--memory-card::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--memory-card;
+  }
+
+  .font-icon--synticore-dev-interface--switches::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--switches;
+  }
+
+  .font-icon--synticore-dev-interface--synticore::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--synticore;
+  }
+
+  .font-icon--color--synticore-dev-interface--synticore {
+    color: dev-interface-icon.$font-icon--color--synticore-dev-interface--synticore !important;
+  }
+}

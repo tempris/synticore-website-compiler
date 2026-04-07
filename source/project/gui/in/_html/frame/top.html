@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/resource/icon.ico" sizes="any">
+    <link rel="icon" href="/resource/icon.png" type="image/png">
+    <title>[[CONFIG_REQUIRE_SITE_TITLE]]</title>
+    <script>
+      (function () {
+        try {
+          var configRaw = localStorage.getItem('synticore-gui-config');
+          var config = configRaw ? JSON.parse(configRaw) : null;
+          var theme = config && typeof config === 'object' ? config.theme : localStorage.getItem('synticore-gui-theme');
+          document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+        } catch (error) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="/asset/css/style.min.css?v=[[AUTOMATIC_FILE_CHECKSUM(/asset/css/style.min.css)]]">
+  </head>
+  <body>

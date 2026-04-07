@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "Versioned documentation starter for APIs, SDKs, and product documentation sites.",
+      "color": "#0f4c81",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your Product Team",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Product Docs",
+      "url": "https://docs.example.com"
+    }
+  }
+}

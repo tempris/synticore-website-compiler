@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   sodipodi:docname="warning-ffff00.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect3"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,3.5,0,1 @ F,0,0,1,0,3.5,0,1 @ F,0,0,1,0,3.5,0,1"
+       radius="3.5"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="22.627417"
+     inkscape:cx="18.58365"
+     inkscape:cy="14.937631"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="1671"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <path
+     id="path2"
+     style="fill:#000000;fill-rule:evenodd;stroke-width:1.6;-inkscape-stroke:none"
+     inkscape:transform-center-y="-4.1020132"
+     d="M 3.6889152 -8.3360662 A 2.0207259 2.0207259 0 0 0 2.2398861 -7.3486179 L -5.8764091 6.7095279 A 2.0207259 2.0207259 0 0 0 -4.1266848 9.73993 L 12.105906 9.73993 A 2.0207259 2.0207259 0 0 0 13.85563 6.7095279 L 5.7393346 -7.3486179 A 2.0207259 2.0207259 0 0 0 3.6889152 -8.3360662 z M 3.9896104 -4.3776111 A 1.267127 1.2671016 0 0 1 5.2567374 -3.1105095 L 5.2567374 3.2249985 A 1.267127 1.2671016 0 0 1 3.9896104 4.4921001 A 1.267127 1.2671016 0 0 1 2.7224833 3.2249985 L 2.7224833 -3.1105095 A 1.267127 1.2671016 0 0 1 3.9896104 -4.3776111 z M 3.9896104 5.7592017 A 1.267127 1.2671016 0 0 1 5.2567374 7.0263033 A 1.267127 1.2671016 0 0 1 3.9896104 8.2934049 A 1.267127 1.2671016 0 0 1 2.7224833 7.0263033 A 1.267127 1.2671016 0 0 1 3.9896104 5.7592017 z "
+     transform="matrix(1.5783737,0,0,1.5784054,9.7029039,14.909645)" />
+</svg>

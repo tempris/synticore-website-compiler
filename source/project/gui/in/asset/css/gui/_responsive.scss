@@ -1,0 +1,181 @@
+@media (max-width: 85rem) {
+    .project-bar {
+        grid-template-columns: minmax(0, 1fr) minmax(13rem, 18rem);
+        align-items: start;
+    }
+
+    .project-path-control {
+        grid-column: 1 / -1;
+    }
+
+    .version-badge {
+        grid-column: 2;
+    }
+
+    .project-actions {
+        grid-column: 1;
+        align-self: start;
+        align-items: start;
+        flex-wrap: wrap;
+    }
+
+    .app-shell[data-show-button-titles='true'] .project-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .app-shell[data-show-button-titles='true'] .project-actions,
+    .app-shell[data-show-button-titles='true'] .version-badge {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 40rem) {
+    .project-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .project-actions {
+        flex-wrap: wrap;
+    }
+
+    .version-badge,
+    .project-actions {
+        grid-column: auto;
+    }
+
+    .config-toolbar,
+    .config-meta,
+    .config-node__header,
+    .config-object-entry__header,
+    .config-array-entry__header {
+        align-items: start;
+    }
+
+    .config-meta {
+        justify-items: start;
+    }
+}
+
+@media (max-width: 40rem) {
+    .topbar,
+    .layout,
+    .tab-panel,
+    .modal__header,
+    .modal__body {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+
+    .project-bar,
+    .config-actions {
+        grid-template-columns: 1fr;
+        display: grid;
+        row-gap: 0.75rem;
+    }
+
+    .field-with-action {
+        grid-template-columns: 1fr;
+    }
+
+    .project-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: stretch;
+    }
+
+    .project-actions > .button {
+        width: auto;
+    }
+
+    .version-badge {
+        grid-column: auto;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+    }
+
+    .task-columns {
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+    }
+
+    .template-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .modal__viewport {
+        padding: 0.5rem;
+    }
+
+    .modal__card {
+        width: calc(100vw - 1.5rem);
+        max-height: calc(100dvh - 1.5rem);
+    }
+}
+
+@media (max-width: 50rem) {
+    .brand {
+        align-items: start;
+        flex-direction: column;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 40rem) {
+    .topbar {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'brand'
+            'project';
+    }
+
+    .topbar__utilities {
+        position: absolute;
+        top: 1rem;
+        right: 0.8rem;
+        justify-self: auto;
+    }
+
+    .brand__logo {
+        max-width: min(18rem, calc(100% - 5.5rem));
+    }
+
+    .brand__copy {
+        width: 100%;
+    }
+
+    .brand__logo, .topbar__utilities {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .brand__copy {
+        text-align: center;
+    }
+
+    .project-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 40rem) {
+    .topbar {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            'brand'
+            'settings'
+            'project';
+    }
+
+    .topbar__utilities {
+        position: relative;
+        top: auto;
+        right: auto;
+        justify-self: start;
+    }
+}

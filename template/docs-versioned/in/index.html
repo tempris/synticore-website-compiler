@@ -1,0 +1,42 @@
+@@include('_html/frame/top.html')
+
+<section class="hero">
+  <p class="eyebrow">Versioned Documentation</p>
+  <h1>[[CONFIG_REQUIRE_SITE_TITLE]]</h1>
+  <p class="lead">[[CONFIG_CUSTOM_BRAND_SLOGAN]]</p>
+  <p class="hero__actions">
+    <a class="button" href="/docs/v2/index.html">Read Latest Docs (v2)</a>
+    <a class="button button--ghost" href="/changelog.html">View Changelog</a>
+  </p>
+</section>
+
+<section class="section--split">
+  <div class="panel">
+    <h2>Documentation Versions</h2>
+    <ul>
+      <li><a href="/docs/v2/index.html">v2 (current)</a> - latest product docs and examples</li>
+      <li><a href="/docs/v1/index.html">v1 (maintenance)</a> - legacy reference and migration support</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h2>Getting Started Paths</h2>
+    <ul>
+      <li>Install / setup steps</li>
+      <li>Quickstart example</li>
+      <li>Authentication / configuration</li>
+      <li>Core API reference links</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Release Notes & Migration</h2>
+  <p>
+    Link release notes, migration guides, and deprecation notices here so users can move between versions safely.
+  </p>
+  <p>
+    Start with <a href="/changelog.html">changelog.html</a> and add dedicated migration pages under <code>/docs/</code>.
+  </p>
+</section>
+
+@@include('_html/frame/bottom.html')

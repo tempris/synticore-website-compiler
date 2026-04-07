@@ -1,0 +1,984 @@
+@use '../mixin';
+@use '../modal';
+@use '../_variable-font-icon/_synticore-dev-interface' as dev-interface-icon;
+
+.synticore-dev-shell {
+  --synticore-dev-shadow: rgba(2, 6, 23, 0.4);
+  --synticore-dev-panel-width: min(24rem, calc(100vw - 1.5rem));
+  --synticore-dev-panel-handle-size: 2.75rem;
+  --synticore-dev-panel-hide-duration: 220ms;
+  --synticore-dev-panel-screen-margin: 12px;
+  --synticore-dev-panel-dock-top: 0;
+  --synticore-dev-bg: #2626267f;
+  --synticore-dev-surface: #3b3b3b7f;
+  --synticore-dev-surface-hover: #5555557f;
+  --synticore-dev-border: #6464647f;
+  --synticore-dev-text: #ffffff;
+  --synticore-dev-text-muted: #ffffffcc;
+  --synticore-dev-accent: #60fa68;
+  --synticore-dev-accent-bg: #60fa6822;
+  --synticore-dev-accent-text: #000000cc;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483647;
+  isolation: isolate;
+  width: var(--synticore-dev-panel-width);
+  pointer-events: none;
+  color-scheme: light dark;
+
+  &,
+  * ,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  .interact {
+    border-radius: 0.25rem;
+
+    &:not(:hover) {
+      transition-property: background-color, opacity;
+      transition-duration: 250ms;
+    }
+
+    &:not(.button):not(button):hover {
+      background-color: var(--synticore-dev-accent-bg) !important;
+    }
+
+    &:active,
+    &:focus-visible {
+      outline: 0.125rem solid var(--synticore-dev-accent);
+      outline-offset: 0.25rem;
+    }
+  }
+
+  label {
+    border-radius: 0.25rem;
+
+    &:not(:hover) {
+      transition-property: background-color, opacity;
+      transition-duration: 250ms;
+    }
+
+    &:not(.button) {
+      &:hover,
+      &:has(> input:hover),
+      &:has(> select:hover),
+      &:has(> textarea:hover) {
+        background-color: var(--synticore-dev-accent-bg) !important;
+      }
+    }
+
+    &:active,
+    &:focus-visible,
+    &:has(> input:active),
+    &:has(> input:focus-visible),
+    &:has(> select:active),
+    &:has(> select:focus-visible),
+    &:has(> textarea:active),
+    &:has(> textarea:focus-visible) {
+      outline: 0.125rem solid var(--synticore-dev-accent);
+      outline-offset: 0.25rem;
+    }
+
+    &:has(> input:hover) > input,
+    &:has(> select:hover) > select,
+    &:has(> textarea:hover) > textarea,
+    &:has(> input:active) > input,
+    &:has(> input:focus-visible) > input,
+    &:has(> select:active) > select,
+    &:has(> select:focus-visible) > select,
+    &:has(> textarea:active) > textarea,
+    &:has(> textarea:focus-visible) > textarea {
+      background-color: transparent !important;
+      outline: none;
+    }
+  }
+
+  button,
+  label {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  input[type='checkbox'],
+  select {
+    cursor: pointer;
+  }
+
+  a.button,
+  button {
+    border: none;
+    background-color: var(--synticore-dev-accent);
+    color: var(--synticore-dev-accent-text);
+    // @include mixin.container-pill();
+    @include mixin.container-pill(
+      $padding-block: 0.25rem,
+      $padding-inline: 0.5rem,
+      $radius: 0.5rem
+    );
+    text-decoration: none;
+  }
+
+  a,
+  button {
+    &:hover {
+      opacity: 0.75;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  &--settling {
+    transition:
+      left 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      top 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  &--dragging {
+    cursor: grabbing;
+
+    .synticore-dev-panel {
+      transition: none;
+    }
+  }
+
+  &--in-motion {
+    cursor: grabbing;
+
+    .synticore-dev-panel__dock-toggle {
+      opacity: 0;
+    }
+  }
+
+  &--resizing {
+    .synticore-dev-panel,
+    .synticore-dev-panel__dock-toggle {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: none !important;
+    }
+  }
+
+  &--left {
+    .synticore-dev-panel--hidden {
+      transform: translateX(
+        calc(-100% - var(--synticore-dev-panel-screen-margin))
+      );
+    }
+
+    .synticore-dev-panel__dock-toggle {
+      left: 100%;
+      margin-left: 0.35rem;
+    }
+  }
+
+  &--right {
+    .synticore-dev-panel--hidden {
+      transform: translateX(
+        calc(100% + var(--synticore-dev-panel-screen-margin))
+      );
+    }
+
+    .synticore-dev-panel__dock-toggle {
+      right: 100%;
+      margin-right: 0.35rem;
+    }
+  }
+
+  &--side-switching {
+    .synticore-dev-panel__dock-toggle {
+      transition: none;
+    }
+  }
+
+  &--in-motion#{&}--left {
+    .synticore-dev-panel__dock-toggle {
+      transform: translateX(-1rem);
+    }
+  }
+
+  &--in-motion#{&}--right {
+    .synticore-dev-panel__dock-toggle {
+      transform: translateX(1rem);
+    }
+  }
+
+  .synticore-dev-panel {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    max-block-size: calc(100vh - (var(--synticore-dev-panel-screen-margin) * 2));
+    padding: 0.5rem;
+    border-radius: 0.85rem;
+    background: var(--synticore-dev-bg);
+    color: var(--synticore-dev-text);
+    @include modal.modal-surface(
+      transparent,
+      0 0.85rem 2rem var(--synticore-dev-shadow),
+      $blur: null
+    );
+    font: 14px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    transition: transform var(--synticore-dev-panel-hide-duration) cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: calc(modal.$modal-border-width * -1);
+      z-index: -1;
+      border-radius: inherit;
+      background: inherit;
+      @include modal.modal-surface(
+        var(--synticore-dev-border),
+        none
+      );
+      pointer-events: none;
+    }
+  }
+
+  .synticore-dev-panel__dock-toggle {
+    position: absolute;
+    z-index: 2;
+    top: var(--synticore-dev-panel-dock-top);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    inline-size: var(--synticore-dev-panel-handle-size);
+    block-size: 5.5rem;
+    padding: 0;
+    border-radius: 999px;
+    background-color: var(--synticore-dev-surface);
+    color: var(--synticore-dev-text);
+
+    @include modal.modal-surface(
+      var(--synticore-dev-border),
+      0 0.65rem 1.6rem var(--synticore-dev-shadow)
+    );
+
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transform: none;
+    transition:
+      transform var(--synticore-dev-panel-hide-duration) cubic-bezier(0.2, 0.8, 0.2, 1),
+      opacity 140ms ease;
+    touch-action: manipulation;
+
+    &::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--switches;
+      display: block;
+      color: var(--synticore-dev-text-muted);
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.95rem;
+      line-height: 1;
+      opacity: 0.9;
+      font-weight: normal;
+    }
+
+    &:hover {
+      background: var(--synticore-dev-surface-hover);
+    }
+  }
+
+  .synticore-dev-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin: -0.5rem -0.5rem 0.5rem;
+    padding: 0.7rem 0.95rem 0.8rem;
+    border-bottom: modal.$modal-border-width solid var(--synticore-dev-border);
+    border-radius: 0.75rem 0.75rem 0 0;
+    background: var(--synticore-dev-surface);
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+
+    &::after {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--grip;
+      flex: 0 0 0.95rem;
+      inline-size: 0.95rem;
+      block-size: 1.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--synticore-dev-text-muted);
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 1rem;
+      line-height: 1;
+      opacity: 0.72;
+    }
+
+    &:hover {
+      background: var(--synticore-dev-surface-hover);
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+
+  .synticore-dev-panel__title {
+    margin: 0;
+    margin-right: auto;
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    &::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--switches;
+      display: inline-block;
+      margin-right: 0.55rem;
+      color: var(--synticore-dev-text-muted);
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.95em;
+      line-height: 1;
+      vertical-align: middle;
+      opacity: 0.9;
+      font-weight: normal;
+    }
+  }
+
+  .synticore-dev-panel__text {
+    color: var(--synticore-dev-text-muted);
+    font-size: 0.875em;
+    margin: 0px;
+
+    &::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--information;
+      display: inline-block;
+      margin-right: 0.5rem;
+      color: var(--synticore-dev-text-muted);
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.95em;
+      line-height: 1;
+      vertical-align: middle;
+      opacity: 0.9;
+    }
+  }
+
+  .synticore-dev-panel__tool-text {
+    margin-bottom: 0.875rem;
+  }
+
+  .synticore-dev-panel__body {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 0.75rem;
+    min-block-size: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.5rem;
+  }
+
+  &[data-synticore-dev-state='initializing'],
+  &[data-synticore-dev-state='initializing'] *,
+  &[data-synticore-dev-state='initializing'] *::before,
+  &[data-synticore-dev-state='initializing'] *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .synticore-dev-panel__tab-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .synticore-dev-panel__tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-inline-size: 0;
+    padding-block: 0.45rem;
+    border: modal.$modal-border-width solid var(--synticore-dev-border);
+    background: var(--synticore-dev-surface);
+    color: var(--synticore-dev-text-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    &::before {
+      color: currentColor;
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.95em;
+      line-height: 1;
+      font-weight: normal;
+    }
+
+    &--tools::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--tools;
+    }
+
+    &--console::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--code;
+    }
+
+    &--active {
+      background: var(--synticore-dev-accent);
+      color: var(--synticore-dev-accent-text);
+      opacity: 1 !important;
+      cursor: initial;
+      outline: none !important;
+      pointer-events: none;
+    }
+
+    &:not(:first-child) {
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+
+    &:not(:last-child) {
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+
+  .synticore-dev-panel__view {
+    min-block-size: 0;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .synticore-dev-panel__view--console {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 0.75rem;
+    min-block-size: min(20rem, 75vh);
+  }
+
+  .synticore-dev-panel__link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    margin: 0 0 0.9rem;
+    padding: 0.5rem 0.65rem;
+    border: modal.$modal-border-width solid var(--synticore-dev-border);
+    border-radius: 0.6rem;
+    background: var(--synticore-dev-surface);
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .synticore-dev-panel__link-label {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    color: var(--synticore-dev-text-muted);
+    font-size: 0.76rem;
+    font-weight: 650;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1.3;
+
+    &::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--browsersync;
+      display: inline-block;
+      margin-right: 0.45rem;
+      color: dev-interface-icon.$font-icon--color--synticore-dev-interface--browsersync;
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.95em;
+      line-height: 1;
+      vertical-align: middle;
+      opacity: 0.95;
+      font-weight: normal;
+    }
+  }
+
+  .synticore-dev-panel__link {
+    white-space: nowrap;
+    // font-weight: bold;
+    // font-family: 'Courier New', Courier, monospace;
+    // color: black !important;
+
+    &::after {
+      content: "\00a0" + dev-interface-icon.$font-icon--synticore-dev-interface--external;
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.75em;
+      white-space: pre;
+      font-weight: normal;
+    }
+  }
+
+  .synticore-dev-panel__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0;
+    font-weight: 600;
+
+    input {
+      inline-size: 1rem;
+      block-size: 1rem;
+      margin: 0;
+    }
+
+    &--heatmap span::before,
+    &--grid span::before {
+      display: inline-block;
+      margin-right: 0.5rem;
+      color: var(--synticore-dev-text-muted);
+      font-family: 'font-icon--synticore-dev-interface';
+      line-height: 1;
+      vertical-align: middle;
+      opacity: 0.9;
+      font-weight: normal;
+    }
+
+    &--heatmap span::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--temperature;
+      font-weight: normal;
+    }
+
+    &--grid span::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--grid;
+      font-weight: normal;
+    }
+  }
+
+  .synticore-dev-panel__section {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 0.9rem;
+    padding-top: 0.85rem;
+    border-top: modal.$modal-border-width solid var(--synticore-dev-border);
+
+    &--collapsed .synticore-dev-panel__section-toggle::before {
+      transform: rotate(-90deg);
+    }
+
+  }
+
+  .synticore-dev-panel__section-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .synticore-dev-panel__section-heading > .synticore-dev-panel__text {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  .synticore-dev-panel__section-heading .synticore-dev-panel__toggle--grid {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
+  .synticore-dev-panel__section-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2rem;
+    block-size: 2rem;
+    margin-left: auto;
+    padding: 0;
+    border: modal.$modal-border-width solid var(--synticore-dev-border);
+    border-radius: 0.5rem;
+    background: var(--synticore-dev-surface);
+    color: var(--synticore-dev-text);
+    cursor: pointer;
+
+    &::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--arrow-down;
+      display: block;
+      color: var(--synticore-dev-text-muted);
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.9rem;
+      line-height: 1;
+      transition: transform 160ms ease;
+      font-weight: normal;
+    }
+
+    &:hover {
+      background: var(--synticore-dev-surface-hover);
+    }
+  }
+
+  .synticore-dev-panel__section-toggle--console {
+    inline-size: 2rem;
+    min-inline-size: 2rem;
+    padding-inline: 0;
+  }
+
+  .synticore-dev-panel__section-body {
+    display: grid;
+    gap: 0.75rem;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  .synticore-dev-panel__section--console {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .synticore-dev-panel__field-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .synticore-dev-panel__field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .synticore-dev-panel__field-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--synticore-dev-text-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .synticore-dev-panel__field-label--filter-text::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--eye;
+    color: var(--synticore-dev-text-muted);
+    font-family: 'font-icon--synticore-dev-interface';
+    font-size: 0.9em;
+    line-height: 1;
+    opacity: 0.9;
+    font-weight: normal;
+  }
+
+  .synticore-dev-panel__field-label--shared-cache::after {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--memory-card;
+    color: var(--synticore-dev-text-muted);
+    font-family: 'font-icon--synticore-dev-interface';
+    font-size: 0.9em;
+    line-height: 1;
+    opacity: 0.9;
+    font-weight: normal;
+  }
+
+  .synticore-dev-panel__input,
+  .synticore-dev-panel__select {
+    min-inline-size: 0;
+    padding: 0.5rem;
+    border: modal.$modal-border-width solid var(--synticore-dev-border);
+    border-radius: 0.5rem;
+    background: var(--synticore-dev-surface);
+    color: var(--synticore-dev-text);
+    font: inherit;
+  }
+
+  .synticore-dev-panel__input--color {
+    block-size: 2.375rem;
+    padding: 0.125rem 0.25rem;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .synticore-dev-panel__input::placeholder {
+    color: var(--synticore-dev-text-muted);
+  }
+
+  .synticore-dev-panel__log-text {
+    margin: 0;
+  }
+
+  .synticore-dev-panel__log-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .synticore-dev-panel__log-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.45rem;
+    border: modal.$modal-border-width solid var(--synticore-dev-border);
+    border-radius: 999px;
+    background: var(--synticore-dev-surface);
+    color: var(--synticore-dev-text-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    input {
+      position: absolute;
+      inline-size: 1px;
+      block-size: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      &::before {
+        color: var(--synticore-dev-text-muted);
+        font-family: 'font-icon--synticore-dev-interface';
+        font-size: 0.95em;
+        line-height: 1;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .synticore-dev-panel__log-filter--log span::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--log-log;
+  }
+
+  .synticore-dev-panel__log-filter--info span::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--log-info;
+  }
+
+  .synticore-dev-panel__log-filter--warn span::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--log-warn;
+  }
+
+  .synticore-dev-panel__log-filter--error span::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--log-error;
+  }
+
+  .synticore-dev-panel__log-filter--log:has(> input:checked) span::before {
+    color: var(--synticore-dev-accent);
+  }
+
+  .synticore-dev-panel__log-filter--info:has(> input:checked) span::before {
+    color: #8fd8ff;
+  }
+
+  .synticore-dev-panel__log-filter--warn:has(> input:checked) span::before {
+    color: #ffd166;
+  }
+
+  .synticore-dev-panel__log-filter--error:has(> input:checked) span::before {
+    color: #ff7b72;
+  }
+
+  .synticore-dev-panel__log-filter:has(> input:not(:checked)) {
+    opacity: 0.55;
+  }
+
+  .synticore-dev-panel__log-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .synticore-dev-panel__field-label--actions-text::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--hand-left;
+    color: var(--synticore-dev-text-muted);
+    font-family: 'font-icon--synticore-dev-interface';
+    font-size: 0.9em;
+    line-height: 1;
+    opacity: 0.9;
+    font-weight: normal;
+  }
+
+  .synticore-dev-panel__log-search {
+    display: inline-grid;
+    grid-template-columns: auto minmax(10rem, 1fr);
+    align-items: center;
+    gap: 1rem;
+    min-inline-size: min(100%, 18rem);
+    width: 100%;
+  }
+
+  .synticore-dev-panel__log-search-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--synticore-dev-text-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    &::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--magnifying-glass;
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.95em;
+      line-height: 1;
+      font-weight: normal;
+    }
+  }
+
+  .synticore-dev-panel__log-search-input {
+    min-inline-size: 0;
+  }
+
+  .synticore-dev-panel__log-copy,
+  .synticore-dev-panel__log-clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    min-inline-size: 4.5rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .synticore-dev-panel__log-copy {
+    &::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--copy;
+      display: block;
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.95em;
+      line-height: 1;
+      font-weight: normal;
+    }
+  }
+
+  .synticore-dev-panel__log-clear {
+    &::before {
+      content: dev-interface-icon.$font-icon--synticore-dev-interface--trash;
+      display: block;
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.95em;
+      line-height: 1;
+      font-weight: normal;
+    }
+  }
+
+  .synticore-dev-panel__log-log {
+    display: grid;
+    align-content: start;
+    gap: 0.6rem;
+    min-block-size: 0;
+    overflow: auto;
+    padding: 0.65rem;
+    border: modal.$modal-border-width solid var(--synticore-dev-border);
+    border-radius: 0.6rem;
+    background: rgb(7 10 18 / 78%);
+    font-family: Consolas, "Courier New", monospace;
+  }
+
+  .synticore-dev-panel__log-empty {
+    margin: 0;
+    color: var(--synticore-dev-text-muted);
+    font-size: 0.8rem;
+  }
+
+  .synticore-dev-panel__log-empty--filtered {
+    color: #ffd166;
+  }
+
+  .synticore-dev-panel__log-entry {
+    display: grid;
+    gap: 0.3rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid rgb(255 255 255 / 8%);
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    &--info .synticore-dev-panel__log-level {
+      color: #8fd8ff;
+    }
+
+    &--warn .synticore-dev-panel__log-level {
+      color: #ffd166;
+    }
+
+    &--error .synticore-dev-panel__log-level {
+      color: #ff7b72;
+    }
+  }
+
+  .synticore-dev-panel__log-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    color: var(--synticore-dev-text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .synticore-dev-panel__log-level {
+    color: var(--synticore-dev-accent);
+    font-weight: 700;
+
+    &::before {
+      display: inline-block;
+      margin-right: 0.4rem;
+      font-family: 'font-icon--synticore-dev-interface';
+      font-size: 0.95em;
+      line-height: 1;
+      vertical-align: middle;
+      font-weight: normal;
+    }
+  }
+
+  .synticore-dev-panel__log-entry--log .synticore-dev-panel__log-level::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--log-log;
+  }
+
+  .synticore-dev-panel__log-entry--info .synticore-dev-panel__log-level::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--log-info;
+  }
+
+  .synticore-dev-panel__log-entry--warn .synticore-dev-panel__log-level::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--log-warn;
+  }
+
+  .synticore-dev-panel__log-entry--error .synticore-dev-panel__log-level::before {
+    content: dev-interface-icon.$font-icon--synticore-dev-interface--log-error;
+  }
+
+  .synticore-dev-panel__log-time {
+    white-space: nowrap;
+  }
+
+  .synticore-dev-panel__log-message {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--synticore-dev-text);
+    font: inherit;
+    line-height: 1.45;
+  }
+
+  .synticore-dev-panel__log-line--stack {
+    color: #f6c177;
+  }
+}

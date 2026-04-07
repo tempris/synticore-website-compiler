@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128mm"
+   height="128mm"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><g
+     id="g3"
+     style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:0.255474"><path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:0.255474"
+       d="M 59.767316,2.443241 12.233983,29.881009 C 9.6140211,31.393335 8,34.188616 8,37.213732 V 59.533333 C 8,64.209344 11.790656,68 16.466667,68 H 32 V 80 L 45.754936,66.245064 c 1.239915,-1.239915 1.239915,-3.250213 0,-4.490128 L 32,48 V 60 H 19.175 C 17.421496,60 16,58.578504 16,56.825 V 38.818886 c 0,-1.126696 0.597114,-2.169002 1.569053,-2.738897 L 62.04694,10.000467 c 0.985024,-0.5775668 2.204325,-0.5817085 3.193251,-0.010846 L 116.82513,39.767291 C 118.23624,40.581862 120,39.563472 120,37.934128 v -3.164762 c 0,-1.512558 -0.80701,-2.910198 -2.11699,-3.666362 L 68.232684,2.443241 c -2.619266,-1.51192422 -5.846102,-1.51192422 -8.465368,0 z M 68.232684,125.55676 115.76602,98.118991 C 118.38598,96.606665 120,93.811384 120,90.786268 V 68.466667 C 120,63.790656 116.20934,60 111.53333,60 H 96 V 48 L 82.245064,61.754936 c -1.239915,1.239915 -1.239915,3.250213 0,4.490128 L 96,80 V 68 h 12.825 c 1.7535,0 3.175,1.421496 3.175,3.175 v 18.006114 c 0,1.126696 -0.59711,2.169002 -1.56905,2.738897 L 65.95306,117.99953 c -0.985024,0.57757 -2.204325,0.58171 -3.193251,0.0109 L 11.174869,88.232709 C 9.7637581,87.418138 8,88.436528 8,90.065872 v 3.164762 c 0,1.512558 0.8070106,2.910198 2.116992,3.666362 l 49.650324,28.659764 c 2.619266,1.51192 5.846102,1.51192 8.465368,0 z"
+       id="path1" /><circle
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:0.255474"
+       id="path2"
+       cx="64"
+       cy="64"
+       r="16" /></g></svg>

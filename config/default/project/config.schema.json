@@ -1,0 +1,2007 @@
+{
+  "keys": [
+    {
+      "description": "Optional configuration section controlling compiler behavior and output features.",
+      "key": "option",
+      "task_chain": [
+        "rebuild_highlight_syntax",
+        "rebuild_stylesheet",
+        "rebuild_mirror",
+        "rebuild_html",
+        "rebuild_data"
+      ]
+    },
+    {
+      "description": "Branding configuration used for favicon/touch icon generation and brand image composition.",
+      "key": "option.brand",
+      "task_chain": [
+        "rebuild_brand",
+        "rebuild_favicon",
+        "rebuild_html"
+      ]
+    },
+    {
+      "description": "Configures how foreground and background images are processed, including alignment, blur, and visual effects.",
+      "key": "option.brand.adjust"
+    },
+    {
+      "description": "Settings applied to the brand background layer during composition.",
+      "key": "option.brand.adjust.background"
+    },
+    {
+      "description": "Alignment settings for positioning the background layer.",
+      "key": "option.brand.adjust.background.alignment"
+    },
+    {
+      "description": "Horizontal alignment of the background brand image during composition (left/center/right).",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "key": "option.brand.adjust.background.alignment.x",
+      "type": "enum"
+    },
+    {
+      "description": "Vertical alignment of the background brand image during composition (top/center/bottom).",
+      "enum": [
+        "top",
+        "center",
+        "bottom"
+      ],
+      "key": "option.brand.adjust.background.alignment.y",
+      "type": "enum"
+    },
+    {
+      "description": "Controls which output aspect ratios the background adjustments apply to.",
+      "key": "option.brand.adjust.background.apply"
+    },
+    {
+      "description": "Apply background adjustments to square icon outputs.",
+      "key": "option.brand.adjust.background.apply.square"
+    },
+    {
+      "description": "Apply background adjustments to wide icon outputs.",
+      "key": "option.brand.adjust.background.apply.wide"
+    },
+    {
+      "description": "Blur intensity applied to the background brand layer during composition.",
+      "key": "option.brand.adjust.background.blur"
+    },
+    {
+      "description": "Sharp modulate overrides for the background brand layer.",
+      "key": "option.brand.adjust.background.modulate",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.brand.adjust.background.modulate.brightness",
+          "option.brand.adjust.background.modulate.saturation",
+          "option.brand.adjust.background.modulate.hue",
+          "option.brand.adjust.background.modulate.lightness"
+        ]
+      }
+    },
+    {
+      "default": 1,
+      "description": "Brightness multiplier for the background brand layer modulate adjustment. Use 1 for no change.",
+      "key": "option.brand.adjust.background.modulate.brightness",
+      "type": "number"
+    },
+    {
+      "default": 1,
+      "description": "Saturation multiplier for the background brand layer modulate adjustment. Use 1 for no change.",
+      "key": "option.brand.adjust.background.modulate.saturation",
+      "type": "number"
+    },
+    {
+      "default": 0,
+      "description": "Hue shift in degrees for the background brand layer modulate adjustment. Use 0 for no change.",
+      "key": "option.brand.adjust.background.modulate.hue",
+      "type": "number"
+    },
+    {
+      "default": 1,
+      "description": "Lightness multiplier for the background brand layer modulate adjustment. Use 1 for no change.",
+      "key": "option.brand.adjust.background.modulate.lightness",
+      "type": "number"
+    },
+    {
+      "description": "Settings applied to the brand foreground layer during composition.",
+      "key": "option.brand.adjust.foreground"
+    },
+    {
+      "description": "Alignment settings for positioning the foreground layer.",
+      "key": "option.brand.adjust.foreground.alignment"
+    },
+    {
+      "description": "Horizontal alignment of the foreground brand image during composition (left/center/right).",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ],
+      "key": "option.brand.adjust.foreground.alignment.x",
+      "type": "enum"
+    },
+    {
+      "description": "Vertical alignment of the foreground brand image during composition (top/center/bottom).",
+      "enum": [
+        "top",
+        "center",
+        "bottom"
+      ],
+      "key": "option.brand.adjust.foreground.alignment.y",
+      "type": "enum"
+    },
+    {
+      "description": "Blur intensity applied to the foreground brand layer during composition.",
+      "key": "option.brand.adjust.foreground.blur"
+    },
+    {
+      "description": "Sharp modulate overrides for the foreground brand layer.",
+      "key": "option.brand.adjust.foreground.modulate",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.brand.adjust.foreground.modulate.brightness",
+          "option.brand.adjust.foreground.modulate.saturation",
+          "option.brand.adjust.foreground.modulate.hue",
+          "option.brand.adjust.foreground.modulate.lightness"
+        ]
+      }
+    },
+    {
+      "default": 1,
+      "description": "Brightness multiplier for the foreground brand layer modulate adjustment. Use 1 for no change.",
+      "key": "option.brand.adjust.foreground.modulate.brightness",
+      "type": "number"
+    },
+    {
+      "default": 1,
+      "description": "Saturation multiplier for the foreground brand layer modulate adjustment. Use 1 for no change.",
+      "key": "option.brand.adjust.foreground.modulate.saturation",
+      "type": "number"
+    },
+    {
+      "default": 0,
+      "description": "Hue shift in degrees for the foreground brand layer modulate adjustment. Use 0 for no change.",
+      "key": "option.brand.adjust.foreground.modulate.hue",
+      "type": "number"
+    },
+    {
+      "default": 1,
+      "description": "Lightness multiplier for the foreground brand layer modulate adjustment. Use 1 for no change.",
+      "key": "option.brand.adjust.foreground.modulate.lightness",
+      "type": "number"
+    },
+    {
+      "description": "Specifies the sizes for various branding images including favicons and touch icons.",
+      "key": "option.brand.size"
+    },
+    {
+      "description": "ICO size list for generating favicon.ico (multiple embedded resolutions).",
+      "key": "option.brand.size.ico",
+      "structure": {
+        "items_key": "option.brand.size.ico[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "List of favicon.ico layer sizes (in pixels) to generate.",
+      "key": "option.brand.size.ico[]"
+    },
+    {
+      "description": "Per-file output dimensions for generated favicon/touch icon images. This is a map keyed by output filename (e.g. 'apple-touch-icon-57x57.png').",
+      "key": "option.brand.size.image",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.brand.size.image.*"
+        ]
+      }
+    },
+    {
+      "description": "A single per-file image size entry under `option.brand.size.image`. The key name is the output filename (any string). The value must be an object with `width` and `height`.",
+      "key": "option.brand.size.image.*",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.brand.size.image.*.width",
+          "option.brand.size.image.*.height"
+        ]
+      }
+    },
+    {
+      "description": "Target width (in pixels) for this generated brand image entry (keyed by filename).",
+      "key": "option.brand.size.image.*.width"
+    },
+    {
+      "description": "Target height (in pixels) for this generated brand image entry (keyed by filename).",
+      "key": "option.brand.size.image.*.height"
+    },
+    {
+      "description": "Cache controls for enabling and tuning incremental build behavior.",
+      "key": "option.cache",
+      "task_chain": []
+    },
+    {
+      "description": "Enable the compiler cache system (allows skipping unchanged work between runs).",
+      "key": "option.cache.enable"
+    },
+    {
+      "description": "Filter build streams using cache so only changed inputs are processed.",
+      "key": "option.cache.filter"
+    },
+    {
+      "description": "Enable deterministic sorting behavior within cache-backed pipelines.",
+      "key": "option.cache.sort"
+    },
+    {
+      "description": "Persist cache entries to disk after successful processing.",
+      "key": "option.cache.store"
+    },
+    {
+      "description": "General config-file behavior settings (for example key ordering when saving).",
+      "key": "option.config",
+      "task_chain": []
+    },
+    {
+      "description": "When writing/printing config, sort object keys for stable, deterministic output.",
+      "key": "option.config.sort"
+    },
+    {
+      "description": "Highlighting-related configuration (e.g., syntax highlighting).",
+      "key": "option.highlight",
+      "task_chain": [
+        "rebuild_highlight_syntax",
+        "rebuild_stylesheet",
+        "rebuild_html"
+      ]
+    },
+    {
+      "description": "PrismJS and Prism Live highlighting settings (Prism assets + optional Prism Live vendored module files).",
+      "key": "option.highlight.syntax"
+    },
+    {
+      "description": "Enable/disable PrismJS syntax highlighting asset generation.",
+      "key": "option.highlight.syntax.enable"
+    },
+    {
+      "description": "Generate prism.js and prism.scss index files to simplify importing PrismJS assets.",
+      "key": "option.highlight.syntax.generateImports"
+    },
+    {
+      "description": "Prism Live asset generation settings (copies vendored files into `in/asset`, typically including Bliss + Prism Live core + selected language modules).",
+      "key": "option.highlight.syntax.live"
+    },
+    {
+      "description": "Enable/disable Prism Live vendored file generation.",
+      "key": "option.highlight.syntax.live.enable"
+    },
+    {
+      "description": "List container for Prism Live language modules to copy (`prism-live-{id}.min.js`).",
+      "key": "option.highlight.syntax.live.include",
+      "structure": {
+        "items_key": "option.highlight.syntax.live.include[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "List of Prism Live language module IDs to include (`css`, `javascript`, `markup`).",
+      "key": "option.highlight.syntax.live.include[]",
+      "type": "enum",
+      "enum": [
+        "css",
+        "javascript",
+        "markup"
+      ],
+      "enum_editable": true
+    },
+    {
+      "description": "Base output directory for Prism Live files (for example `module/prism-live`). Minified files such as `*.min.css` and `*.min.js` are copied directly under `in/asset/<path>`, while non-minified CSS and JS files are copied under `in/asset/css/<path>` and `in/asset/js/<path>` so they can go through the normal asset pipelines.",
+      "key": "option.highlight.syntax.live.path",
+      "type": "path"
+    },
+    {
+      "description": "Language inclusion settings for PrismJS syntax highlighting.",
+      "key": "option.highlight.syntax.language"
+    },
+    {
+      "description": "Enable/disable PrismJS language component inclusion.",
+      "key": "option.highlight.syntax.language.enable"
+    },
+    {
+      "description": "List container for PrismJS language IDs to include in generated syntax assets.",
+      "key": "option.highlight.syntax.language.include",
+      "structure": {
+        "items_key": "option.highlight.syntax.language.include[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "List of PrismJS language ids to include. Dropdown values are sourced from local `node_modules/prismjs/components.json`, and custom text values are also allowed.",
+      "key": "option.highlight.syntax.language.include[]",
+      "type": "enum",
+      "enum": [
+        "markup",
+        "css",
+        "clike",
+        "javascript",
+        "abap",
+        "abnf",
+        "actionscript",
+        "ada",
+        "agda",
+        "al",
+        "antlr4",
+        "apacheconf",
+        "apex",
+        "apl",
+        "applescript",
+        "aql",
+        "arduino",
+        "arff",
+        "armasm",
+        "arturo",
+        "asciidoc",
+        "aspnet",
+        "asm6502",
+        "asmatmel",
+        "autohotkey",
+        "autoit",
+        "avisynth",
+        "avro-idl",
+        "awk",
+        "bash",
+        "basic",
+        "batch",
+        "bbcode",
+        "bbj",
+        "bicep",
+        "birb",
+        "bison",
+        "bnf",
+        "bqn",
+        "brainfuck",
+        "brightscript",
+        "bro",
+        "bsl",
+        "c",
+        "csharp",
+        "cpp",
+        "cfscript",
+        "chaiscript",
+        "cil",
+        "cilkc",
+        "cilkcpp",
+        "clojure",
+        "cmake",
+        "cobol",
+        "coffeescript",
+        "concurnas",
+        "csp",
+        "cooklang",
+        "coq",
+        "crystal",
+        "css-extras",
+        "csv",
+        "cue",
+        "cypher",
+        "d",
+        "dart",
+        "dataweave",
+        "dax",
+        "dhall",
+        "diff",
+        "django",
+        "dns-zone-file",
+        "docker",
+        "dot",
+        "ebnf",
+        "editorconfig",
+        "eiffel",
+        "ejs",
+        "elixir",
+        "elm",
+        "etlua",
+        "erb",
+        "erlang",
+        "excel-formula",
+        "fsharp",
+        "factor",
+        "false",
+        "firestore-security-rules",
+        "flow",
+        "fortran",
+        "ftl",
+        "gml",
+        "gap",
+        "gcode",
+        "gdscript",
+        "gedcom",
+        "gettext",
+        "gherkin",
+        "git",
+        "glsl",
+        "gn",
+        "linker-script",
+        "go",
+        "go-module",
+        "gradle",
+        "graphql",
+        "groovy",
+        "haml",
+        "handlebars",
+        "haskell",
+        "haxe",
+        "hcl",
+        "hlsl",
+        "hoon",
+        "http",
+        "hpkp",
+        "hsts",
+        "ichigojam",
+        "icon",
+        "icu-message-format",
+        "idris",
+        "ignore",
+        "inform7",
+        "ini",
+        "io",
+        "j",
+        "java",
+        "javadoc",
+        "javadoclike",
+        "javastacktrace",
+        "jexl",
+        "jolie",
+        "jq",
+        "jsdoc",
+        "js-extras",
+        "json",
+        "json5",
+        "jsonp",
+        "jsstacktrace",
+        "js-templates",
+        "julia",
+        "keepalived",
+        "keyman",
+        "kotlin",
+        "kumir",
+        "kusto",
+        "latex",
+        "latte",
+        "less",
+        "lilypond",
+        "liquid",
+        "lisp",
+        "livescript",
+        "llvm",
+        "log",
+        "lolcode",
+        "lua",
+        "magma",
+        "makefile",
+        "markdown",
+        "markup-templating",
+        "mata",
+        "matlab",
+        "maxscript",
+        "mel",
+        "mermaid",
+        "metafont",
+        "mizar",
+        "mongodb",
+        "monkey",
+        "moonscript",
+        "n1ql",
+        "n4js",
+        "nand2tetris-hdl",
+        "naniscript",
+        "nasm",
+        "neon",
+        "nevod",
+        "nginx",
+        "nim",
+        "nix",
+        "nsis",
+        "objectivec",
+        "ocaml",
+        "odin",
+        "opencl",
+        "openqasm",
+        "oz",
+        "parigp",
+        "parser",
+        "pascal",
+        "pascaligo",
+        "psl",
+        "pcaxis",
+        "peoplecode",
+        "perl",
+        "php",
+        "phpdoc",
+        "php-extras",
+        "plant-uml",
+        "plsql",
+        "powerquery",
+        "powershell",
+        "processing",
+        "prolog",
+        "promql",
+        "properties",
+        "protobuf",
+        "pug",
+        "puppet",
+        "pure",
+        "purebasic",
+        "purescript",
+        "python",
+        "qsharp",
+        "q",
+        "qml",
+        "qore",
+        "r",
+        "racket",
+        "cshtml",
+        "jsx",
+        "tsx",
+        "reason",
+        "regex",
+        "rego",
+        "renpy",
+        "rescript",
+        "rest",
+        "rip",
+        "roboconf",
+        "robotframework",
+        "ruby",
+        "rust",
+        "sas",
+        "sass",
+        "scss",
+        "scala",
+        "scheme",
+        "shell-session",
+        "smali",
+        "smalltalk",
+        "smarty",
+        "sml",
+        "solidity",
+        "solution-file",
+        "soy",
+        "sparql",
+        "splunk-spl",
+        "sqf",
+        "sql",
+        "squirrel",
+        "stan",
+        "stata",
+        "iecst",
+        "stylus",
+        "supercollider",
+        "swift",
+        "systemd",
+        "t4-templating",
+        "t4-cs",
+        "t4-vb",
+        "tap",
+        "tcl",
+        "tt2",
+        "textile",
+        "toml",
+        "tremor",
+        "turtle",
+        "twig",
+        "typescript",
+        "typoscript",
+        "unrealscript",
+        "uorazor",
+        "uri",
+        "v",
+        "vala",
+        "vbnet",
+        "velocity",
+        "verilog",
+        "vhdl",
+        "vim",
+        "visual-basic",
+        "warpscript",
+        "wasm",
+        "web-idl",
+        "wgsl",
+        "wiki",
+        "wolfram",
+        "wren",
+        "xeora",
+        "xml-doc",
+        "xojo",
+        "xquery",
+        "yaml",
+        "yang",
+        "zig"
+      ],
+      "enum_editable": true
+    },
+    {
+      "description": "Output directories for PrismJS assets.",
+      "key": "option.highlight.syntax.path"
+    },
+    {
+      "description": "Output directory for generated PrismJS CSS modules (themes/plugins).",
+      "key": "option.highlight.syntax.path.css",
+      "type": "path"
+    },
+    {
+      "description": "Output directory for generated PrismJS JavaScript modules (languages/plugins).",
+      "key": "option.highlight.syntax.path.js",
+      "type": "path"
+    },
+    {
+      "description": "Plugin inclusion settings for PrismJS syntax highlighting.",
+      "key": "option.highlight.syntax.plugin"
+    },
+    {
+      "description": "Enable/disable PrismJS plugin inclusion.",
+      "key": "option.highlight.syntax.plugin.enable"
+    },
+    {
+      "description": "List container for PrismJS plugin IDs to include in generated syntax assets.",
+      "key": "option.highlight.syntax.plugin.include",
+      "structure": {
+        "items_key": "option.highlight.syntax.plugin.include[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "List of PrismJS plugin ids to include. Dropdown values are sourced from local `node_modules/prismjs/components.json`, and custom text values are also allowed.",
+      "key": "option.highlight.syntax.plugin.include[]",
+      "type": "enum",
+      "enum": [
+        "line-highlight",
+        "line-numbers",
+        "show-invisibles",
+        "autolinker",
+        "wpd",
+        "custom-class",
+        "file-highlight",
+        "show-language",
+        "jsonp-highlight",
+        "highlight-keywords",
+        "remove-initial-line-feed",
+        "inline-color",
+        "previewers",
+        "autoloader",
+        "keep-markup",
+        "command-line",
+        "unescaped-markup",
+        "normalize-whitespace",
+        "data-uri-highlight",
+        "toolbar",
+        "copy-to-clipboard",
+        "download-button",
+        "match-braces",
+        "diff-highlight",
+        "filter-highlight-all",
+        "treeview"
+      ],
+      "enum_editable": true
+    },
+    {
+      "description": "Theme settings for PrismJS syntax highlighting. Any one of `theme.include`, `theme.bundle`, or `theme.default` can be set; missing values resolve by fallback chain `include -> bundle -> default -> prism`.",
+      "key": "option.highlight.syntax.theme"
+    },
+    {
+      "description": "Enable/disable PrismJS theme inclusion.",
+      "key": "option.highlight.syntax.theme.enable"
+    },
+    {
+      "description": "List container for PrismJS theme IDs to include in generated syntax assets. Legacy/canonical key: when only this key is set, `theme.bundle` and `theme.default` fall back from it.",
+      "key": "option.highlight.syntax.theme.include",
+      "structure": {
+        "items_key": "option.highlight.syntax.theme.include[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "Preferred default PrismJS theme id. If omitted, resolves from `theme.include[0]`, then `theme.bundle[0]`, then `prism`.",
+      "key": "option.highlight.syntax.theme.default",
+      "type": "enum",
+      "enum": [
+        "prism",
+        "prism-dark",
+        "prism-funky",
+        "prism-okaidia",
+        "prism-twilight",
+        "prism-coy",
+        "prism-solarizedlight",
+        "prism-tomorrow"
+      ],
+      "enum_editable": true
+    },
+    {
+      "description": "List of PrismJS theme ids to include. Dropdown values are sourced from local `node_modules/prismjs/components.json`, and custom text values are also allowed.",
+      "key": "option.highlight.syntax.theme.include[]",
+      "type": "enum",
+      "enum": [
+        "prism",
+        "prism-dark",
+        "prism-funky",
+        "prism-okaidia",
+        "prism-twilight",
+        "prism-coy",
+        "prism-solarizedlight",
+        "prism-tomorrow"
+      ],
+      "enum_editable": true
+    },
+    {
+      "description": "List container for PrismJS theme IDs to bundle into generated `prism.scss` / `prism.min.css`. If omitted, resolves from `theme.include`, then `theme.default`, then `prism`.",
+      "key": "option.highlight.syntax.theme.bundle",
+      "structure": {
+        "items_key": "option.highlight.syntax.theme.bundle[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "List of PrismJS theme ids to bundle into the generated main Prism stylesheet. Keep this smaller than `theme.include` when pages need many selectable themes without stacking them all into `prism.min.css`. This can be the only theme key set; `include`/`default` will fall back from it.",
+      "key": "option.highlight.syntax.theme.bundle[]",
+      "type": "enum",
+      "enum": [
+        "prism",
+        "prism-dark",
+        "prism-funky",
+        "prism-okaidia",
+        "prism-twilight",
+        "prism-coy",
+        "prism-solarizedlight",
+        "prism-tomorrow"
+      ],
+      "enum_editable": true
+    },
+    {
+      "description": "HTML processing options (e.g., minification).",
+      "key": "option.html",
+      "task_chain": [
+        "rebuild_html"
+      ]
+    },
+    {
+      "description": "HTML minification options applied during compilation.",
+      "key": "option.html.minify"
+    },
+    {
+      "description": "When minifying HTML, collapse unnecessary whitespace.",
+      "key": "option.html.minify.collapseWhitespace"
+    },
+    {
+      "description": "When minifying HTML, also minify inline <style> blocks / CSS.",
+      "key": "option.html.minify.minifyCSS"
+    },
+    {
+      "description": "When minifying HTML, also minify inline <script> blocks / JavaScript.",
+      "key": "option.html.minify.minifyJS"
+    },
+    {
+      "description": "When minifying HTML, remove HTML comments.",
+      "key": "option.html.minify.removeComments"
+    },
+    {
+      "description": "Image processing options (minification, interlacing, variants, watermarking).",
+      "key": "option.image",
+      "task_chain": [
+        "rebuild_image",
+        "rebuild_html"
+      ]
+    },
+    {
+      "description": "Interlace rule list (may be empty).",
+      "key": "option.image.interlace",
+      "structure": {
+        "items_key": "option.image.interlace[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "A single interlace rule entry.",
+      "key": "option.image.interlace[]"
+    },
+    {
+      "description": "Image minification options per optimizer/codec.",
+      "key": "option.image.minify"
+    },
+    {
+      "description": "Path filtering for image minification. Include is evaluated first, then exclude. Defaults to include '**/*' and exclude [].",
+      "key": "option.image.minify.filter"
+    },
+    {
+      "description": "Glob patterns to include for image minification checks. If omitted or empty, defaults to ['**/*'].",
+      "key": "option.image.minify.filter.include",
+      "structure": {
+        "items_key": "option.image.minify.filter.include[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "Single include glob pattern for image minification filtering.",
+      "key": "option.image.minify.filter.include[]",
+      "type": "path"
+    },
+    {
+      "description": "Glob patterns excluded from image minification after include matching.",
+      "key": "option.image.minify.filter.exclude",
+      "structure": {
+        "items_key": "option.image.minify.filter.exclude[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "Single exclude glob pattern for image minification filtering.",
+      "key": "option.image.minify.filter.exclude[]",
+      "type": "path"
+    },
+    {
+      "description": "Settings container for gifsicle GIF optimization.",
+      "key": "option.image.minify.gifsicle"
+    },
+    {
+      "description": "Image minification option 'interlaced' for gifsicle (GIF optimizer).",
+      "key": "option.image.minify.gifsicle.interlaced"
+    },
+    {
+      "description": "Settings container for jpegoptim JPEG optimization.",
+      "key": "option.image.minify.jpegoptim"
+    },
+    {
+      "description": "Image minification option 'progressive' for jpegoptim (JPEG optimizer).",
+      "key": "option.image.minify.jpegoptim.progressive"
+    },
+    {
+      "description": "Image minification option 'stripAll' for jpegoptim (JPEG optimizer).",
+      "key": "option.image.minify.jpegoptim.stripAll"
+    },
+    {
+      "description": "Settings container for mozjpeg JPEG encoding/optimization.",
+      "key": "option.image.minify.mozjpeg"
+    },
+    {
+      "description": "Image minification option 'progressive' for mozjpeg (JPEG encoder).",
+      "key": "option.image.minify.mozjpeg.progressive"
+    },
+    {
+      "description": "Image minification option 'quality' for mozjpeg (JPEG encoder).",
+      "key": "option.image.minify.mozjpeg.quality"
+    },
+    {
+      "description": "Settings container for optipng PNG optimization.",
+      "key": "option.image.minify.optipng"
+    },
+    {
+      "description": "Image minification option 'optimizationLevel' for optipng (PNG optimizer).",
+      "key": "option.image.minify.optipng.optimizationLevel"
+    },
+    {
+      "description": "Image minification option 'strip' for optipng (PNG optimizer).",
+      "key": "option.image.minify.optipng.strip"
+    },
+    {
+      "description": "Settings container for pngcrush PNG optimization.",
+      "key": "option.image.minify.pngcrush"
+    },
+    {
+      "description": "Image minification option 'reduce' for pngcrush (PNG optimizer).",
+      "key": "option.image.minify.pngcrush.reduce"
+    },
+    {
+      "description": "Image minification option 'strip' for pngcrush (PNG optimizer).",
+      "key": "option.image.minify.pngcrush.strip"
+    },
+    {
+      "description": "SVG optimization options via SVGO.",
+      "key": "option.image.minify.svgo"
+    },
+    {
+      "description": "SVGO plugin configuration list.",
+      "key": "option.image.minify.svgo.plugins",
+      "structure": {
+        "items_key": "option.image.minify.svgo.plugins[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "SVGO plugin list applied during SVG optimization.",
+      "key": "option.image.minify.svgo.plugins[]",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.image.minify.svgo.plugins[].active",
+          "option.image.minify.svgo.plugins[].name"
+        ]
+      }
+    },
+    {
+      "description": "Whether this SVGO plugin is enabled for SVG optimization.",
+      "key": "option.image.minify.svgo.plugins[].active"
+    },
+    {
+      "description": "SVGO plugin name for this plugin entry.",
+      "key": "option.image.minify.svgo.plugins[].name"
+    },
+    {
+      "description": "Maximum parallelism for image optimization. Null/undefined typically means auto/default.",
+      "key": "option.image.threads"
+    },
+    {
+      "description": "Defines generated image variants (e.g., thumbnails). Each rule matches source images and emits a suffixed resized copy. Watermark rules (if matched) are applied independently to each output image.",
+      "key": "option.image.variant",
+      "structure": {
+        "items_key": "option.image.variant[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "A single image variant rule entry.",
+      "key": "option.image.variant[]",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.image.variant[].pattern",
+          "option.image.variant[].size",
+          "option.image.variant[].suffix"
+        ]
+      }
+    },
+    {
+      "description": "Glob pattern used to select source images this variant rule applies to.",
+      "key": "option.image.variant[].pattern",
+      "type": "path"
+    },
+    {
+      "description": "Variant max bound. Number form is max pixels (applies to both width and height with fit-inside). String form is a percentage of the source image max side (e.g., '25%').",
+      "key": "option.image.variant[].size",
+      "structure": {
+        "kind": "union",
+        "oneOf": [
+          {
+            "kind": "number"
+          },
+          {
+            "kind": "string"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Suffix inserted before extension for generated variant files (default '.thumb').",
+      "key": "option.image.variant[].suffix"
+    },
+    {
+      "description": "Defines a list of **watermark rules**. Each rule specifies:",
+      "key": "option.image.watermark",
+      "structure": {
+        "items_key": "option.image.watermark[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "A single watermark rule entry.",
+      "key": "option.image.watermark[]",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.image.watermark[].layers",
+          "option.image.watermark[].pattern"
+        ]
+      }
+    },
+    {
+      "description": "List of layers applied by a watermark rule (composited in order).",
+      "key": "option.image.watermark[].layers",
+      "structure": {
+        "items_key": "option.image.watermark[].layers[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "A single watermark layer entry.",
+      "key": "option.image.watermark[].layers[]",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.image.watermark[].layers[].background",
+          "option.image.watermark[].layers[].gmOptions",
+          "option.image.watermark[].layers[].gravity",
+          "option.image.watermark[].layers[].image",
+          "option.image.watermark[].layers[].opacity",
+          "option.image.watermark[].layers[].resize"
+        ]
+      }
+    },
+    {
+      "description": "Background color/setting used when resizing/tiling watermark layers (e.g., 'none').",
+      "key": "option.image.watermark[].layers[].background"
+    },
+    {
+      "description": "Extra GraphicsMagick options passed to the composite step (e.g., -tile).",
+      "key": "option.image.watermark[].layers[].gmOptions"
+    },
+    {
+      "description": "Placement of a watermark layer on the target image (GraphicsMagick composite gravity; e.g., Center, SouthEast).",
+      "enum": [
+        "Center",
+        "top",
+        "TopLeft",
+        "TopRight",
+        "Bottom",
+        "BottomLeft",
+        "BottomRight",
+        "Left",
+        "Right",
+        "NorthWest",
+        "North",
+        "NorthEast",
+        "West",
+        "East",
+        "SouthWest",
+        "South",
+        "SouthEast"
+      ],
+      "key": "option.image.watermark[].layers[].gravity",
+      "type": "enum"
+    },
+    {
+      "description": "Project-relative path to the watermark image file used for a watermark layer.",
+      "key": "option.image.watermark[].layers[].image",
+      "type": "path"
+    },
+    {
+      "description": "Opacity (percentage) for the watermark layer when composited onto the target image.",
+      "key": "option.image.watermark[].layers[].opacity"
+    },
+    {
+      "description": "Scale factor applied to the watermark layer before compositing (1.0 = unchanged).",
+      "key": "option.image.watermark[].layers[].resize"
+    },
+    {
+      "description": "Glob pattern used to select which images a watermark rule applies to.",
+      "key": "option.image.watermark[].pattern",
+      "type": "path"
+    },
+    {
+      "description": "JavaScript processing options (e.g., minification).",
+      "key": "option.js",
+      "task_chain": [
+        "rebuild_javascript",
+        "rebuild_html"
+      ]
+    },
+    {
+      "description": "JavaScript minification options (typically passed to the minifier).",
+      "key": "option.js.minify"
+    },
+    {
+      "description": "Enable JavaScript compression optimizations during minification.",
+      "key": "option.js.minify.compress"
+    },
+    {
+      "description": "When minifying JS, preserve class names (useful for reflection/debugging).",
+      "key": "option.js.minify.keep_classnames"
+    },
+    {
+      "description": "When minifying JS, preserve function names (useful for stack traces/debugging).",
+      "key": "option.js.minify.keep_fnames"
+    },
+    {
+      "description": "Enable JavaScript identifier mangling during minification.",
+      "key": "option.js.minify.mangle"
+    },
+    {
+      "description": "Markdown processing options.",
+      "key": "option.markdown",
+      "task_chain": [
+        "rebuild_html"
+      ]
+    },
+    {
+      "description": "Project-relative directory that contains markdown/HTML include fragments used during compilation.",
+      "key": "option.markdown.include_path",
+      "type": "path"
+    },
+    {
+      "description": "Mirror rule list for copying arbitrary project files into output.",
+      "key": "option.mirrors",
+      "task_chain": [
+        "rebuild_mirror"
+      ],
+      "structure": {
+        "items_key": "option.mirrors[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "A single mirror rule entry.",
+      "key": "option.mirrors[]",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.mirrors[].destination",
+          "option.mirrors[].match_pattern",
+          "option.mirrors[].rename",
+          "option.mirrors[].rename[]",
+          "option.mirrors[].source"
+        ]
+      }
+    },
+    {
+      "description": "Project-relative source path (file or directory) to mirror into output.",
+      "key": "option.mirrors[].source",
+      "type": "path"
+    },
+    {
+      "description": "Project-relative destination directory (under out/) where mirrored files are copied.",
+      "key": "option.mirrors[].destination",
+      "type": "path"
+    },
+    {
+      "description": "Glob pattern(s) controlling which files under `source` are mirrored. Supports negated patterns starting with '!'.",
+      "key": "option.mirrors[].match_pattern",
+      "structure": {
+        "kind": "union",
+        "oneOf": [
+          {
+            "kind": "string"
+          },
+          {
+            "items_kind": "string",
+            "kind": "array"
+          }
+        ]
+      }
+    },
+    {
+      "description": "Optional rename rule(s) applied to mirrored relative paths. String form is a single-file target path; array form is rule-based.",
+      "key": "option.mirrors[].rename",
+      "structure": {
+        "kind": "union",
+        "oneOf": [
+          {
+            "kind": "string"
+          },
+          {
+            "items_key": "option.mirrors[].rename[]",
+            "kind": "array"
+          }
+        ]
+      }
+    },
+    {
+      "description": "A single mirror rename rule object used when `option.mirrors[].rename` is an array.",
+      "key": "option.mirrors[].rename[]",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.mirrors[].rename[].flags",
+          "option.mirrors[].rename[].pattern",
+          "option.mirrors[].rename[].regex",
+          "option.mirrors[].rename[].to"
+        ]
+      }
+    },
+    {
+      "description": "Glob pattern used to match source-relative paths for this rename rule.",
+      "key": "option.mirrors[].rename[].pattern"
+    },
+    {
+      "description": "Regex source string used in regex mode instead of glob mode.",
+      "key": "option.mirrors[].rename[].regex"
+    },
+    {
+      "description": "Regex flags (e.g., 'g', 'i') used with `regex` in regex mode.",
+      "key": "option.mirrors[].rename[].flags"
+    },
+    {
+      "description": "Target relative path/filename to rename matched paths to.",
+      "key": "option.mirrors[].rename[].to"
+    },
+    {
+      "description": "Navigation feature settings (breadcrumb, ToC, shared nav).",
+      "key": "option.navigation",
+      "task_chain": [
+        "rebuild_html"
+      ]
+    },
+    {
+      "description": "Breadcrumb injection settings.",
+      "key": "option.navigation.breadcrumb"
+    },
+    {
+      "description": "Base path prefix used when generating breadcrumb link URLs (e.g., to mount output under a subdirectory).",
+      "key": "option.navigation.breadcrumb.base_path",
+      "type": "path"
+    },
+    {
+      "description": "Enable/disable breadcrumb injection into generated HTML.",
+      "key": "option.navigation.breadcrumb.enable"
+    },
+    {
+      "description": "Optional ignore patterns for breadcrumb generation (null to use shared defaults: option.navigation.shared.ignore_patterns).",
+      "key": "option.navigation.breadcrumb.ignore_patterns",
+      "structure": {
+        "kind": "union",
+        "oneOf": [
+          {
+            "kind": "null",
+            "name": "shared defaults: option.navigation.shared.ignore_patterns"
+          },
+          {
+            "name": "custom list",
+            "items_key": "option.navigation.breadcrumb.ignore_patterns[]",
+            "kind": "array"
+          }
+        ]
+      },
+      "type": "path"
+    },
+    {
+      "description": "Paths/glob patterns excluded from breadcrumb generation.",
+      "key": "option.navigation.breadcrumb.ignore_patterns[]",
+      "type": "path"
+    },
+    {
+      "description": "HTML marker string that will be replaced with the generated breadcrumb HTML.",
+      "key": "option.navigation.breadcrumb.replace_text"
+    },
+    {
+      "description": "Label/content used for the breadcrumb root link (e.g., 'Home').",
+      "key": "option.navigation.breadcrumb.root_content"
+    },
+    {
+      "description": "Shared navigation settings used as defaults for other nav sections.",
+      "key": "option.navigation.shared"
+    },
+    {
+      "description": "List container for shared navigation ignore patterns.",
+      "key": "option.navigation.shared.ignore_patterns",
+      "structure": {
+        "items_key": "option.navigation.shared.ignore_patterns[]",
+        "kind": "array"
+      },
+      "type": "path"
+    },
+    {
+      "description": "Paths/patterns that should be excluded from shared navigation features (e.g., index/404/503 pages).",
+      "key": "option.navigation.shared.ignore_patterns[]",
+      "type": "path"
+    },
+    {
+      "description": "Table-of-contents (ToC) generation and injection settings.",
+      "key": "option.navigation.toc"
+    },
+    {
+      "description": "Whether the ToC UI should be collapsible (if the template/CSS supports it).",
+      "key": "option.navigation.toc.collapsible"
+    },
+    {
+      "description": "Maximum heading depth to include in the ToC (e.g., 4 includes up to h4).",
+      "key": "option.navigation.toc.depth"
+    },
+    {
+      "description": "Enable/disable table-of-contents (ToC) generation/injection.",
+      "key": "option.navigation.toc.enable"
+    },
+    {
+      "description": "HTML inserted at the start of each ToC entry label (e.g., a counter span).",
+      "key": "option.navigation.toc.header_prepend"
+    },
+    {
+      "description": "Selectors that receive header_prepend injection.",
+      "key": "option.navigation.toc.header_prepend_selectors"
+    },
+    {
+      "description": "CSS class that marks headings to be excluded from the ToC.",
+      "key": "option.navigation.toc.ignore_class"
+    },
+    {
+      "description": "Optional ignore patterns for ToC generation (null to use shared defaults).",
+      "key": "option.navigation.toc.ignore_patterns",
+      "structure": {
+        "kind": "union",
+        "oneOf": [
+          {
+            "kind": "null",
+            "name": "shared defaults: option.navigation.shared.ignore_patterns"
+          },
+          {
+            "name": "custom list",
+            "items_key": "option.navigation.toc.ignore_patterns[]",
+            "kind": "array"
+          }
+        ]
+      },
+      "type": "path"
+    },
+    {
+      "description": "Paths/glob patterns excluded from ToC generation.",
+      "key": "option.navigation.toc.ignore_patterns[]",
+      "type": "path"
+    },
+    {
+      "description": "HTML marker string that will be replaced with the generated ToC HTML.",
+      "key": "option.navigation.toc.replace_text"
+    },
+    {
+      "description": "Heading CSS selectors used to build the ToC (e.g., h1,h2,h3...).",
+      "key": "option.navigation.toc.selectors"
+    },
+    {
+      "description": "Optional HTML template used to wrap emoji clusters in visible ToC heading text. Use `*` as the emoji placeholder; null disables wrapping.",
+      "key": "option.navigation.toc.wrap_emoji",
+      "structure": {
+        "kind": "union",
+        "oneOf": [
+          {
+            "kind": "null",
+            "name": "disabled"
+          },
+          {
+            "kind": "string",
+            "name": "wrapper template"
+          }
+        ]
+      },
+      "presets": [
+        "<span class=\"emoji\">*</span>",
+        "<span class=\"toc__emoji\">*</span>"
+      ]
+    },
+    {
+      "description": "Packaging settings for producing deployable bundles (zip and/or directory).",
+      "key": "option.package",
+      "task_chain": []
+    },
+    {
+      "description": "HTML-driven packaging rules (e.g., ignore classes).",
+      "key": "option.package.html"
+    },
+    {
+      "description": "List container for HTML class names used by packaging exclusion rules (default includes \"no-package\").",
+      "key": "option.package.html.ignore_class",
+      "structure": {
+        "items_key": "option.package.html.ignore_class[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "HTML class names that indicate content/pages should be excluded from package outputs (default item: \"no-package\").",
+      "key": "option.package.html.ignore_class[]"
+    },
+    {
+      "description": "Top-level package ignore pattern list applied across package targets (unless disabled per path, default includes \"no-package\").",
+      "key": "option.package.ignore",
+      "task_chain": [
+        "rebuild_html"
+      ],
+      "structure": {
+        "kind": "array",
+        "items_key": "option.package.ignore[]"
+      }
+    },
+    {
+      "description": "Top-level ignore patterns applied when building package outputs (default item: \"no-package\").",
+      "key": "option.package.ignore[]",
+      "task_chain": [
+        "rebuild_html"
+      ],
+      "type": "path"
+    },
+    {
+      "description": "Controls which package output formats are produced.",
+      "key": "option.package.output"
+    },
+    {
+      "description": "When packaging, also emit an unpacked directory output.",
+      "key": "option.package.output.directory"
+    },
+    {
+      "description": "When packaging, emit a .zip archive output.",
+      "key": "option.package.output.zip"
+    },
+    {
+      "description": "List of package target definitions.",
+      "key": "option.package.targets",
+      "structure": {
+        "items_key": "option.package.targets[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "A single package target definition.",
+      "key": "option.package.targets[]",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.package.targets[].paths",
+          "option.package.targets[].paths[]",
+          "option.package.targets[].suffix"
+        ]
+      }
+    },
+    {
+      "description": "List of source-to-destination mappings for a package target.",
+      "key": "option.package.targets[].paths",
+      "structure": {
+        "items_key": "option.package.targets[].paths[]",
+        "kind": "array"
+      }
+    },
+    {
+      "description": "A single source-to-destination mapping for a package target.",
+      "key": "option.package.targets[].paths[]",
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.package.targets[].paths[].destination",
+          "option.package.targets[].paths[].ignore",
+          "option.package.targets[].paths[].ignore[]",
+          "option.package.targets[].paths[].no_ignore",
+          "option.package.targets[].paths[].source"
+        ]
+      }
+    },
+    {
+      "description": "Destination subdirectory inside the packaged output (zip or folder) where the source files are placed.",
+      "key": "option.package.targets[].paths[].destination",
+      "type": "path"
+    },
+    {
+      "description": "Per-path package ignore pattern list for this target mapping.",
+      "key": "option.package.targets[].paths[].ignore",
+      "task_chain": [
+        "rebuild_html"
+      ],
+      "structure": {
+        "kind": "array",
+        "items_key": "option.package.targets[].paths[].ignore[]"
+      }
+    },
+    {
+      "description": "Ignore patterns applied within a package path mapping.",
+      "key": "option.package.targets[].paths[].ignore[]",
+      "task_chain": [
+        "rebuild_html"
+      ],
+      "type": "path"
+    },
+    {
+      "description": "If true, disables ignore processing for this path mapping.",
+      "key": "option.package.targets[].paths[].no_ignore"
+    },
+    {
+      "description": "Project-relative source directory to include in a package target.",
+      "key": "option.package.targets[].paths[].source",
+      "type": "path"
+    },
+    {
+      "description": "Suffix appended to the package name for this target (useful for variants).",
+      "key": "option.package.targets[].suffix"
+    },
+    {
+      "description": "Path-related settings (ignore prefixes and sitemap exclusions).",
+      "key": "option.path",
+      "task_chain": [
+        "rebuild_html"
+      ]
+    },
+    {
+      "description": "Files/directories starting with this prefix are ignored by default (commonly '_' for partials).",
+      "key": "option.path.ignore_prefix"
+    },
+    {
+      "description": "List container for paths/slugs excluded from sitemap generation.",
+      "key": "option.path.ignore_sitemap",
+      "structure": {
+        "kind": "array",
+        "items_key": "option.path.ignore_sitemap[]"
+      }
+    },
+    {
+      "description": "Page slugs/paths to exclude from sitemap generation (commonly error pages like 404/503).",
+      "key": "option.path.ignore_sitemap[]",
+      "type": "path"
+    },
+    {
+      "description": "Token replacement settings (delimiters used for placeholder replacement).",
+      "key": "option.replace",
+      "task_chain": [
+        "rebuild_html"
+      ]
+    },
+    {
+      "description": "Delimiter strings used to detect replacement tokens in content.",
+      "key": "option.replace.delimiter",
+      "task_chain": [
+        "rebuild_html",
+        "rebuild_data"
+      ],
+      "structure": {
+        "kind": "union",
+        "oneOf": [
+          {
+            "kind": "string"
+          },
+          {
+            "kind": "object",
+            "properties_keys": [
+              "option.replace.delimiter.close",
+              "option.replace.delimiter.open"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "description": "Closing delimiter for config token replacement in templates/content (e.g., '...]]').",
+      "key": "option.replace.delimiter.close",
+      "task_chain": [
+        "rebuild_html",
+        "rebuild_data"
+      ]
+    },
+    {
+      "description": "Opening delimiter for config token replacement in templates/content (e.g., '[[...').",
+      "key": "option.replace.delimiter.open",
+      "task_chain": [
+        "rebuild_html",
+        "rebuild_data"
+      ]
+    },
+    {
+      "description": "Automatic title generation settings.",
+      "key": "option.title",
+      "task_chain": [
+        "rebuild_html"
+      ]
+    },
+    {
+      "description": "Rules for composing titles from directory + filename/header pieces.",
+      "key": "option.title.compose"
+    },
+    {
+      "description": "How many directory segments to include when composing titles. -1 typically means 'all'.",
+      "key": "option.title.compose.dirDepth"
+    },
+    {
+      "description": "String used to join directory segments when composing titles.",
+      "key": "option.title.compose.dirJoiner"
+    },
+    {
+      "description": "Order to arrange directory segments when composing automatic document titles ('leafToRoot' reverses the directory chain; 'rootToLeaf' keeps natural order).",
+      "enum": [
+        "leafToRoot",
+        "rootToLeaf"
+      ],
+      "key": "option.title.compose.dirOrder",
+      "type": "enum"
+    },
+    {
+      "description": "String used to join the directory-derived portion with the page title portion.",
+      "key": "option.title.compose.titleJoiner"
+    },
+    {
+      "description": "Rules for converting raw names (filenames/headers) into human-readable titles.",
+      "key": "option.title.name"
+    },
+    {
+      "description": "Case-handling rules used during title generation.",
+      "key": "option.title.name.case"
+    },
+    {
+      "description": "If true, split CamelCase/PascalCase words into separate words when generating titles.",
+      "key": "option.title.name.case.enforceCamel"
+    },
+    {
+      "description": "If true, preserve original casing from the source instead of enforcing title casing rules.",
+      "key": "option.title.name.case.preserve"
+    },
+    {
+      "description": "Separator/regex rules for splitting and joining title words.",
+      "key": "option.title.name.separator"
+    },
+    {
+      "description": "List container for separator characters converted to spaces before title formatting.",
+      "key": "option.title.name.separator.separatorsToSpace",
+      "structure": {
+        "kind": "array",
+        "items_key": "option.title.name.separator.separatorsToSpace[]"
+      }
+    },
+    {
+      "description": "Characters that should be replaced with spaces before title generation (e.g., '_' and '-').",
+      "key": "option.title.name.separator.separatorsToSpace[]"
+    },
+    {
+      "description": "List container for regex/string patterns stripped during title formatting.",
+      "key": "option.title.name.separator.stripPatterns",
+      "structure": {
+        "kind": "array",
+        "items_key": "option.title.name.separator.stripPatterns[]"
+      }
+    },
+    {
+      "description": "Regex/string patterns to strip from titles before final formatting.",
+      "key": "option.title.name.separator.stripPatterns[]"
+    },
+    {
+      "description": "Separator used to join words into the final title string.",
+      "key": "option.title.name.separator.wordJoinSeparator"
+    },
+    {
+      "description": "Regex used to split raw text into words for title generation.",
+      "key": "option.title.name.separator.wordSplitPattern",
+      "type": "string",
+      "format_kind": "regex-pattern",
+      "regex_mode": "split",
+      "preview_mode": "joined-words",
+      "preview_label": "Result",
+      "preview_joiner": " ",
+      "test_input": "my_page-title",
+      "parts": [
+        {
+          "value": "\\s",
+          "name": "whitespace"
+        },
+        {
+          "value": "\\d",
+          "name": "digit"
+        },
+        {
+          "value": "\\w",
+          "name": "word character"
+        },
+        {
+          "value": "_",
+          "name": "underscore"
+        },
+        {
+          "value": "\\-",
+          "name": "hyphen"
+        },
+        {
+          "value": "\\.",
+          "name": "dot"
+        },
+        {
+          "value": "[a-z]",
+          "name": "lowercase letter"
+        },
+        {
+          "value": "[A-Z]",
+          "name": "uppercase letter"
+        },
+        {
+          "value": "[0-9]",
+          "name": "digit range"
+        },
+        {
+          "value": ".",
+          "name": "any character"
+        },
+        {
+          "value": "*",
+          "name": "zero or more"
+        },
+        {
+          "value": "?",
+          "name": "optional"
+        },
+        {
+          "value": "+",
+          "name": "one or more"
+        },
+        {
+          "value": "^",
+          "name": "start anchor"
+        },
+        {
+          "value": "$",
+          "name": "end anchor"
+        },
+        {
+          "value": "(?:)",
+          "name": "non-capturing group"
+        },
+        {
+          "value": "()",
+          "name": "capturing group"
+        },
+        {
+          "value": "|",
+          "name": "alternation"
+        },
+        {
+          "value": "[\\s_\\-]+",
+          "name": "common separators"
+        },
+        {
+          "value": "[\\s_\\-.]+",
+          "name": "common separators with dot"
+        }
+      ],
+      "presets": [
+        {
+          "value": "[\\s_\\-]+",
+          "name": "space underscore hyphen"
+        },
+        {
+          "value": "[\\s_\\-.]+",
+          "name": "space underscore hyphen dot"
+        }
+      ]
+    },
+    {
+      "description": "Word-level casing rules used during title generation.",
+      "key": "option.title.name.word"
+    },
+    {
+      "description": "List container for words that should stay uppercase in generated titles.",
+      "key": "option.title.name.word.acronyms",
+      "structure": {
+        "kind": "array",
+        "items_key": "option.title.name.word.acronyms[]"
+      }
+    },
+    {
+      "description": "Acronyms that should remain uppercase when generating human-readable titles.",
+      "key": "option.title.name.word.acronyms[]"
+    },
+    {
+      "description": "List container for words that should stay lowercase in generated titles.",
+      "key": "option.title.name.word.lowercases",
+      "structure": {
+        "kind": "array",
+        "items_key": "option.title.name.word.lowercases[]"
+      }
+    },
+    {
+      "description": "Words that should remain lowercase in generated titles (unless first/last).",
+      "key": "option.title.name.word.lowercases[]"
+    },
+    {
+      "description": "List container for words that should keep exact casing in generated titles.",
+      "key": "option.title.name.word.propercases",
+      "structure": {
+        "kind": "array",
+        "items_key": "option.title.name.word.propercases[]"
+      }
+    },
+    {
+      "description": "Words that should use exact casing when generating titles (e.g., JavaScript).",
+      "key": "option.title.name.word.propercases[]"
+    },
+    {
+      "description": "Where automatic page titles come from: 'filename' uses the file name; 'header' uses the first <h1> in the HTML when present.",
+      "enum": [
+        "filename",
+        "header"
+      ],
+      "key": "option.title.source",
+      "type": "enum"
+    },
+    {
+      "description": "URL formatting settings (clean URLs, trailing slash).",
+      "key": "option.url",
+      "task_chain": [
+        "rebuild_html",
+        "rebuild_data"
+      ]
+    },
+    {
+      "description": "If true, generate clean URLs (omit the .html extension).",
+      "key": "option.url.clean"
+    },
+    {
+      "description": "If true, include a trailing slash on directory index URLs.",
+      "key": "option.url.trailing_slash"
+    },
+    {
+      "description": "Watch-mode debounce/delay settings for change detection, dependent rebuild triggering, and browser reload.",
+      "key": "option.watch",
+      "task_chain": []
+    },
+    {
+      "description": "Browsersync server settings for watch/browser tasks, including ports, HTTPS, and local TLS certificate file paths.",
+      "key": "option.browser",
+      "task_chain": []
+    },
+    {
+      "description": "Enable HTTPS for Browsersync local preview. Defaults to true; when key/cert are blank Browsersync uses its own self-signed certificate.",
+      "key": "option.browser.https",
+      "task_chain": []
+    },
+    {
+      "description": "Project-relative or absolute path to a PEM private key file for Browsersync HTTPS. Used only when both key and cert are provided.",
+      "key": "option.browser.key",
+      "task_chain": [],
+      "type": "path"
+    },
+    {
+      "description": "Project-relative or absolute path to a PEM certificate file for Browsersync HTTPS. Used only when both key and cert are provided.",
+      "key": "option.browser.cert",
+      "task_chain": [],
+      "type": "path"
+    },
+    {
+      "description": "Browser reload debounce/delay in milliseconds after changes are detected.",
+      "key": "option.watch.delay_browser",
+      "task_chain": []
+    },
+    {
+      "description": "Change-detection debounce/delay in milliseconds for watch mode event batching and follow-up dependent task scheduling.",
+      "key": "option.watch.delay_change",
+      "task_chain": []
+    },
+    {
+      "description": "Config-driven watch trigger rules. Each rule maps file match patterns and events to task ids.",
+      "key": "option.watch.triggers",
+      "task_chain": [],
+      "structure": {
+        "kind": "array",
+        "items_key": "option.watch.triggers[]"
+      }
+    },
+    {
+      "description": "Single watch trigger rule defining `match`, `events`, and `tasks`.",
+      "key": "option.watch.triggers[]",
+      "task_chain": [],
+      "structure": {
+        "kind": "object",
+        "properties_keys": [
+          "option.watch.triggers[].events",
+          "option.watch.triggers[].events[]",
+          "option.watch.triggers[].match",
+          "option.watch.triggers[].match[]",
+          "option.watch.triggers[].tasks",
+          "option.watch.triggers[].tasks[]"
+        ]
+      }
+    },
+    {
+      "description": "Glob/path patterns (project-relative or absolute) to match changed files for this trigger rule.",
+      "key": "option.watch.triggers[].match",
+      "task_chain": [],
+      "structure": {
+        "kind": "array",
+        "items_key": "option.watch.triggers[].match[]"
+      }
+    },
+    {
+      "description": "Single glob/path pattern for this watch trigger rule.",
+      "key": "option.watch.triggers[].match[]",
+      "task_chain": [],
+      "type": "string",
+      "format_kind": "glob-pattern",
+      "test_input": "in/LICENSE",
+      "preview_label": "Match",
+      "parts": [
+        {
+          "value": "*",
+          "name": "single segment"
+        },
+        {
+          "value": "**",
+          "name": "any nested path"
+        },
+        {
+          "value": "?",
+          "name": "single character"
+        },
+        {
+          "value": "**/*",
+          "name": "everything recursively"
+        },
+        {
+          "value": "*.html",
+          "name": "html files"
+        },
+        {
+          "value": "*.md",
+          "name": "markdown files"
+        },
+        {
+          "value": "*.json",
+          "name": "json files"
+        },
+        {
+          "value": "!**/node_modules/**",
+          "name": "negated exclude"
+        },
+        {
+          "value": "!**/.git/**",
+          "name": "exclude git paths"
+        },
+        {
+          "value": "**/*.md",
+          "name": "markdown files"
+        },
+        {
+          "value": "**/*.html",
+          "name": "html files recursively"
+        },
+        {
+          "value": "**/index.*",
+          "name": "index files"
+        },
+        {
+          "value": "in/**/*.html",
+          "name": "html under in/"
+        },
+        {
+          "value": "asset/**/*",
+          "name": "everything under asset/"
+        }
+      ]
+    },
+    {
+      "description": "Event filter for this trigger rule. Supported values: add, change, unlink, addDir, unlinkDir.",
+      "key": "option.watch.triggers[].events",
+      "task_chain": [],
+      "structure": {
+        "kind": "array",
+        "items_key": "option.watch.triggers[].events[]"
+      }
+    },
+    {
+      "description": "Single filesystem event name used to filter this trigger rule.",
+      "key": "option.watch.triggers[].events[]",
+      "task_chain": [],
+      "type": "enum",
+      "enum": [
+        "add",
+        "change",
+        "unlink",
+        "addDir",
+        "unlinkDir"
+      ]
+    },
+    {
+      "description": "Task ids to enqueue when this trigger rule matches (for example: build_html, rebuild_html).",
+      "key": "option.watch.triggers[].tasks",
+      "task_chain": [],
+      "structure": {
+        "kind": "array",
+        "items_key": "option.watch.triggers[].tasks[]"
+      }
+    },
+    {
+      "description": "Single task id to enqueue when this trigger rule matches.",
+      "key": "option.watch.triggers[].tasks[]",
+      "task_chain": [],
+      "type": "string",
+      "presets_kind": "task"
+    },
+    {
+      "description": "Required configuration section. Values here must be provided for correct site generation.",
+      "key": "require",
+      "task_chain": [
+        "rebuild_html",
+        "rebuild_data"
+      ]
+    },
+    {
+      "description": "Required site metadata used for URLs, titles, and generated tags.",
+      "key": "require.site",
+      "task_chain": [
+        "rebuild_html",
+        "rebuild_data"
+      ]
+    },
+    {
+      "description": "Default site title used for HTML <title> and metadata when generating pages.",
+      "key": "require.site.title"
+    },
+    {
+      "description": "Base URL of the website, used for canonical/og:url meta tags and sitemap absolute links.",
+      "key": "require.site.url"
+    }
+  ]
+}

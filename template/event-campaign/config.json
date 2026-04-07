@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "Event campaign starter for conferences, launches, webinars, and ticket-driven experiences.",
+      "color": "#c2410c",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your Event Team",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Event Name 2026",
+      "url": "https://www.example.com"
+    }
+  }
+}

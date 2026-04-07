@@ -1,21 +1,30 @@
 {
   "require": {
     "site": {
-      "url": "https://www.staticuswebsitecompiler.com"
+      "title": "Synticore Website Compiler - Default Config",
+      "url": "https://www.example.com"
     }
   },
-
   "option": {
     "brand": {
       "adjust": {
         "foreground": {
-          "alignment": { "x": "center", "y": "center" },
+          "alignment": {
+            "x": "center",
+            "y": "center"
+          },
           "blur": 0,
           "modulate": {}
         },
         "background": {
-          "alignment": { "x": "center", "y": "center" },
-          "apply": { "square": true, "wide": true },
+          "alignment": {
+            "x": "center",
+            "y": "center"
+          },
+          "apply": {
+            "square": true,
+            "wide": true
+          },
           "blur": 0,
           "modulate": {}
         }
@@ -47,41 +56,253 @@
         }
       }
     },
-
-    "minify": {
-      "js": {
+    "browser": {
+      "https": false,
+      "key": "",
+      "cert": ""
+    },
+    "config": {
+      "sort": false
+    },
+    "cache": {
+      "enable": true,
+      "filter": true,
+      "sort": true,
+      "store": true
+    },
+    "highlight": {
+      "syntax": {
+        "enable": false,
+        "generateImports": true,
+        "path": {
+          "css": "css/module",
+          "js": "js/module"
+        },
+        "theme": {
+          "enable": true,
+          "default": "prism",
+          "include": [
+            "prism"
+          ],
+          "bundle": [
+            "prism"
+          ]
+        },
+        "language": {
+          "enable": true,
+          "include": [ "html", "css", "javascript" ]
+        },
+        "plugin": {
+          "enable": true,
+          "include": [
+            "autolinker",
+            "copy-to-clipboard",
+            "data-uri-highlight",
+            "inline-color",
+            "line-numbers",
+            "match-braces",
+            "show-language"
+          ]
+        },
+        "live": {
+          "enable": false,
+          "path": "module/prism-live",
+          "include": [ "css", "javascript", "markup" ]
+        }
+      }
+    },
+    "html": {
+      "minify": {
+        "removeComments": true,
+        "collapseWhitespace": true,
+        "minifyCSS": true,
+        "minifyJS": true
+      }
+    },
+    "image": {
+      "interlace": [],
+      "minify": {
+        "filter": {
+          "include": [
+            "**/*"
+          ],
+          "exclude": []
+        },
+        "gifsicle": {
+          "interlaced": true
+        },
+        "jpegoptim": {
+          "progressive": true,
+          "stripAll": true
+        },
+        "mozjpeg": {
+          "quality": 75,
+          "progressive": true
+        },
+        "optipng": {
+          "optimizationLevel": 5,
+          "strip": "all"
+        },
+        "pngcrush":  {
+          "reduce": true,
+          "strip": true
+        },
+        "svgo": {
+          "plugins": [
+            {
+              "name": "removeViewBox",
+              "active": true
+            },
+            {
+              "name": "removeMetadata",
+              "active": true
+            },
+            {
+              "name": "removeDesc",
+              "active": true
+            },
+            {
+              "name": "removeTitle",
+              "active": true
+            },
+            {
+              "name": "removeUselessDefs",
+              "active": true
+            }
+          ]
+        }
+      },
+      "threads": null,
+      "variant": [],
+      "watermark": [
+        {
+          "pattern": "**/*.watermark.*",
+          "layers": [
+            {
+              "image": "brand/_watermark.png",
+              "gravity": "Center",
+              "opacity": 37.5,
+              "resize": 1.0,
+              "background": "none",
+              "gmOptions": "-tile"
+            }
+          ]
+        }
+      ]
+    },
+    "js": {
+      "minify": {
         "keep_classnames": false,
         "keep_fnames": false,
         "compress": true,
         "mangle": false
       }
     },
-
-    "package": {
-      "html": {
-        "ignore_class": ["package-development"]
+    "markdown": {
+      "include_path": "in/_html/markdown"
+    },
+    "mirrors": [],
+    "navigation": {
+      "breadcrumb": {
+        "base_path": "",
+        "enable": true,
+        "ignore_patterns": null,
+        "replace_text": "<!-- breadcrumb -->",
+        "root_content": "Home"
+      },
+      "shared": {
+        "ignore_patterns": ["index.html", "404.html", "503.html"]
+      },
+      "toc": {
+        "collapsible": false,
+        "depth": 4,
+        "enable": true,
+        "header_prepend": "<span class=\"counter\"></span>",
+        "header_prepend_selectors": "h2,h3,h4,h5,h6",
+        "ignore_class": "toc-ignore",
+        "ignore_patterns": null,
+        "replace_text": "<!-- toc -->",
+        "selectors": "h1,h2,h3,h4,h5,h6",
+        "wrap_emoji": null
       }
     },
-
+    "package": {
+      "html": {
+        "ignore_class": ["no-package"]
+      },
+      "ignore": ["no-package"],
+      "output": {
+        "directory": false,
+        "zip": true
+      },
+      "targets": [
+        {
+          "suffix": "",
+          "paths": [
+            {
+              "source": "out",
+              "destination": "",
+              "ignore": [],
+              "no_ignore": false
+            }
+          ]
+        }
+      ]
+    },
     "path": {
-      "ignore_nav":     ["index", "404"],
-      "ignore_package": ["example"],
-      "ignore_prefix":   "_",
+      "ignore_prefix": "_",
       "ignore_sitemap": ["404", "503"]
     },
-
-    "toc": {
-      "collapsible": false,
-      "depth":       4
+    "replace": {
+      "delimiter": {
+        "open": "[[",
+        "close": "]]"
+      }
     },
-
+    "title": {
+      "compose": {
+        "dirDepth": -1,
+        "dirOrder": "leafToRoot",
+        "dirJoiner": " - ",
+        "titleJoiner": " - "
+      },
+      "name": {
+        "word": {
+          "acronyms": [
+            "API", "CPU", "CSS", "DB", "DOM", "FAQ", "FTP", "GPU", "HTML", "HTTP",
+            "HTTPS", "ID", "IP", "JS", "JSON", "OS", "PDF", "RAM", "REST", "SQL",
+            "SSH", "SVG", "UI", "URL", "UUID", "UX", "XML", "2D", "3D"
+          ],
+          "lowercases": [
+            "a", "an", "and", "as", "at", "but", "by", "for", "from", "in", "into",
+            "like", "near", "nor", "of", "off", "on", "onto", "or", "out", "over",
+            "so", "the", "to", "up", "upon", "with", "yet"
+          ],
+          "propercases": [
+            "JavaScript", "Synticore"
+          ]
+        },
+        "case": {
+          "preserve": false,
+          "enforceCamel": true
+        },
+        "separator": {
+          "separatorsToSpace": [ "_", "-" ],
+          "stripPatterns": [],
+          "wordSplitPattern": "[\\s_\\-]+",
+          "wordJoinSeparator": " "
+        }
+      },
+      "source": "filename"
+    },
     "url": {
-      "html_extension": true
+      "clean": true,
+      "trailing_slash": true
     },
-
     "watch": {
       "delay_browser": 1250,
-      "delay_change": 750
+      "delay_change": 750,
+      "triggers": []
     }
   }
 }

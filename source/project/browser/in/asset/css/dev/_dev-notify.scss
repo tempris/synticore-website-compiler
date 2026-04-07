@@ -1,0 +1,82 @@
+@use './_modal' as modal;
+@use './_variable-font-icon/_synticore-dev-interface' as dev-interface-icon;
+
+// #__bs_notify__ element html, recorded here for reference:
+// ---------------------------------------------------------
+// <div id="__bs_notify__" style="display: block; padding: 15px; font-family: sans-serif; position: fixed; font-size: 0.9em; z-index: 9999; right: 0px; top: 0px; border-bottom-left-radius: 5px; background-color: rgb(27, 32, 50); margin: 0px; color: white; text-align: center; pointer-events: none;">Browsersync: connected</div>
+
+$bs-notify-fade-delay: 1.5s;
+$bs-notify-fade-duration: 0.5s;
+
+#__bs_notify__ {
+  // element-level styles, recorded here for reference:
+  // --------------------------------------------------
+  // display: block;
+  // padding: 15px;
+  // font-family: sans-serif;
+  // position: fixed;
+  // font-size: 0.9em;
+  // z-index: 9999;
+  // right: 0px;
+  // top: 0px;
+  // border-bottom-left-radius: 5px;
+  // background-color: rgb(27, 32, 50);
+  // margin: 0px;
+  // color: white;
+  // text-align: center;
+  // pointer-events: none;
+
+  left: 0px;
+  right: initial !important;
+  border-radius: 1rem !important;
+  background-color: rgba(0, 96, 0, 0.625) !important; // rgba(255, 255, 0, 0.375)
+
+  @include modal.modal-surface(
+    rgba(0, 255, 0, 0.5),
+    0 0.65rem 1.6rem var(--synticore-dev-shadow)
+  );
+
+  line-height: 0px;
+  font-size: 0px !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0.75rem !important;
+  animation: bs-notify-fade $bs-notify-fade-duration linear $bs-notify-fade-delay forwards;
+
+  z-index: 2147483648 !important;
+  
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  &::before {
+    content: "#{dev-interface-icon.$font-icon--synticore-dev-interface--synticore}\A Synticore Browser";
+    font-family: 'font-icon--synticore-dev-interface', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1rem;
+    display: block;
+    line-height: 1.5em;
+
+    white-space: pre-line;
+
+    padding-bottom: 0.5em;
+    border-bottom: modal.$modal-border-width solid rgba(255, 255, 255, 0.375);
+    margin-bottom: 0.5em;
+  }
+
+  &::after {
+    content: "Connected";
+    font-size: 1rem;
+    display: block;
+    line-height: 1.5em;
+    white-space: pre-line;
+  }
+}
+
+@keyframes bs-notify-fade {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(modal.$modal-blur);
+  }
+
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0rem);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "id": "basic",
+  "label": "Basic",
+  "path": "basic",
+  "description": "General marketing/site starter with homepage, error pages, shared frame partials, baseline SCSS, JS entry, and favicon/manifest basics."
+}

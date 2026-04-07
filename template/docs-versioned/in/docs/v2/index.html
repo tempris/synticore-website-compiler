@@ -1,0 +1,48 @@
+@@include('_html/frame/top.html', { "title": "Docs v2" })
+
+<section class="hero">
+  <p class="eyebrow">Current Version</p>
+  <h1>Documentation v2</h1>
+  <p class="lead">Latest docs with updated APIs, examples, and migration notes from v1.</p>
+</section>
+
+<section class="docs-layout">
+  <aside class="docs-sidebar">
+    <h2>v2 Contents</h2>
+    <nav aria-label="v2 docs navigation">
+      <a href="#quickstart">Quickstart</a>
+      <a href="#authentication">Authentication</a>
+      <a href="#sdk">SDK Example</a>
+      <a href="#migration">Migration from v1</a>
+    </nav>
+  </aside>
+
+  <div class="docs-main">
+    <article id="quickstart" class="doc-card">
+      <h2>Quickstart</h2>
+      <p>Document install and setup flow for new users.</p>
+      <pre><code>npm install your-package</code></pre>
+    </article>
+
+    <article id="authentication" class="doc-card">
+      <h2>Authentication</h2>
+      <p>Describe API keys, OAuth, tokens, and local development setup.</p>
+    </article>
+
+    <article id="sdk" class="doc-card">
+      <h2>SDK Example</h2>
+      <pre><code>import { Client } from 'your-package';</code></pre>
+    </article>
+
+    <article id="migration" class="doc-card">
+      <h2>Migration from v1</h2>
+      <ul>
+        <li>Changed option names</li>
+        <li>Updated default behavior</li>
+        <li>Deprecated modules and replacements</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+@@include('_html/frame/bottom.html')

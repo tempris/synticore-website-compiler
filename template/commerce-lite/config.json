@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "A focused product catalog starter for small shops, specialty goods, and quote-based ecommerce.",
+      "color": "#0b5cab",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your Store Name",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Your Store Name",
+      "url": "https://www.example.com"
+    }
+  }
+}

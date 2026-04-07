@@ -1,0 +1,44 @@
+{
+    "require": {
+        "site": {
+            "title": "Synticore Website Compiler [[AUTOMATIC_VERSION]]",
+            "url": "https://example.invalid/gui"
+        }
+    },
+    "option": {
+        "highlight": {
+            "syntax": {
+                "enable": true,
+                "theme": {
+                    "enable": false
+                },
+                "language": {
+                    "include": [
+                        "bash",
+                        "css",
+                        "html",
+                        "javascript",
+                        "json",
+                        "sass",
+                        "scss",
+                        "powershell"
+                    ]
+                },
+                "plugin": {
+                    "enable": true,
+                    "include": [
+                        "toolbar",
+                        "show-language"
+                    ]
+                }
+            }
+        }
+    },
+    "custom": {
+        "brand": {
+            "slogan": "Browser-based project launcher, task runner, and config editor.",
+            "color": "#2d6ea3",
+            "copyright_years": 2026
+        }
+    }
+}

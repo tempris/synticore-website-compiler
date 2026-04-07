@@ -1,0 +1,122 @@
+{
+  "config": {
+    "../config.json": {
+      "signature": "47d71a25133ce094ad3b6edf2a156dd1111771a30746072708448775acc919e2"
+    }
+  },
+  "font_icon": {
+    "asset/font-icon/synticore-dev-interface/arrow-down.svg": {
+      "signature": "bdfbc3347f4f068cd42462d07910892754ab8ad69de33685e086751c64caec82"
+    },
+    "asset/font-icon/synticore-dev-interface/browsersync-f24747.svg": {
+      "signature": "336ff60aac757bcc0e79d6707c09ce28bfe075ef015f8258a3c2484a5e9fdfb0"
+    },
+    "asset/font-icon/synticore-dev-interface/code.svg": {
+      "signature": "6ea2a606f940107e4f5827c888247b1375b9944b946cafc47070b9f4573f99d6"
+    },
+    "asset/font-icon/synticore-dev-interface/copy.svg": {
+      "signature": "a0760ed0c895a6a345ba994199a220bde60d75c3fbc2d2d210105460175d9579"
+    },
+    "asset/font-icon/synticore-dev-interface/external.svg": {
+      "signature": "466af6ad8458883b85222573c5a69046671ed3201c1dc91b2e38b62ea4f03a6b"
+    },
+    "asset/font-icon/synticore-dev-interface/eye.svg": {
+      "signature": "5c6d32d992cd94822f9fba59d7d1df1f415dae0974117e50560e9eab6a4dbbab"
+    },
+    "asset/font-icon/synticore-dev-interface/grid.svg": {
+      "signature": "e8482c02802de8ed0ca5ed93e9be7a8e2b37f7c384162c263d0204458fc55d17"
+    },
+    "asset/font-icon/synticore-dev-interface/grip.svg": {
+      "signature": "9d6c96fd4f1cc1185fe285a350a2757cbdc9b2d878f0541d605b1ceb97005820"
+    },
+    "asset/font-icon/synticore-dev-interface/hand-left.svg": {
+      "signature": "006ba206c567e1b1a4266f9a26372486b75a1e728af856d3bb337e582521d241"
+    },
+    "asset/font-icon/synticore-dev-interface/information.svg": {
+      "signature": "2ec4978bf0fcce9b63bf58345c1db843d8c60976d21725d733af3b0bff3395c7"
+    },
+    "asset/font-icon/synticore-dev-interface/log-error.svg": {
+      "signature": "ba39d554bf55bd208655d1c041b51d0c8eef8d42849402ecb48b556083e512b4"
+    },
+    "asset/font-icon/synticore-dev-interface/log-info.svg": {
+      "signature": "2ec4978bf0fcce9b63bf58345c1db843d8c60976d21725d733af3b0bff3395c7"
+    },
+    "asset/font-icon/synticore-dev-interface/log-log.svg": {
+      "signature": "a6fa73d3cd66cb71e46e45eb3f37512dbd43cc12f1b5184188c64eac336c8e36"
+    },
+    "asset/font-icon/synticore-dev-interface/log-warn.svg": {
+      "signature": "dffcaf4aa28b3f0572fc1da83544c149926826a52a3765350db5a712365269da"
+    },
+    "asset/font-icon/synticore-dev-interface/magnifying-glass.svg": {
+      "signature": "cdb54a2da69112ed4a088fa52aa95fc127f0b65b89d1bf70be4dcb06f91ff7ad"
+    },
+    "asset/font-icon/synticore-dev-interface/memory-card.svg": {
+      "signature": "d9f2f053d234c8d20b69ebb87ea4d1a44c50e9de34aaff922e114484fdc8b239"
+    },
+    "asset/font-icon/synticore-dev-interface/switches.svg": {
+      "signature": "4db157ee84b588b422e661835021e4f2450e9c3cf1a329f88118682a4356a572"
+    },
+    "asset/font-icon/synticore-dev-interface/synticore-5599ff.svg": {
+      "signature": "28b77ac1fb0b8ae63e80726378829bd33b7b7182eb8a9a250958708e3d80e3e9"
+    },
+    "asset/font-icon/synticore-dev-interface/temperature.svg": {
+      "signature": "f4acf3bffef365fcdc3d3fdadc2e865938a9866b270b1d36a5241f2affa19069"
+    },
+    "asset/font-icon/synticore-dev-interface/tools.svg": {
+      "signature": "882b9c60a8067537d6d98c6d9ef6a222e933b1cec75cfb2338f0844891dabf9b"
+    },
+    "asset/font-icon/synticore-dev-interface/trash.svg": {
+      "signature": "19d0e697c69339467e58b3884cc3775842f32d8cf3531e18a5e26a1efec77ba4"
+    }
+  },
+  "html": {
+    "_html/frame/bottom.html": {
+      "signature": "f08c086565e28b2c612dee255c153649b69ce620186fb4f36bb99ab78cc07881"
+    },
+    "_html/frame/top.html": {
+      "signature": "7ab34c55daf4055d4c106ae06f3896037ec70761c0b6cbf584f67c1ccad76d64"
+    },
+    "404.html": {
+      "signature": "087eb70e8f2766846ed31bb91b5a709be277cb133ac967e6f4073e3f5a552bb3"
+    },
+    "console-playground.html": {
+      "signature": "7834293caa0971d5d992b56ae930c793f294eff5a8769e37748846fc068bce5e"
+    },
+    "dev-panel.html": {
+      "signature": "2b3c6a1a4d4ba475e030bf6d2338906776d1c347ecf9e85e7b7f948419a03de7"
+    },
+    "index.html": {
+      "signature": "4d4fe10d91d7d8e38772ba8bd792f0e509345ab4bb88123539a88b2e46cec736"
+    }
+  },
+  "image": {
+    "asset/image/interface/grip.svg": {
+      "signature": "9d6c96fd4f1cc1185fe285a350a2757cbdc9b2d878f0541d605b1ceb97005820"
+    }
+  },
+  "javascript": {
+    "asset/js/dev-overlay.js": {
+      "signature": "32511ee725a9ecb96a8509c1552af993c5a589efac7c536b80e96528fa151d72"
+    }
+  },
+  "stylesheet": {
+    "asset/css/content/404.scss": {
+      "signature": "0e6dd567d2ec15170456f4df7eecdb3ccbb8d31fcf1697a167ffd95e2bfe8f27"
+    },
+    "asset/css/content/console-playground.scss": {
+      "signature": "ec7a23fc55e95a1e5b18b995c6a9541b92900a77237fbe5ecaac57b3886432fe"
+    },
+    "asset/css/dev/browsersync.scss": {
+      "signature": "ae80499d18f05e6a7629be78a8ad1d6b2c786ea6a4339276065fd5981c2b5dab"
+    },
+    "asset/css/dev/dev-page.scss": {
+      "signature": "4119da181ef657ff9811ae7ad8458a3512e453210fb9bd8b8f4d1241e4adc97a"
+    },
+    "asset/css/dev/dev-panel.scss": {
+      "signature": "d1c99a6b726e21380c6a1473ffe5804efac71b00e22053d1fd2411f119858a03"
+    },
+    "asset/css/style.scss": {
+      "signature": "50b06834c8fa81c8a0a1bf52026fedb293087cbe9ecdadc95f9023d0e1e032d8"
+    }
+  }
+}

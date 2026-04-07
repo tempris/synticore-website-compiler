@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="date=no">
+<meta name="format-detection" content="address=no">
+<meta name="format-detection" content="email=no">
+
+<meta name="HandheldFriendly" content="true" />
+<meta name="theme-color" content="[[CONFIG_CUSTOM_BRAND_COLOR]]"/>
+
+@@if (context.title) {
+  <title>@@title - [[CONFIG_REQUIRE_SITE_TITLE]]</title>
+  <meta property="og:site_name" content="@@title - [[CONFIG_REQUIRE_SITE_TITLE]]"/>
+  <meta property="og:title" content="@@title - [[CONFIG_REQUIRE_SITE_TITLE]]"/>
+}
+@@else {
+  <title>[[AUTOMATIC_TITLE_FULL]]</title>
+  <meta property="og:site_name" content="[[AUTOMATIC_TITLE_FULL]]"/>
+  <meta property="og:title" content="[[AUTOMATIC_TITLE_FULL]]"/>
+}
+
+<meta name="description" content="[[CONFIG_CUSTOM_BRAND_SLOGAN]]">
+<link rel="canonical" href="[[AUTOMATIC_PAGE_URL]]"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="[[AUTOMATIC_PAGE_URL]]"/>
+<meta property="og:description" content="[[CONFIG_CUSTOM_BRAND_SLOGAN]]"/>
+<meta property="og:image" content="/asset/image/favicon/pagethumb.png"/>
+
+<link rel="image_src" href="/asset/image/favicon/pagethumb.png" />
+<link rel="manifest" href="/manifest.webmanifest">
+
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57"   href="/asset/image/favicon/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60"   href="/asset/image/favicon/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72"   href="/asset/image/favicon/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76"   href="/asset/image/favicon/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/asset/image/favicon/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/asset/image/favicon/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/asset/image/favicon/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/asset/image/favicon/apple-touch-icon-152x152.png">
+
+<meta name="msapplication-TileColor" content="[[CONFIG_CUSTOM_BRAND_COLOR]]">
+<meta name="msapplication-TileImage" content="/asset/image/favicon/mstile-144x144.png">
+<meta name="msapplication-config" content="browserconfig.xml" />
+
+<link rel="stylesheet" href="/asset/css/style.min.css?v=[[AUTOMATIC_FILE_CHECKSUM(/asset/css/style.min.css)]]">

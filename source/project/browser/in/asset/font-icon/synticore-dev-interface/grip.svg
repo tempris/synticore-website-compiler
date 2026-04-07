@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="500"
+   height="500"
+   viewBox="0 0 30 30"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="drag.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.91875"
+     inkscape:cx="399.45578"
+     inkscape:cy="399.45578"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="1671"
+     inkscape:window-y="1071"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" />
+  <title
+     id="title1">menu-hamburger-solid</title>
+  <path
+     id="rect1"
+     style="fill:#000000;fill-rule:evenodd;stroke-width:0.0498305;-inkscape-stroke:none"
+     d="M 0 0 L 0 6 L 6 6 L 6 0 L 0 0 z M 12 0 L 12 6 L 18 6 L 18 0 L 12 0 z M 24 0 L 24 6 L 30 6 L 30 0 L 24 0 z M 0 12 L 0 18 L 6 18 L 6 12 L 0 12 z M 12 12 L 12 18 L 18 18 L 18 12 L 12 12 z M 24 12 L 24 18 L 30 18 L 30 12 L 24 12 z M 0 24 L 0 30 L 6 30 L 6 24 L 0 24 z M 12 24 L 12 30 L 18 30 L 18 24 L 12 24 z M 24 24 L 24 30 L 30 30 L 30 24 L 24 24 z " />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>menu-hamburger-solid</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

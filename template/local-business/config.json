@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "Reliable local service with clear pricing, responsive scheduling, and dependable results.",
+      "color": "#1f6b5f",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Your Business Name",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Your Business Name",
+      "url": "https://www.example.com"
+    }
+  }
+}

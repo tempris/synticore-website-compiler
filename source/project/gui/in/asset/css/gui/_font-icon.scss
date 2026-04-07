@@ -1,0 +1,375 @@
+@use '../_variable-font-icon/_interface' as interface-icon;
+
+@font-face {
+    font-family: 'font-icon--interface';
+    src: url('../font-icon/interface/font-icon--interface.eot');
+    src:
+        url('../font-icon/interface/font-icon--interface.eot?#iefix') format('embedded-opentype'),
+        local('font-icon--interface'),
+        url('../font-icon/interface/font-icon--interface.woff2') format('woff2'),
+        url('../font-icon/interface/font-icon--interface.woff') format('woff'),
+        url('../font-icon/interface/font-icon--interface.ttf') format('truetype'),
+        url('../font-icon/interface/font-icon--interface.svg#font-icon--interface') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.app-shell {
+    --font-icon-checkbox-mix: #{interface-icon.$font-icon--interface--checkbox-mix};
+    --font-icon-checkbox-off: #{interface-icon.$font-icon--interface--checkbox-off};
+    --font-icon-checkbox-on: #{interface-icon.$font-icon--interface--checkbox-on};
+
+    [class^='font-icon--interface--'],
+    [class*=' font-icon--interface--'] {
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1.5;
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    [class^='font-icon--interface--']::before,
+    [class*=' font-icon--interface--']::before {
+        display: inline-block;
+        font-family: 'font-icon--interface';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1.5;
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .font-icon--interface--add::before {
+        content: interface-icon.$font-icon--interface--add;
+    }
+
+    .font-icon--interface--book::before {
+        content: interface-icon.$font-icon--interface--book;
+    }
+
+    .font-icon--interface--book-dev::before {
+        content: interface-icon.$font-icon--interface--book-dev;
+    }
+
+    .font-icon--interface--bookmark::before {
+        content: interface-icon.$font-icon--interface--bookmark;
+    }
+
+    .font-icon--interface--tag::before {
+        content: interface-icon.$font-icon--interface--tag;
+    }
+
+    .font-icon--interface--arrow-down::before {
+        content: interface-icon.$font-icon--interface--arrow-down;
+    }
+
+    .font-icon--interface--checkbox-mix::before {
+        content: interface-icon.$font-icon--interface--checkbox-mix;
+    }
+
+    .font-icon--interface--checkbox-off::before {
+        content: interface-icon.$font-icon--interface--checkbox-off;
+    }
+
+    .font-icon--interface--checkbox-on::before {
+        content: interface-icon.$font-icon--interface--checkbox-on;
+    }
+
+    .font-icon--interface--close::before {
+        content: interface-icon.$font-icon--interface--close;
+    }
+
+    .font-icon--interface--clock::before {
+        content: interface-icon.$font-icon--interface--clock;
+    }
+
+    .font-icon--interface--code::before {
+        content: interface-icon.$font-icon--interface--code;
+    }
+
+    .font-icon--interface--coin::before {
+        content: interface-icon.$font-icon--interface--coin;
+    }
+
+    .font-icon--interface--copy::before {
+        content: interface-icon.$font-icon--interface--copy;
+    }
+
+    .font-icon--interface--download::before {
+        content: interface-icon.$font-icon--interface--download;
+    }
+
+    .font-icon--interface--external::before {
+        content: interface-icon.$font-icon--interface--external;
+    }
+
+    .font-icon--interface--eye::before {
+        content: interface-icon.$font-icon--interface--eye;
+    }
+
+    .font-icon--interface--eyedrop::before {
+        content: interface-icon.$font-icon--interface--eyedrop;
+    }
+
+    .font-icon--interface--radio-off::before {
+        content: interface-icon.$font-icon--interface--radio-off;
+    }
+
+    .font-icon--interface--radio-on::before {
+        content: interface-icon.$font-icon--interface--radio-on;
+    }
+
+    .font-icon--interface--flask::before {
+        content: interface-icon.$font-icon--interface--flask;
+    }
+
+    .font-icon--interface--floppy-disk::before {
+        content: interface-icon.$font-icon--interface--floppy-disk;
+    }
+
+    .font-icon--interface--gear::before {
+        content: interface-icon.$font-icon--interface--gear;
+    }
+
+    .font-icon--interface--folder-open::before {
+        content: interface-icon.$font-icon--interface--folder-open;
+    }
+
+    .font-icon--interface--flag::before {
+        content: interface-icon.$font-icon--interface--flag;
+    }
+
+    .font-icon--interface--folder::before {
+        content: interface-icon.$font-icon--interface--folder;
+    }
+
+    .font-icon--interface--file::before {
+        content: interface-icon.$font-icon--interface--file;
+    }
+
+    .font-icon--interface--grid::before {
+        content: interface-icon.$font-icon--interface--grid;
+    }
+
+    .font-icon--interface--hammer::before {
+        content: interface-icon.$font-icon--interface--hammer;
+    }
+
+    .font-icon--interface--hand-left::before {
+        content: interface-icon.$font-icon--interface--hand-left;
+    }
+
+    .font-icon--interface--home::before {
+        content: interface-icon.$font-icon--interface--home;
+    }
+
+    .font-icon--interface--information::before {
+        content: interface-icon.$font-icon--interface--information;
+    }
+
+    .font-icon--interface--link::before {
+        content: interface-icon.$font-icon--interface--link;
+    }
+
+    .font-icon--interface--id-card::before {
+        content: interface-icon.$font-icon--interface--id-card;
+    }
+
+    .font-icon--interface--light-bulb::before {
+        content: interface-icon.$font-icon--interface--light-bulb;
+    }
+
+    .font-icon--interface--list::before {
+        content: interface-icon.$font-icon--interface--list;
+    }
+
+    .font-icon--interface--lock-open::before {
+        content: interface-icon.$font-icon--interface--lock-open;
+    }
+
+    .font-icon--interface--log-begin::before {
+        content: interface-icon.$font-icon--interface--log-begin;
+    }
+
+    .font-icon--interface--log-debug::before {
+        content: interface-icon.$font-icon--interface--log-debug;
+    }
+
+    .font-icon--interface--log-detail::before {
+        content: interface-icon.$font-icon--interface--log-detail;
+    }
+
+    .font-icon--interface--log-end::before {
+        content: interface-icon.$font-icon--interface--log-end;
+    }
+
+    .font-icon--interface--log-error::before {
+        content: interface-icon.$font-icon--interface--log-error;
+    }
+
+    .font-icon--interface--log-fatal::before {
+        content: interface-icon.$font-icon--interface--log-fatal;
+    }
+
+    .font-icon--interface--log-info::before {
+        content: interface-icon.$font-icon--interface--log-info;
+    }
+
+    .font-icon--interface--log-init::before {
+        content: interface-icon.$font-icon--interface--log-init;
+    }
+
+    .font-icon--interface--log-log::before {
+        content: interface-icon.$font-icon--interface--log-log;
+    }
+
+    .font-icon--interface--log-notice::before {
+        content: interface-icon.$font-icon--interface--log-notice;
+    }
+
+    .font-icon--interface--log-shutdown::before {
+        content: interface-icon.$font-icon--interface--log-shutdown;
+    }
+
+    .font-icon--interface--log-success::before {
+        content: interface-icon.$font-icon--interface--log-success;
+    }
+
+    .font-icon--interface--log-trace::before {
+        content: interface-icon.$font-icon--interface--log-trace;
+    }
+
+    .font-icon--interface--log-warn::before {
+        content: interface-icon.$font-icon--interface--log-warn;
+    }
+
+    .font-icon--interface--magnifying-glass::before {
+        content: interface-icon.$font-icon--interface--magnifying-glass;
+    }
+
+    .font-icon--interface--moon::before {
+        content: interface-icon.$font-icon--interface--moon;
+    }
+
+    .font-icon--interface--network::before {
+        content: interface-icon.$font-icon--interface--network;
+    }
+
+    .font-icon--interface--package::before {
+        content: interface-icon.$font-icon--interface--package;
+    }
+
+    .font-icon--interface--lock::before {
+        content: interface-icon.$font-icon--interface--lock;
+    }
+
+    .font-icon--interface--reset::before {
+        content: interface-icon.$font-icon--interface--reset;
+    }
+
+    .font-icon--interface--sun::before {
+        content: interface-icon.$font-icon--interface--sun;
+    }
+
+    .font-icon--interface--switches::before {
+        content: interface-icon.$font-icon--interface--switches;
+    }
+
+    .font-icon--interface--synticore::before {
+        content: interface-icon.$font-icon--interface--synticore;
+    }
+
+    .font-icon--interface--toolbox::before {
+        content: interface-icon.$font-icon--interface--toolbox;
+    }
+
+    .font-icon--interface--trashcan::before {
+        content: interface-icon.$font-icon--interface--trashcan;
+    }
+
+    .font-icon--interface--trashcan-open::before {
+        content: interface-icon.$font-icon--interface--trashcan-open;
+    }
+
+    .font-icon--interface--window::before {
+        content: interface-icon.$font-icon--interface--window;
+    }
+
+    .font-icon--interface--wrench::before {
+        content: interface-icon.$font-icon--interface--wrench;
+    }
+
+    .font-icon--color--interface--synticore {
+        color: interface-icon.$font-icon--color--interface--synticore !important;
+    }
+
+    .gui-icon-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.55rem;
+        font-weight: 700;
+    }
+
+    .gui-icon-label::before {
+        display: inline-block;
+        font-family: 'font-icon--interface';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1.5;
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .gui-icon-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+    }
+
+    .gui-icon-button::before {
+        display: inline-block;
+        font-family: 'font-icon--interface';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1.5;
+        // font-size: 1rem;
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .task-group--general .task-group__title::before {
+        content: interface-icon.$font-icon--interface--grid;
+    }
+
+    .task-group--build .task-group__title::before,
+    .task-group--rebuild .task-group__title::before {
+        content: interface-icon.$font-icon--interface--hammer;
+    }
+
+    .task-group--reset .task-group__title::before {
+        content: interface-icon.$font-icon--interface--reset;
+    }
+
+    .task-group--update .task-group__title::before,
+    .task-group--maintenance .task-group__title::before {
+        content: interface-icon.$font-icon--interface--wrench;
+    }
+
+    .task-group--test .task-group__title::before {
+        content: interface-icon.$font-icon--interface--flask;
+    }
+}

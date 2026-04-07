@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   fill="#000000"
+   width="800px"
+   height="800px"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="log-success.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect3"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,192,0,1 @ F,0,0,1,0,192,0,1 @ F,0,0,1,0,192,0,1 @ F,0,0,1,0,192,0,1"
+       radius="192"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect2"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,1,1,0,42,0,1 @ F,0,0,1,0,0,0,1 @ F,0,1,1,0,42,0,1 @ F,0,1,1,0,42,0,1 @ F,0,1,1,0,42,0,1 @ F,0,1,1,0,42,0,1"
+       radius="42"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="true"
+       hide_knots="false" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.68059028"
+     inkscape:cx="271.82287"
+     inkscape:cy="505.4436"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="1671"
+     inkscape:window-y="1071"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <title
+     id="title1">ionicons-v5-l</title>
+  <path
+     id="rect2"
+     style="fill:#000000;fill-rule:evenodd;stroke-width:0"
+     d="M 192 0 A 192 192 0 0 0 0 192 L 0 320 A 192 192 0 0 0 192 512 L 320 512 A 192 192 0 0 0 512 320 L 512 192 A 192 192 0 0 0 320 0 L 192 0 z M 421.265 95.915 A 41.704445 41.704445 0 0 1 444.3125 107.4525 A 41.923787 41.923787 0 0 1 444.25875 166.79625 L 205.9075 404.28375 A 42.076543 42.076543 0 0 1 146.45625 404.23 L 67.83375 325.6075 A 41.704255 41.704255 0 0 1 67.41375 266.63 A 42.000332 42.000332 0 0 1 126.81125 266.63 L 176.695 316.5125 L 385.335 107.8725 A 41.704445 41.704445 0 0 1 421.265 95.915 z " />
+  <metadata
+     id="metadata3">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>ionicons-v5-l</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

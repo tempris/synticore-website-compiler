@@ -1,0 +1,213 @@
+.log-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+}
+
+.log-toolbar__primary {
+    flex: 1 1 18rem;
+    min-width: 0;
+    align-self: start;
+}
+
+.log-toolbar__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex: 0 0 auto;
+}
+
+.log-options-toggle {
+    flex: 0 0 auto;
+}
+
+.log-options-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+    // Card style: Removed on purpose and kept in case wanted later. Begin:
+    // padding: 0.9rem 1rem;
+    // border: 1px solid var(--border);
+    // border-radius: 0.8rem;
+    // background: color-mix(in srgb, var(--panel-soft) 78%, transparent);
+    // Card style: Removed on purpose and kept in case wanted later. End.
+}
+
+.log-options-panel[hidden],
+.log-options-panel__body[hidden] {
+    display: none !important;
+}
+
+.log-options-panel__body {
+    display: grid;
+    gap: 0.95rem;
+}
+
+.log-options-panel__section {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.log-options-panel__heading {
+    align-items: center;
+}
+
+.log-options-panel__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.log-search {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.log-search {
+    display: grid;
+    width: 100%;
+}
+
+.log-search {
+    &__input {
+        min-width: 0;
+    }
+}
+
+@media (min-width: 58rem) {
+    .log-options-panel__body {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: end;
+        column-gap: 1rem;
+    }
+
+    .log-options-panel__section--levels {
+        grid-column: 1 / -1;
+    }
+
+    .log-options-panel__section--search {
+        grid-column: 1;
+    }
+
+    .log-options-panel__section--actions {
+        grid-column: 2;
+        justify-items: end;
+        align-self: end;
+    }
+
+    .log-options-panel__actions {
+        justify-content: flex-end;
+    }
+}
+
+.task-intro,
+.log-intro,
+.log-empty {
+    margin: 0;
+    color: var(--muted);
+}
+
+.task-intro {
+    margin-bottom: 1rem;
+}
+
+.log-intro {
+    font-size: 0.96rem;
+    line-height: 1.35;
+}
+
+.log-empty {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.log-empty--filtered {
+    color: #ffd166;
+}
+
+.tooltip-layer {
+    position: fixed;
+    z-index: 95;
+    max-width: min(34rem, calc(100vw - 1.5rem));
+    max-height: min(24rem, calc(100vh - 1.5rem));
+    padding: 0.8rem 0.9rem;
+    overflow: auto;
+    border: 1px solid var(--border);
+    border-radius: 0.8rem;
+    background: color-mix(in srgb, var(--panel) 92%, transparent);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(0.7rem);
+    -webkit-backdrop-filter: blur(0.7rem);
+    pointer-events: none;
+}
+
+.tooltip-layer[hidden] {
+    display: none !important;
+}
+
+.tooltip-layer__heading {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.35rem;
+    color: var(--muted);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.tooltip-layer__heading::before {
+    flex: 0 0 auto;
+    color: var(--warn);
+    font-size: 0.95rem;
+}
+
+.tooltip-layer__body {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 0.5rem;
+    align-items: center;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.tooltip-layer__body::before {
+    grid-column: 1;
+    align-self: center;
+    color: var(--warn);
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.tooltip-layer__body-text {
+    display: block;
+    grid-column: 2;
+    align-self: center;
+}
+
+@media (max-width: 40rem) {
+    .log-toolbar {
+        align-items: start;
+    }
+
+    .log-options-toggle {
+        align-self: start;
+    }
+
+    .log-search {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+    }
+}

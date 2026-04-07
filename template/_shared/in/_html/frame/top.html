@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html lang="en">
+
+<head>
+  @@include('_html/frame/top-head.html', {
+    @@if (context.title) {
+      "title": "@@title"
+    }
+  })
+
+  @@if (context.stylesheets) {
+    @@for (var i = 0; i < context.stylesheets.length; i++) {
+      <link rel="stylesheet" href="`+context.stylesheets[i]+`?v=[[AUTOMATIC_FILE_CHECKSUM(`+context.stylesheets[i]+`)]]">
+    }
+  }
+</head>
+
+<body ontouchstart="">
+  @@include('_html/frame/top-header.html')
+  <main id="main">
+    <div class="frame--content stack--vertical">
+      <!-- breadcrumb -->
+
+      <!-- toc -->

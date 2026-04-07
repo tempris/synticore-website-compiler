@@ -1,0 +1,68 @@
+@@include('_html/frame/top.html')
+
+<section class="hero">
+  <p class="eyebrow">Landing Starter</p>
+  <h1>[[CONFIG_REQUIRE_SITE_TITLE]]</h1>
+  <p class="lead">[[CONFIG_CUSTOM_BRAND_SLOGAN]]</p>
+  <p class="hero__actions">
+    <a class="button" href="#signup">Get Started</a>
+    <a class="button button--ghost" href="#details">See Details</a>
+  </p>
+</section>
+
+<section id="details">
+  <h2>Why This Offer Works</h2>
+  <p>
+    Use this section to communicate outcomes, urgency, or differentiation in a compact format.
+  </p>
+
+  <div class="grid-cards">
+    <article class="card">
+      <h3>Fast Setup</h3>
+      <p>Explain how quickly a customer can get value after signup or purchase.</p>
+    </article>
+
+    <article class="card">
+      <h3>Clear Benefit</h3>
+      <p>State the most important measurable or emotional outcome.</p>
+    </article>
+
+    <article class="card">
+      <h3>Trusted Delivery</h3>
+      <p>Add proof, social validation, or an assurance statement.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section--alt">
+  <h2>Frequently Asked Questions</h2>
+  <ul>
+    <li>What happens after someone clicks the main CTA?</li>
+    <li>How long does onboarding or delivery take?</li>
+    <li>What support, guarantees, or terms apply?</li>
+  </ul>
+</section>
+
+<section id="signup">
+  <h2>CTA / Form Placeholder</h2>
+  <p>
+    Replace this section with your embedded lead form, checkout link, or scheduling widget.
+  </p>
+  <form class="landing-form" action="#" method="post">
+    <label>
+      Name
+      <input type="text" name="name" placeholder="Jane Doe">
+    </label>
+    <label>
+      Email
+      <input type="email" name="email" placeholder="jane@example.com">
+    </label>
+    <label>
+      Message
+      <textarea name="message" rows="4" placeholder="Tell us what you need"></textarea>
+    </label>
+    <button class="button" type="submit">Submit</button>
+  </form>
+</section>
+
+@@include('_html/frame/bottom.html')

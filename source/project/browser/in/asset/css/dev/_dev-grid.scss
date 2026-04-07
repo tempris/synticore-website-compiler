@@ -1,0 +1,60 @@
+html {
+  --synticore-dev-grid-size: 1rem;
+  --synticore-dev-grid-line-color: rgba(96, 250, 104, 0.25);
+  --synticore-dev-grid-anchor-x: -1px;
+  --synticore-dev-grid-anchor-y: -1px;
+}
+
+html.synticore-dev-grid-overlay body {
+  position: relative;
+}
+
+html.synticore-dev-grid-overlay body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2147483646;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      to right,
+      var(--synticore-dev-grid-line-color) 0 2px,
+      transparent 2px 100%
+    ),
+    linear-gradient(
+      to bottom,
+      var(--synticore-dev-grid-line-color) 0 2px,
+      transparent 2px 100%
+    );
+  background-repeat: repeat-x, repeat-y;
+  background-size:
+    var(--synticore-dev-grid-size) 100%,
+    100% var(--synticore-dev-grid-size);
+  background-position:
+    var(--synticore-dev-grid-anchor-x) 0,
+    0 var(--synticore-dev-grid-anchor-y);
+}
+
+html.synticore-dev-grid-anchor-x-left {
+  --synticore-dev-grid-anchor-x: -1px;
+}
+
+html.synticore-dev-grid-anchor-x-center {
+  --synticore-dev-grid-anchor-x: calc(50% - 1px);
+}
+
+html.synticore-dev-grid-anchor-x-right {
+  --synticore-dev-grid-anchor-x: calc(100% - 1px);
+}
+
+html.synticore-dev-grid-anchor-y-top {
+  --synticore-dev-grid-anchor-y: -1px;
+}
+
+html.synticore-dev-grid-anchor-y-center {
+  --synticore-dev-grid-anchor-y: calc(50% - 1px);
+}
+
+html.synticore-dev-grid-anchor-y-bottom {
+  --synticore-dev-grid-anchor-y: calc(100% - 1px);
+}

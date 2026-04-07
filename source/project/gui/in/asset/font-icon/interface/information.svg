@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="information.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 | F,0,1,1,0,61,0,1 @ F,0,1,1,0,61,0,1 @ F,0,1,1,0,61,0,1 @ F,0,1,1,0,61,0,1"
+       radius="61"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="true"
+       hide_knots="false" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.5497715"
+     inkscape:cx="172.79906"
+     inkscape:cy="554.77594"
+     inkscape:window-width="1680"
+     inkscape:window-height="961"
+     inkscape:window-x="3591"
+     inkscape:window-y="17"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <title
+     id="title1">about-filled</title>
+  <g
+     id="Page-1"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <g
+       id="drop"
+       fill="#000000"
+       transform="translate(42.666667, 42.666667)">
+      <path
+         id="Shape"
+         style="stroke-width:1.2"
+         d="M 213.33333 -42.666667 C 71.949019 -42.666667 -42.666667 71.947493 -42.666667 213.33333 C -42.666667 354.71764 71.949019 469.33333 213.33333 469.33333 C 354.71917 469.33333 469.33333 354.71764 469.33333 213.33333 C 469.33333 71.947493 354.71917 -42.666667 213.33333 -42.666667 z M 213.33333 3.413333 A 61.439999 61.439999 0 0 1 274.77333 64.853333 A 61.439999 61.439999 0 0 1 213.33333 126.29333 A 61.439999 61.439999 0 0 1 151.89333 64.853333 A 61.439999 61.439999 0 0 1 213.33333 3.413333 z M 212.89333 164.69333 L 213.77333 164.69333 A 61 61 0 0 1 274.77333 225.69333 L 274.77333 362.25333 A 61 61 0 0 1 213.77333 423.25333 L 212.89333 423.25333 A 61 61 0 0 1 151.89333 362.25333 L 151.89333 225.69333 A 61 61 0 0 1 212.89333 164.69333 z " />
+    </g>
+  </g>
+</svg>

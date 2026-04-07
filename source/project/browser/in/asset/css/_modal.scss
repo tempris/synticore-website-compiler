@@ -1,0 +1,18 @@
+$modal-blur: 0.75rem;
+$modal-border-width: 0.1rem;
+
+@mixin modal-surface(
+  $border-color,
+  $box-shadow,
+  $blur: $modal-blur,
+  $border-width: $modal-border-width,
+  $border-style: solid
+) {
+  border: $border-width $border-style $border-color;
+  box-shadow: $box-shadow;
+
+  @if $blur != null {
+    -webkit-backdrop-filter: blur($blur);
+    backdrop-filter: blur($blur);
+  }
+}

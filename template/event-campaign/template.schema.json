@@ -1,0 +1,6 @@
+{
+  "id": "event-campaign",
+  "label": "Event Campaign",
+  "path": "event-campaign",
+  "description": "Event or conference campaign starter with speaker, schedule, venue, FAQ, and ticket CTA sections for launches, webinars, and in-person events."
+}

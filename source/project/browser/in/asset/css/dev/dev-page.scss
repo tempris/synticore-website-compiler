@@ -1,0 +1,8 @@
+@use './_dev-notify';
+@use './_dev-font-icon';
+@use './_dev-grid';
+@use './_dev-heatmap';
+
+html {
+  --synticore-dev-shadow: rgba(2, 6, 23, 0.4);
+}

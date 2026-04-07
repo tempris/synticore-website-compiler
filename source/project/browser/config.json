@@ -1,0 +1,22 @@
+{
+  "custom": {
+    "brand": {
+      "slogan": "Watch-time debugging, editing, and fallback tools for Synticore Browser.",
+      "color": "#0f172a",
+      "copyright_years": "2026"
+    },
+    "site": {
+      "author": {
+        "copyright_years": "2026",
+        "name": "Cure Interactive",
+        "url": "/"
+      }
+    }
+  },
+  "require": {
+    "site": {
+      "title": "Synticore Browser Developer Tools",
+      "url": "https://example.invalid/browsersync"
+    }
+  }
+}

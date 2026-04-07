@@ -1,0 +1,241 @@
+@use './_config/variable' as config_variable;
+
+$color-brand: config_variable.$CONFIG_CUSTOM_BRAND_COLOR;
+$color-bg: #fff7f2;
+$color-surface: #ffffff;
+$color-text: #0f172a;
+$color-muted: #5f4a43;
+$color-border: #f0d8cf;
+$radius: 0.85rem;
+$shadow-soft: 0 0.75rem 2rem rgba(15, 23, 42, 0.08);
+
+html {
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 15% 10%, #fff2ea 0%, transparent 45%),
+    radial-gradient(circle at 90% 20%, #ffe5d6 0%, transparent 40%),
+    linear-gradient(180deg, #fffdfa 0%, $color-bg 70%, #fff0e7 100%);
+  color: $color-text;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: $color-brand;
+  text-underline-offset: 0.14em;
+
+  &:hover {
+    opacity: 0.82;
+  }
+}
+
+.frame--content {
+  width: min(72rem, calc(100vw - 2rem));
+  margin-inline: auto;
+}
+
+@mixin stack-vertical($space: 1rem) {
+  > * + * {
+    margin-top: $space;
+  }
+}
+
+.stack--vertical {
+  @include stack-vertical(1rem);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+
+  .frame--content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    min-height: 4rem;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem;
+  }
+}
+
+#nav_header__brand {
+  font-weight: 700;
+  color: $color-text;
+  text-decoration: none;
+  margin-right: 0.6rem;
+}
+
+.skip_to_main {
+  position: fixed;
+  top: -5rem;
+  left: 0.75rem;
+  z-index: 20;
+  background: $color-text;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+
+  &:focus {
+    top: 0.75rem;
+  }
+}
+
+main {
+  padding: 1.25rem 0 2rem;
+}
+
+main .frame--content {
+  @include stack-vertical(1.25rem);
+  max-width: 68rem;
+}
+
+main section {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  box-shadow: $shadow-soft;
+  padding: 1.25rem;
+  @include stack-vertical(1rem);
+}
+
+.hero {
+  padding: 1.75rem;
+  border-top: 0.35rem solid $color-brand;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
+    linear-gradient(135deg, rgba(140, 47, 31, 0.1), rgba(255,255,255,0));
+}
+
+.eyebrow {
+  margin: 0;
+  color: $color-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.lead {
+  font-size: 1.125rem;
+  color: $color-muted;
+  max-width: 52ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.72rem 1rem;
+  border-radius: 999px;
+  border: 1px solid $color-brand;
+  background: $color-brand;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.button--ghost {
+  background: transparent;
+  color: $color-brand;
+}
+
+.grid-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: #fbfdff;
+  border: 1px solid $color-border;
+  border-radius: 0.7rem;
+  padding: 1rem;
+}
+
+.section--alt {
+  background: linear-gradient(180deg, #fff7f1 0%, #fff2ea 100%);
+}
+
+.landing-form {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 36rem;
+}
+
+.landing-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.landing-form input,
+.landing-form textarea {
+  width: 100%;
+  border: 1px solid $color-border;
+  border-radius: 0.65rem;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.landing-form textarea {
+  resize: vertical;
+}
+
+ul, ol {
+  padding-left: 1.25rem;
+}
+
+li + li {
+  margin-top: 0.45rem;
+}
+
+footer {
+  padding: 1rem 0 2rem;
+
+  .frame--content {
+    color: $color-muted;
+    font-size: 0.95rem;
+    @include stack-vertical(0.5rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  main {
+    padding-top: 1.75rem;
+  }
+
+  .hero {
+    padding: 2.25rem;
+  }
+
+  .grid-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  main section {
+    padding: 1.5rem;
+  }
+}

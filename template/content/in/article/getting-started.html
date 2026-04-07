@@ -1,0 +1,40 @@
+@@include('_html/frame/top.html', {
+  "title": "Getting Started"
+})
+
+<section class="hero">
+  <p class="eyebrow">Article Template</p>
+  <h1>Getting Started</h1>
+  <p class="lead">A starter long-form article page for blogs, docs, and knowledge bases.</p>
+  <p class="muted">
+    Published @@include('_html/component/date-time.hbs', { "datetime": "2026-01-12" })
+    <br />
+    Updated @@include('_html/component/date-time.hbs', { "datetime": "2026-01-19 10:15 AM EST" })
+  </p>
+</section>
+
+<section>
+  <p>
+    This page demonstrates a simple content-first structure. Replace this text with your article body,
+    documentation chapter, or announcement post.
+  </p>
+
+  <h2>Write for Scanning</h2>
+  <p>
+    Use clear headings, short paragraphs, and lists so readers can scan quickly before reading in depth.
+  </p>
+
+  <ul>
+    <li>Front-load important information.</li>
+    <li>Keep paragraphs focused on one idea.</li>
+    <li>Use examples and concrete terminology.</li>
+  </ul>
+
+  <h2>Markdown Workflow Example</h2>
+  <p>
+    Store reusable markdown snippets under <code>in/_html/markdown/</code> and include/convert them in your workflow.
+    This template ships with starter files in that directory as examples.
+  </p>
+</section>
+
+@@include('_html/frame/bottom.html')

@@ -1,0 +1,6 @@
+{
+  "id": "commerce-lite",
+  "label": "Commerce Lite",
+  "path": "commerce-lite",
+  "description": "Lightweight catalog/product starter with product cards, product detail page, cart or quote CTA placeholders, and commerce-friendly content patterns without full checkout complexity."
+}

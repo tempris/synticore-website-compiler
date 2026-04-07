@@ -1,2 +1,0 @@
-[console_scripts]
-icoutil = icoutil.__main__:main

@@ -1,0 +1,97 @@
+@@include('_html/frame/top.html')
+
+<section class="hero">
+  <p class="eyebrow">Commerce Lite Starter</p>
+  <h1>[[CONFIG_REQUIRE_SITE_TITLE]]</h1>
+  <p class="lead">[[CONFIG_CUSTOM_BRAND_SLOGAN]]</p>
+  <p class="hero__actions">
+    <a class="button" href="#catalog">Browse Products</a>
+    <a class="button button--ghost" href="#contact">Request Quote</a>
+  </p>
+</section>
+
+<section id="catalog">
+  <h2>Featured Products</h2>
+  <p>
+    Replace these cards with your product categories or best-selling items. Use product detail pages for full specs.
+  </p>
+
+  <div class="product-grid">
+    <article class="product-card">
+      <div class="product-card__media" aria-hidden="true">Product Image</div>
+      <div class="product-card__body">
+        <p class="product-card__eyebrow">Category</p>
+        <h3><a href="/product/sample-product.html">Sample Product</a></h3>
+        <p>Short summary of the product and why it is useful.</p>
+        <p class="price">$99.00</p>
+        <p class="actions">
+          <a class="button button--small" href="/product/sample-product.html">View Details</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <div class="product-card__media" aria-hidden="true">Product Image</div>
+      <div class="product-card__body">
+        <p class="product-card__eyebrow">Category</p>
+        <h3><a href="/product/sample-bundle.html">Sample Bundle</a></h3>
+        <p>Short summary with bundle/package positioning and ideal buyer.</p>
+        <p class="price">$189.00</p>
+        <p class="actions">
+          <a class="button button--small" href="/product/sample-bundle.html">View Details</a>
+        </p>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <div class="product-card__media" aria-hidden="true">Product Image</div>
+      <div class="product-card__body">
+        <p class="product-card__eyebrow">Category</p>
+        <h3><a href="/product/sample-kit.html">Sample Kit</a></h3>
+        <p>Short summary for a kit/variant-oriented product.</p>
+        <p class="price">From $59.00</p>
+        <p class="actions">
+          <a class="button button--small" href="/product/sample-kit.html">View Details</a>
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="purchase-options" class="section--split">
+  <div>
+    <h2>How Orders Work</h2>
+    <ul>
+      <li>Browse product pages and specs.</li>
+      <li>Use the cart/quote CTA placeholder to collect purchase intent.</li>
+      <li>Finalize payment and shipping in your preferred platform or workflow.</li>
+    </ul>
+    <p class="muted">
+      This template avoids a full checkout implementation so you can integrate your own stack.
+    </p>
+  </div>
+
+  <div class="panel">
+    <h2>Cart / Quote Placeholder</h2>
+    <p>
+      Add cart embed, Shopify buy button, Stripe payment link, or quote form embed here.
+    </p>
+    <p>
+      <a class="button" href="#contact">Contact Sales</a>
+    </p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Sales Contact</h2>
+  <p>
+    Add phone, email, and lead form details for ordering support, custom pricing, or bulk inquiries.
+  </p>
+  <ul>
+    <li>Email: <a href="mailto:sales@example.com">sales@example.com</a></li>
+    <li>Phone: <a href="tel:+10000000000">(000) 000-0000</a></li>
+    <li>Bulk orders and reseller inquiries welcome</li>
+  </ul>
+</section>
+
+@@include('_html/frame/bottom.html')

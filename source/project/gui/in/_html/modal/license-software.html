@@ -1,0 +1,18 @@
+<aside id="license-software-modal" class="modal" data-modal hidden>
+    <div class="modal__viewport">
+    <div class="modal__scrim overlay-backdrop" data-modal-close></div>
+    <div class="modal__card floating-panel overlay-surface overlay-surface--dialog license-modal" role="dialog" aria-modal="true" aria-labelledby="license-software-title">
+        <div class="modal__header floating-panel__header">
+            <h2 id="license-software-title" class="floating-panel__title gui-icon-label font-icon--interface--book">Compiler License</h2>
+            <button id="license-software-close" class="button button--icon-action button--icon-action--solo gui-icon-button font-icon--interface--close" type="button" data-modal-close title="Close compiler license dialog.">
+                <span class="button--icon-action__label">Close</span>
+            </button>
+        </div>
+
+        <div class="modal__body">
+            <p class="modal__help">Software license for the Synticore Website Compiler itself.</p>
+            @@include('_html/modal/license-software-content.html')
+        </div>
+    </div>
+    </div>
+</aside>

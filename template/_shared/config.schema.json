@@ -1,0 +1,19 @@
+{
+  "keys": [
+    {
+      "key": "custom.brand.color",
+      "description": "Primary brand color used in custom templates.",
+      "type": "color"
+    },
+    {
+      "key": "custom.brand.name",
+      "description": "Brand/site name shown in custom templates.",
+      "type": "string"
+    },
+    {
+      "key": "custom.brand.slogan",
+      "description": "Brand slogan text.",
+      "type": "string"
+    }
+  ]
+}

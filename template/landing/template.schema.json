@@ -1,0 +1,6 @@
+{
+  "id": "landing",
+  "label": "Landing",
+  "path": "landing",
+  "description": "Single-page campaign/product launch starter with CTA/form placeholders, minimal nav/footer complexity, and performance-first defaults."
+}

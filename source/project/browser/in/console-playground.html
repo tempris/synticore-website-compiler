@@ -1,0 +1,99 @@
+@@include('_html/frame/top.html', {
+  "title": "Console Playground",
+  "stylesheets": [
+    "/asset/css/content/console-playground.min.css"
+  ]
+})
+
+<h1>Console Playground</h1>
+
+<p>Use these buttons to generate browser-side console activity and validate the dev-panel log tab.</p>
+
+<div class="console-playground__grid">
+  <button type="button" data-console-demo="log">console.log</button>
+  <button type="button" data-console-demo="info">console.info</button>
+  <button type="button" data-console-demo="warn">console.warn</button>
+  <button type="button" data-console-demo="error">console.error</button>
+  <button type="button" data-console-demo="object">Log object payload</button>
+  <button type="button" data-console-demo="group">Grouped output</button>
+  <button type="button" data-console-demo="throw">Throw async error</button>
+  <button type="button" data-console-demo="reject">Unhandled rejection</button>
+</div>
+
+<p class="console-playground__hint">
+  Open the dev panel, switch to <code>Log</code>, then click the controls above.
+</p>
+
+<p><a href="/" title="Return to Toolkit Index">Return to Toolkit Index</a></p>
+
+@@include('_html/frame/bottom.html')
+
+<script type="text/javascript">
+  (function () {
+    var buttons = document.querySelectorAll('[data-console-demo]');
+
+    if (!buttons.length) return;
+
+    var actions = {
+      log: function () {
+        console.log('Console playground log entry', {
+          source: 'console-playground',
+          kind: 'log',
+          now: new Date().toISOString()
+        });
+      },
+      info: function () {
+        console.info('Console playground info entry', 'Useful for low-severity status messages.');
+      },
+      warn: function () {
+        console.warn('Console playground warning entry', {
+          source: 'console-playground',
+          threshold: 'watch-only'
+        });
+      },
+      error: function () {
+        console.error('Console playground error entry', new Error('Intentional demo error'));
+      },
+      object: function () {
+        console.log({
+          title: 'Structured payload',
+          numbers: [1, 2, 3],
+          nested: {
+            active: true,
+            label: 'Console demo'
+          }
+        });
+      },
+      group: function () {
+        if (typeof console.group === 'function') {
+          console.group('Console playground group');
+          console.log('Grouped child log');
+          console.warn('Grouped child warning');
+          console.groupEnd();
+          return;
+        }
+
+        console.log('Console grouping is not available in this browser.');
+      },
+      throw: function () {
+        window.setTimeout(function () {
+          throw new Error('Intentional async throw from console playground');
+        }, 0);
+      },
+      reject: function () {
+        Promise.reject(new Error('Intentional unhandled rejection from console playground'));
+      }
+    };
+
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var actionName = button.getAttribute('data-console-demo');
+        var action = actions[actionName];
+
+        if (typeof action === 'function') {
+          action();
+        }
+      });
+    });
+  })();
+</script>

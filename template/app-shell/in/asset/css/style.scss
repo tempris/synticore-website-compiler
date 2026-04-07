@@ -1,0 +1,259 @@
+@use './_config/variable' as config_variable;
+
+$color-brand: config_variable.$CONFIG_CUSTOM_BRAND_COLOR;
+$color-bg: #eef4ff;
+$color-surface: #ffffff;
+$color-text: #111827;
+$color-muted: #5b6473;
+$color-border: #d9e3f7;
+$radius: 0.85rem;
+$shadow-soft: 0 0.75rem 2rem rgba(17, 24, 39, 0.08);
+
+html {
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 10% 5%, rgba(29, 78, 216, 0.12), transparent 42%),
+    radial-gradient(circle at 92% 12%, rgba(59, 130, 246, 0.1), transparent 38%),
+    linear-gradient(180deg, #f9fbff 0%, $color-bg 60%, #eaf1ff 100%);
+  color: $color-text;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: $color-brand;
+  text-underline-offset: 0.14em;
+
+  &:hover {
+    opacity: 0.82;
+  }
+}
+
+.frame--content {
+  width: min(72rem, calc(100vw - 2rem));
+  margin-inline: auto;
+}
+
+@mixin stack-vertical($space: 1rem) {
+  > * + * {
+    margin-top: $space;
+  }
+}
+
+.stack--vertical {
+  @include stack-vertical(1rem);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+
+  .frame--content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+    min-height: 4rem;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem;
+  }
+}
+
+#nav_header__brand {
+  font-weight: 700;
+  color: $color-text;
+  text-decoration: none;
+  margin-right: 0.6rem;
+}
+
+.skip_to_main {
+  position: fixed;
+  top: -5rem;
+  left: 0.75rem;
+  z-index: 20;
+  background: $color-text;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+
+  &:focus {
+    top: 0.75rem;
+  }
+}
+
+main {
+  padding: 1.25rem 0 2rem;
+}
+
+main .frame--content {
+  @include stack-vertical(1rem);
+}
+
+main section {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  @include stack-vertical(1rem);
+}
+
+.app-hero {
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.95));
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  box-shadow: $shadow-soft;
+  padding: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: $color-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.lead {
+  font-size: 1.125rem;
+  color: $color-muted;
+  max-width: 52ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.72rem 1rem;
+  border-radius: 999px;
+  border: 1px solid $color-brand;
+  background: $color-brand;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.button--ghost {
+  background: transparent;
+  color: $color-brand;
+}
+
+.grid-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.panel {
+  grid-column: span 12;
+  background: #fbfdff;
+  border: 1px solid $color-border;
+  border-radius: 0.7rem;
+  padding: 1rem;
+  box-shadow: $shadow-soft;
+}
+
+.panel--wide {
+  grid-column: span 12;
+}
+
+ul, ol {
+  padding-left: 1.25rem;
+}
+
+li + li {
+  margin-top: 0.45rem;
+}
+
+.app-form {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 42rem;
+}
+
+.app-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.app-form input,
+.app-form textarea {
+  width: 100%;
+  border: 1px solid $color-border;
+  border-radius: 0.65rem;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.app-form textarea {
+  resize: vertical;
+}
+
+[data-route-link].is-active {
+  font-weight: 700;
+  text-decoration-thickness: 0.14em;
+}
+
+footer {
+  padding: 1rem 0 2rem;
+
+  .frame--content {
+    color: $color-muted;
+    font-size: 0.95rem;
+    @include stack-vertical(0.5rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  main {
+    padding-top: 1.75rem;
+  }
+
+  .app-hero {
+    padding: 2rem;
+  }
+
+  .panel {
+    grid-column: span 6;
+  }
+
+  .panel--wide {
+    grid-column: span 12;
+  }
+}

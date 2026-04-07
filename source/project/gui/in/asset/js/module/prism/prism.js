@@ -1,0 +1,12 @@
+import './_main/prism.js';
+import './_language/prism-bash.js';
+import './_language/prism-markup.js';
+import './_language/prism-css.js';
+import './_language/prism-clike.js';
+import './_language/prism-javascript.js';
+import './_language/prism-json.js';
+import './_language/prism-sass.js';
+import './_language/prism-scss.js';
+import './_language/prism-powershell.js';
+import './_plugin/prism-toolbar.js';
+import './_plugin/prism-show-language.js';

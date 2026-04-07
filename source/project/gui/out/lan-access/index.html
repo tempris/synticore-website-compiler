@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/resource/icon.ico" sizes="any"><link rel="icon" href="/resource/icon.png" type="image/png"><title>Synticore Website Compiler 1.1.4</title><script>!function(){try{var e=localStorage.getItem("synticore-gui-config"),t=e?JSON.parse(e):null,o=t&&"object"==typeof t?t.theme:localStorage.getItem("synticore-gui-theme");document.documentElement.dataset.theme="light"===o?"light":"dark"}catch(e){document.documentElement.dataset.theme="dark"}}()</script><link rel="stylesheet" href="/asset/css/style.min.css?v=60d2316cd324352fb7db63aef755bf90"></head><body><div class="app-shell"><div class="loading-overlay auth-overlay"><div class="loading-overlay__card auth-overlay__card"><img class="loading-overlay__logo" src="/asset/image/brand/logo.svg" alt="Synticore"><h1 class="loading-overlay__title gui-icon-label font-icon--interface--network">LAN Access</h1><p class="loading-overlay__text">Enter the LAN access token for this compiler instance on your network.</p><label class="field auth-overlay__field" for="token"><span class="field__label gui-icon-label font-icon--interface--coin">Token</span> <input id="token" type="text" placeholder="Enter access token" autocomplete="one-time-code" spellcheck="false"></label><p id="error" class="auth-overlay__error" hidden></p><button id="submit" class="button button--primary button--icon-action gui-icon-button font-icon--interface--lock-open" type="button" disabled="disabled"><span class="button--icon-action__label">Unlock GUI</span></button></div></div></div><script>(function () {
+        var token = document.getElementById('token');
+        var submit = document.getElementById('submit');
+        var error = document.getElementById('error');
+
+        function syncSubmitState() {
+            submit.disabled = !String(token.value || '').trim();
+        }
+
+        async function authenticate() {
+            if (submit.disabled) return;
+            submit.disabled = true;
+            error.hidden = true;
+            error.textContent = '';
+
+            try {
+                var response = await fetch('/api/auth', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token: token.value })
+                });
+                var payload = await response.json().catch(function () {
+                    return {};
+                });
+
+                if (!response.ok || payload.ok === false) {
+                    throw new Error(String(payload.message || 'Authentication failed.'));
+                }
+
+                window.location.href = '/';
+            } catch (authError) {
+                error.textContent = String(authError && authError.message || authError);
+                error.hidden = false;
+                syncSubmitState();
+            }
+        }
+
+        token.addEventListener('input', syncSubmitState);
+        submit.addEventListener('click', authenticate);
+        token.addEventListener('keydown', function (event) {
+            if (event.key !== 'Enter') return;
+            event.preventDefault();
+            authenticate();
+        });
+        syncSubmitState();
+        token.focus();
+    })();</script></body></html><!-- Built with Synticore Website Compiler 1.1.4 -->

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="log-notice.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect3"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,96,0,1 @ F,0,0,1,0,96,0,1 @ F,0,0,1,0,96,0,1 @ F,0,0,1,0,96,0,1"
+       radius="96"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect2"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,128,0,1 @ F,0,0,1,0,128,0,1 @ F,0,0,1,0,128,0,1"
+       radius="128"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 | F,0,1,1,0,61,0,1 @ F,0,1,1,0,61,0,1 @ F,0,1,1,0,61,0,1 @ F,0,1,1,0,61,0,1"
+       radius="61"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="true"
+       hide_knots="false" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="0.5497715"
+     inkscape:cx="172.79906"
+     inkscape:cy="554.77594"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="1671"
+     inkscape:window-y="1071"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <title
+     id="title1">about-filled</title>
+  <path
+     id="rect1"
+     style="fill:#000000;fill-rule:evenodd;stroke-width:0"
+     d="M 201.96384 -144.87424 A 96 96 0 0 0 181.01976 -85.019393 L 181.01977 85.019412 A 96 96 0 0 0 277.01927 181.0189 L 447.05808 181.0189 A 96 96 0 0 0 543.05757 85.019392 L 543.05756 -85.019412 A 96 96 0 0 0 447.05806 -181.01891 L 277.01925 -181.0189 A 96 96 0 0 0 201.96384 -144.87424 z M 236.39656 -125.11649 L 236.92216 -125.64209 A 51.524863 51.524864 44.999997 0 1 309.78932 -125.6421 L 391.35276 -44.078661 A 51.524863 51.524864 44.999997 0 1 391.35277 28.788499 L 390.82717 29.314099 A 51.524863 51.524864 44.999997 0 1 317.96001 29.314102 L 236.39656 -52.249331 A 51.524863 51.524864 44.999997 0 1 236.39656 -125.11649 z M 414.02521 51.986535 A 51.896517 51.896517 44.999997 0 1 487.41797 51.986531 A 51.896517 51.896517 44.999997 0 1 487.41797 125.37929 A 51.896517 51.896517 44.999997 0 1 414.02521 125.3793 A 51.896517 51.896517 44.999997 0 1 414.02521 51.986535 z "
+     transform="matrix(0.83713975,0.83713984,-0.83713984,0.83713975,-47.076957,-47.076989)" />
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>about-filled</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

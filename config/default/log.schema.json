@@ -1,0 +1,265 @@
+{
+  "keys": [
+    {
+      "key": "debug",
+      "description": "Enable extra diagnostic output from the logger itself."
+    },
+    {
+      "key": "filter",
+      "description": "Substring filters applied to the normalized log message text."
+    },
+    {
+      "key": "filter.include",
+      "description": "Only messages containing one of these substrings are allowed through. Empty means no include filter.",
+      "structure": {
+        "kind": "array",
+        "items_key": "filter.include[]"
+      }
+    },
+    {
+      "key": "filter.include[]",
+      "description": "Single include substring filter."
+    },
+    {
+      "key": "filter.exclude",
+      "description": "Messages containing one of these substrings are dropped after include filtering.",
+      "structure": {
+        "kind": "array",
+        "items_key": "filter.exclude[]"
+      }
+    },
+    {
+      "key": "filter.exclude[]",
+      "description": "Single exclude substring filter."
+    },
+    {
+      "key": "level",
+      "description": "Minimum severity threshold per output target."
+    },
+    {
+      "key": "level.console",
+      "description": "Maximum level written to the console.",
+      "type": "enum",
+      "enum": [
+        "NONE",
+        "TRACE",
+        "FATAL",
+        "ERROR",
+        "WARN",
+        "LOG",
+        "INFO",
+        "DETAIL",
+        "DEBUG",
+        "ALL"
+      ]
+    },
+    {
+      "key": "level.file",
+      "description": "Maximum level written to the log file.",
+      "type": "enum",
+      "enum": [
+        "NONE",
+        "TRACE",
+        "FATAL",
+        "ERROR",
+        "WARN",
+        "LOG",
+        "INFO",
+        "DETAIL",
+        "DEBUG",
+        "ALL"
+      ]
+    },
+    {
+      "key": "timestamp",
+      "description": "Timestamp formatting for prefixed log output."
+    },
+    {
+      "key": "timestamp.format",
+      "description": "Datetime token pattern used for timestamp rendering. Use iso for Date#toISOString() output, or compose a custom token pattern.",
+      "type": "string",
+      "format_kind": "datetime-token-pattern",
+      "presets": [
+        "iso",
+        "YYYY-MM-DD HH:mm:ss",
+        "YYYY-MM-DD hh:mm:ssA z",
+        "ddd, MMM D YYYY HH:mm:ss",
+        "YYYYMMDD-HHmmss-SSS"
+      ],
+      "tokens": [
+        { "value": "YYYY", "name": "4-digit year", "preview": "2026" },
+        { "value": "YY", "name": "2-digit year", "preview": "26" },
+        { "value": "MMMM", "name": "full month", "preview": "April" },
+        { "value": "MMM", "name": "short month", "preview": "Apr" },
+        { "value": "MM", "name": "2-digit month", "preview": "04" },
+        { "value": "M", "name": "numeric month", "preview": "4" },
+        { "value": "DD", "name": "2-digit day", "preview": "03" },
+        { "value": "D", "name": "numeric day", "preview": "3" },
+        { "value": "dddd", "name": "full weekday", "preview": "Friday" },
+        { "value": "ddd", "name": "short weekday", "preview": "Fri" },
+        { "value": "HH", "name": "2-digit 24-hour", "preview": "17" },
+        { "value": "H", "name": "24-hour", "preview": "17" },
+        { "value": "hh", "name": "2-digit 12-hour", "preview": "05" },
+        { "value": "h", "name": "12-hour", "preview": "5" },
+        { "value": "mm", "name": "2-digit minute", "preview": "08" },
+        { "value": "m", "name": "minute", "preview": "8" },
+        { "value": "ss", "name": "2-digit second", "preview": "09" },
+        { "value": "s", "name": "second", "preview": "9" },
+        { "value": "SSS", "name": "milliseconds", "preview": "123" },
+        { "value": "A", "name": "uppercase meridiem", "preview": "PM" },
+        { "value": "a", "name": "lowercase meridiem", "preview": "pm" },
+        { "value": "ZZ", "name": "offset without colon", "preview": "-0400" },
+        { "value": "Z", "name": "offset with colon", "preview": "-04:00" },
+        { "value": "zzzz", "name": "full timezone name", "preview": "Eastern Daylight Time" },
+        { "value": "z", "name": "short timezone name", "preview": "EDT" }
+      ]
+    },
+    {
+      "key": "timestamp.zone",
+      "description": "Timezone basis used when rendering timestamps.",
+      "type": "enum",
+      "enum": [
+        "local",
+        "utc"
+      ],
+      "enum_names": {
+        "local": "system timezone",
+        "utc": "Coordinated Universal Time"
+      }
+    },
+    {
+      "key": "timestamp.locale",
+      "description": "BCP 47 locale tag used for timestamp rendering. Use auto to follow the runtime locale.",
+      "type": "enum",
+      "suggestions_kind": "locale",
+      "enum_names_kind": "locale",
+      "enum_names": {
+        "auto": "runtime locale"
+      }
+    },
+    {
+      "key": "type",
+      "description": "Per-method enable or disable switches per output target."
+    },
+    {
+      "key": "type.console",
+      "description": "Console output toggles."
+    },
+    {
+      "key": "type.console.trace",
+      "description": "Enable trace messages in console output."
+    },
+    {
+      "key": "type.console.fatal",
+      "description": "Enable fatal messages in console output."
+    },
+    {
+      "key": "type.console.error",
+      "description": "Enable error messages in console output."
+    },
+    {
+      "key": "type.console.warn",
+      "description": "Enable warn messages in console output."
+    },
+    {
+      "key": "type.console.log",
+      "description": "Enable plain log messages in console output."
+    },
+    {
+      "key": "type.console.info",
+      "description": "Enable info messages in console output."
+    },
+    {
+      "key": "type.console.detail",
+      "description": "Enable detail messages in console output."
+    },
+    {
+      "key": "type.console.debug",
+      "description": "Enable debug messages in console output."
+    },
+    {
+      "key": "type.console.notice",
+      "description": "Enable notice messages in console output."
+    },
+    {
+      "key": "type.console.success",
+      "description": "Enable success messages in console output."
+    },
+    {
+      "key": "type.console.begin",
+      "description": "Enable begin messages in console output."
+    },
+    {
+      "key": "type.console.end",
+      "description": "Enable end messages in console output."
+    },
+    {
+      "key": "type.console.init",
+      "description": "Enable init messages in console output."
+    },
+    {
+      "key": "type.console.shutdown",
+      "description": "Enable shutdown messages in console output."
+    },
+    {
+      "key": "type.file",
+      "description": "File output toggles."
+    },
+    {
+      "key": "type.file.trace",
+      "description": "Enable trace messages in file output."
+    },
+    {
+      "key": "type.file.fatal",
+      "description": "Enable fatal messages in file output."
+    },
+    {
+      "key": "type.file.error",
+      "description": "Enable error messages in file output."
+    },
+    {
+      "key": "type.file.warn",
+      "description": "Enable warn messages in file output."
+    },
+    {
+      "key": "type.file.log",
+      "description": "Enable plain log messages in file output."
+    },
+    {
+      "key": "type.file.info",
+      "description": "Enable info messages in file output."
+    },
+    {
+      "key": "type.file.detail",
+      "description": "Enable detail messages in file output."
+    },
+    {
+      "key": "type.file.debug",
+      "description": "Enable debug messages in file output."
+    },
+    {
+      "key": "type.file.notice",
+      "description": "Enable notice messages in file output."
+    },
+    {
+      "key": "type.file.success",
+      "description": "Enable success messages in file output."
+    },
+    {
+      "key": "type.file.begin",
+      "description": "Enable begin messages in file output."
+    },
+    {
+      "key": "type.file.end",
+      "description": "Enable end messages in file output."
+    },
+    {
+      "key": "type.file.init",
+      "description": "Enable init messages in file output."
+    },
+    {
+      "key": "type.file.shutdown",
+      "description": "Enable shutdown messages in file output."
+    }
+  ]
+}

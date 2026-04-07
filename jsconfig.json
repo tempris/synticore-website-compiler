@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@custom/*": ["source/node_modules_custom/*"]
+    },
+    "allowJs": true,
+    "checkJs": true,          // Enable JS checking
+    "noEmit": true,           // Don’t output anything
+    "strict": false,          // Avoid strict TS rules
+    "skipLibCheck": true,     // Don’t type-check libs/@types
+    "types": []               // Don’t auto-include @types packages
+  },
+  "include": ["types/**/*.d.ts", "gulpfile.js", "source/**/*"],
+  // "exclude": ["node_modules", "**/dist/**", "**/*.min.js"]
+  "exclude": ["**/*.min.js"]
+}

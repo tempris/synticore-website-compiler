@@ -1,0 +1,59 @@
+@@include('_html/frame/top.html')
+
+<section class="hero">
+  <p class="eyebrow">Content Starter</p>
+  <h1>[[CONFIG_REQUIRE_SITE_TITLE]]</h1>
+  <p class="lead">[[CONFIG_CUSTOM_BRAND_SLOGAN]]</p>
+  <p class="hero__actions">
+    <a class="button" href="/article/getting-started.html">Read Example Article</a>
+    <a class="button button--ghost" href="#latest">Latest Posts</a>
+  </p>
+</section>
+
+<section id="latest">
+  <h2>Latest Posts / Guides</h2>
+  <div class="grid-cards">
+    <article class="card">
+      <p class="eyebrow">Guide</p>
+      <h3><a href="/article/getting-started.html">Getting Started with Your Content Workflow</a></h3>
+      <p class="muted">Published @@include('_html/component/date-time.hbs', { "datetime": "2026-01-12" })</p>
+      <p>Example article page template with long-form content structure and reading-friendly styles.</p>
+    </article>
+
+    <article class="card">
+      <p class="eyebrow">Docs</p>
+      <h3><a href="/article/style-guide.html">Editorial Style Guide</a></h3>
+      <p class="muted">Updated @@include('_html/component/date-time.hbs', { "datetime": "2026-01-19 10:15 AM EST" })</p>
+      <p>Use this placeholder to publish documentation, changelogs, or process notes.</p>
+    </article>
+
+    <article class="card">
+      <p class="eyebrow">Reference</p>
+      <h3><a href="/article/faq.html">Frequently Asked Questions</a></h3>
+      <p class="muted">Updated @@include('_html/component/date-time.hbs', { "datetime": "2026-01-25" })</p>
+      <p>Starter structure for support content and evergreen reference pages.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section--alt">
+  <h2>Markdown / Content Workflow Notes</h2>
+  <p>
+    Add reusable markdown snippets or article source files under
+    <code>in/_html/markdown/</code>. This template includes starter markdown examples there.
+  </p>
+  <ul>
+    <li><code>in/_html/markdown/example-article.md</code></li>
+    <li><code>in/_html/markdown/release-notes-template.md</code></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Sitemap / Package-Friendly Defaults</h2>
+  <p>
+    This template is designed for documentation/blog style sites with clear page paths
+    and packaging-friendly output defaults.
+  </p>
+</section>
+
+@@include('_html/frame/bottom.html')

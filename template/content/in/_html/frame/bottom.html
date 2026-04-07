@@ -1,0 +1,25 @@
+    </div> <!-- .frame--content -->
+  </main>
+
+  <footer>
+    <div class="frame--content stack--vertical">
+      <p>
+        © [[CONFIG_CUSTOM_BRAND_COPYRIGHT_YEARS]] [[CONFIG_CUSTOM_SITE_AUTHOR_NAME]].
+        Editorial content and documentation for [[CONFIG_REQUIRE_SITE_TITLE]].
+      </p>
+      <p>
+        Built with <a href="https://synticore.cureinteractive.com" title="Visit Synticore Website Compiler">Synticore Website Compiler</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script src="/asset/js/main.min.js?v=[[AUTOMATIC_FILE_CHECKSUM(/asset/js/main.min.js)]]"></script>
+
+  @@if (context.scripts) {
+    @@for (var i = 0; i < context.scripts.length; i++) {
+      <script src="`+context.scripts[i]+`?v=[[AUTOMATIC_FILE_CHECKSUM(`+context.scripts[i]+`)]]"></script>
+    }
+  }
+
+</body>
+</html>

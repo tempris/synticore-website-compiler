@@ -1,0 +1,11 @@
+# Ignore _log directories #
+_log
+
+# Ignore _package directories #
+_package
+
+# Ignore compiled files #
+#out
+
+# Ignore GUI cache #
+_cache/project/gui.json

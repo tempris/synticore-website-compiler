@@ -1,0 +1,24 @@
+main {
+  border-radius: min(4.5rem, 10vw);
+}
+
+svg {
+  width: 2em;
+  height: 2em;
+  overflow: visible;
+  shape-rendering: geometricPrecision;
+  display: inline-block;
+  margin-bottom: 0 !important;
+
+  path {
+    fill: currentColor !important;
+  }
+}
+
+#page-url {
+  text-decoration: underline;
+}
+
+img.logo {
+  width: 100%;
+}

@@ -1,6 +1,20 @@
 # 📝 Synticore Changelog
 
-Current documented release: `1.1.4`.
+Current documented release: `1.1.5`.
+
+## [1.1.5] - 2026-04-10
+
+### Summary
+
+#### For Compiler Users
+
+- Added a `1.1.5` project migration that moves legacy `_html/config/template/*.hbs` files into `_html/config/` so config include templates live where the current compiler expects them.
+- Fixed the HTML pipeline so `_html/config/*.hbs` files are materialized into sibling `_html/config/*.html` files before normal page compilation, restoring config-include regeneration during builds and watch runs.
+- Fixed watch-mode ownership around `_html/config/*` includes so generated sibling `.html` files no longer self-trigger rebuild loops when a same-name `.hbs` source owns that include.
+
+#### For Developers
+
+- Documented the new `1.1.5` migration step and aligned shipped version metadata with the restored config-template compilation flow.
 
 ## [1.1.4] - 2026-04-07
 

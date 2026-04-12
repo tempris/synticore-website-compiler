@@ -12,9 +12,9 @@ If you need compiler-repository internals rather than project structure, use the
 
 The selected project is the website content directory Synticore builds.
 
-This repo includes one bundled example project at `project/example` and many starter templates under `template/`.
+This compiler repository ships starter templates under `template/`.
 
-The example project is a working reference project you can build immediately.
+The working example project lives separately at [Synticore Website Compiler Example Repository](https://github.com/tempris/synticore-website-compiler-example).
 
 The template directories are scaffold sources for creating new projects and are not themselves normal working project directories.
 
@@ -112,7 +112,6 @@ The compiler repository itself contains:
 - `setup.cmd` / `setup.sh` for repository npm setup
 - `config/` for tool-level defaults and settings
 - `source/` for bundled resources, custom modules, migrations, and test data
-- `project/example/` for the bundled example project
 - `template/` for starter templates and shared scaffold content
 - `wiki/builder.md` for the builder docs landing page
 - `wiki/developer.md` for the developer docs landing page

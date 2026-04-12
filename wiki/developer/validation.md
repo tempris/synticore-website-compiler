@@ -15,14 +15,14 @@ If you need the list of one-off maintenance tasks, use [Synticore Developer Docs
 Start here for most behavior changes:
 
 ```bash
-npm run gulp about -- --project "./project/example"
-npm run gulp rebuild -- --project "./project/example"
-npm run gulp package -- --project "./project/example"
+npm run gulp about -- --project "<project-dir>"
+npm run gulp rebuild -- --project "<project-dir>"
+npm run gulp package -- --project "<project-dir>"
 ```
 
 Inspect:
 
-- `project/example/_log/task_*.log`
+- `<project-dir>/_log/task_*.log`
 - `_log/gulpfile.log`
 
 Use these as the default minimum when a change touches project-facing behavior and you do not yet have a narrower validation reason to skip them.
@@ -59,8 +59,8 @@ Use this whenever the change touches bundled templates, template metadata, new-p
 Run:
 
 ```bash
-npm run gulp project_update -- --project "./project/example"
-npm run gulp project_update_full -- --project "./project/example"
+npm run gulp project_update -- --project "<project-dir>"
+npm run gulp project_update_full -- --project "<project-dir>"
 ```
 
 Then confirm:
@@ -78,9 +78,9 @@ If the change affects version coordination, also re-check [📝 Synticore Change
 Run:
 
 ```bash
-npm run gulp sort_config -- --project "./project/example"
-npm run gulp build_config -- --project "./project/example"
-npm run gulp build -- --project "./project/example"
+npm run gulp sort_config -- --project "<project-dir>"
+npm run gulp build_config -- --project "<project-dir>"
+npm run gulp build -- --project "<project-dir>"
 ```
 
 Then confirm:
@@ -98,7 +98,7 @@ Use this whenever the change touches configuration semantics, config defaults, c
 Run:
 
 ```bash
-npm run gulp watch -- --project "./project/example"
+npm run gulp watch -- --project "<project-dir>"
 ```
 
 Then verify:
@@ -117,8 +117,8 @@ Use [Synticore Developer Docs - Browser Tooling Notes](/wiki/developer/browser.m
 Run:
 
 ```bash
-npm run gulp rebuild -- --project "./project/example"
-npm run gulp package -- --project "./project/example"
+npm run gulp rebuild -- --project "<project-dir>"
+npm run gulp package -- --project "<project-dir>"
 ```
 
 Then confirm:

@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This page explains the project templates bundled with the compiler and how they differ from the example project.
+This page explains the project templates bundled with the compiler and how they differ from the separate example project repository.
 
-If you want the fastest path to a working build, use the bundled example project and start with [Synticore Builder Guide - Build Your First Site](/wiki/builder/first-site.md).
+If you want a working reference project instead of a fresh scaffold, use the [Synticore Website Compiler Example Repository](https://github.com/tempris/synticore-website-compiler-example) and then start with [Synticore Builder Guide - Build Your First Site](/wiki/builder/first-site.md).
 
 If you want to start a new site from a scaffold, use [Synticore Builder Guide - New Project](/wiki/builder/new-project.md).
 
@@ -12,10 +12,11 @@ If you want to start a new site from a scaffold, use [Synticore Builder Guide - 
 
 ## Example Project Vs Templates
 
-Synticore ships:
+This compiler repository ships:
 
-- one bundled example project at `project/example`
 - multiple starter templates under `template/`
+
+The example project lives separately at [Synticore Website Compiler Example Repository](https://github.com/tempris/synticore-website-compiler-example).
 
 Use the example project when you want:
 
@@ -27,7 +28,7 @@ Use a template when you want:
 
 - a fresh project scaffold
 - a starter focused on a specific site shape
-- a cleaner baseline than the larger example project
+- a cleaner baseline than the larger standalone example project
 
 ---
 

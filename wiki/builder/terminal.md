@@ -52,7 +52,7 @@ npx gulp <task>
 Example:
 
 ```bash
-npm run gulp build -- --project "./project/example"
+npm run gulp build -- --project "<project-dir>"
 ```
 
 ---

@@ -1052,6 +1052,131 @@ async function _moveDirIfExistsMigration(oldPath, newPath) {
 }
 
 /**
+ * Recursively collect files below `dir` that match one of the provided extensions.
+ *
+ * @param {string} dir
+ * @param {string[]} exts
+ * @param {string[]} [out]
+ * @returns {Promise<string[]>}
+ * @since 1.1.5
+ */
+async function _collectFilesByExtensionRecursive(dir, exts, out = []) {
+  if (!NODE_FS.existsSync(dir)) return out;
+
+  const extSet = new Set((exts || []).map((ext) => String(ext || '').toLowerCase()));
+  const entries = await NODE_FS.promises.readdir(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const abs = NODE_CURE_PATH.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      await _collectFilesByExtensionRecursive(abs, exts, out);
+      continue;
+    }
+
+    if (extSet.has(NODE_PATH.extname(entry.name).toLowerCase())) {
+      out.push(abs);
+    }
+  }
+
+  return out;
+}
+
+/**
+ * Remove empty directories under a root, bottom-up.
+ *
+ * @param {string} dir
+ * @returns {Promise<boolean>}
+ * @since 1.1.5
+ */
+async function _removeEmptyDirectoriesRecursive(dir) {
+  if (!NODE_FS.existsSync(dir)) return true;
+
+  const entries = await NODE_FS.promises.readdir(dir, { withFileTypes: true });
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    await _removeEmptyDirectoriesRecursive(NODE_CURE_PATH.join(dir, entry.name));
+  }
+
+  const remaining = await NODE_FS.promises.readdir(dir);
+  if (remaining.length > 0) return false;
+
+  await NODE_FS.promises.rmdir(dir);
+  return true;
+}
+
+/**
+ * Move legacy Handlebars files from `_html/config/template/` into `_html/config/`.
+ *
+ * Rules:
+ * - Preserve nested relative paths below `template/`.
+ * - If the destination file already exists with identical content, remove the legacy source.
+ * - If the destination file exists with different content, keep the legacy source and log a warning.
+ *
+ * @returns {Promise<{ moved:number, deduped:number, conflicts:number }>}
+ * @since 1.1.5
+ */
+async function _migrateHtmlConfigTemplateLayout_115() {
+  const NODE_CURE_FS = require('@custom/cure-fs');
+
+  const templateRoot = NODE_CURE_PATH.join(PATH_DIR_PROJECT_IN_HTML_INCLUDE, 'config', 'template');
+  const configRoot = NODE_CURE_PATH.join(PATH_DIR_PROJECT_IN_HTML_INCLUDE, 'config');
+
+  if (!NODE_FS.existsSync(templateRoot)) {
+    return { moved: 0, deduped: 0, conflicts: 0 };
+  }
+
+  const hbsFiles = await _collectFilesByExtensionRecursive(templateRoot, ['.hbs']);
+  const result = { moved: 0, deduped: 0, conflicts: 0 };
+
+  for (const srcPath of hbsFiles) {
+    const rel = NODE_CURE_PATH.relative(templateRoot, srcPath);
+    const destPath = NODE_CURE_PATH.join(configRoot, rel);
+
+    if (NODE_CURE_PATH.slashForward(srcPath) === NODE_CURE_PATH.slashForward(destPath)) {
+      continue;
+    }
+
+    if (NODE_FS.existsSync(destPath)) {
+      const srcBuf = NODE_FS.readFileSync(srcPath);
+      const destBuf = NODE_FS.readFileSync(destPath);
+
+      if (srcBuf.equals(destBuf)) {
+        await NODE_CURE_FS.deleteAsync([srcPath], { force: true });
+        result.deduped += 1;
+        log.info(LOG_TAG_PROJECT_VERSION_MIGRATION, 'Removed duplicate legacy config template after confirming migrated copy exists.', {
+          srcPath,
+          destPath
+        });
+        continue;
+      }
+
+      result.conflicts += 1;
+      log.warn(LOG_TAG_PROJECT_VERSION_MIGRATION, 'Legacy config template migration conflict; destination already exists with different contents.', {
+        srcPath,
+        destPath
+      });
+      continue;
+    }
+
+    await _moveFileIfExistsMigration(srcPath, destPath);
+    result.moved += 1;
+  }
+
+  try {
+    await _removeEmptyDirectoriesRecursive(templateRoot);
+  } catch (err) {
+    log.debug(LOG_TAG_PROJECT_VERSION_MIGRATION, 'Unable to remove one or more empty legacy config template directories.', {
+      templateRoot,
+      error: String(err?.message || err)
+    });
+  }
+
+  return result;
+}
+
+/**
  * Rewrite legacy font-icon paths to 1.1.0 lower-hyphen versions.
  * NOTE: This is ONLY for path strings (cache keys), not namespaces.
  * Also canonicalizes path separators to slash-forward.
@@ -2999,6 +3124,15 @@ const MIGRATIONS = [
       });
     }
   },
+  // migration: 1.1.5
+  {
+    to: '1.1.5',
+    name: 'Move legacy _html/config/template Handlebars files into _html/config',
+    run: async () => {
+      const result = await _migrateHtmlConfigTemplateLayout_115();
+      log.info(LOG_TAG_PROJECT_VERSION_MIGRATION, '1.1.5 HTML config template layout migration complete.', result);
+    }
+  },
 ];
 
 /** Filter & sort migrations to run (inclusive upper bound) */
@@ -3823,6 +3957,72 @@ async function libraryFileGetFilesFromPattern(pattern, pattern_ignore = PATH_DIR
   log.debug('[📁 File] [Get Files]', 'Matched:', files);
 
   return files
+}
+
+function libraryFileGetFilesFromPatternSync(pattern, pattern_ignore = PATH_DIR_IN_IGNORE, sort = true) {
+  log.debug('[📁 File] [Get Files Sync]', 'Arguments:', {
+    pattern,
+    pattern_ignore,
+    sort
+  });
+
+  const patterns = libraryVariableEnsureIsArray(pattern);
+  const includes = patterns.filter(p => !p.startsWith('!'));
+  const ignoresFromPattern = patterns
+    .filter(p => p.startsWith('!'))
+    .map(p => p.slice(1));
+
+  const combinedIgnores = Array.from(new Set([
+    ...(Array.isArray(pattern_ignore) ? pattern_ignore : [pattern_ignore]),
+    ...ignoresFromPattern
+  ]));
+
+  const slash = p => p.replace(/\\/g, '/');
+  const expandedIgnores = [];
+  for (const ignore of combinedIgnores) {
+    if (NODE_PATH.isAbsolute(ignore)) {
+      expandedIgnores.push(slash(ignore));
+    } else {
+      for (const inc of includes) {
+        const baseDir = inc.includes('*') ? inc.substring(0, inc.indexOf('*')) : NODE_PATH.dirname(inc);
+        expandedIgnores.push(slash(NODE_PATH.join(baseDir, ignore)));
+      }
+    }
+  }
+
+  const finalIgnores = Array.from(new Set(expandedIgnores));
+  const GLOB_OPTION = {
+    ignore: finalIgnores,
+    nodir: true,
+    absolute: true,
+  };
+
+  log.debug('[📁 File] [Get Files Sync]', 'Glob pattern:', {
+    "Pattern": pattern,
+    "Option": GLOB_OPTION
+  });
+
+  const NODE_GLOB = require('glob');
+  const includePatterns = includes.length ? includes : patterns;
+  const files = new Set();
+
+  for (const inc of includePatterns) {
+    const matched = (typeof NODE_GLOB.globSync === 'function')
+      ? NODE_GLOB.globSync(inc, GLOB_OPTION)
+      : NODE_GLOB.sync(inc, GLOB_OPTION);
+    for (const file of matched) {
+      files.add(file);
+    }
+  }
+
+  const out = Array.from(files);
+  if (sort) {
+    out.sort(new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' }).compare);
+  }
+
+  log.debug('[📁 File] [Get Files Sync]', 'Matched:', out);
+
+  return out;
 }
 
 function libraryFileCountFilesFromPatternSync(pattern, pattern_ignore = PATH_DIR_IN_IGNORE) {
@@ -5640,12 +5840,11 @@ const PATH_FILE_PROJECT_IN_DATA = [
 
 const PATTERN_RESET_DATA = DATA_FILES.map(file => `${PATH_DIR_PROJECT_OUT_DATA}${file}`);
 
-async function primaryData(done) {
+function primaryData() {
   const LOG_TAG_DATA = '[💽 Data]';
   let pruneResult = null;
   let dataFilesSeen = 0;
   let dataTotalFiles = 0;
-
   log.begin(LOG_TAG_DATA, 'Running.');
 
   try {
@@ -5654,16 +5853,15 @@ async function primaryData(done) {
       logTag: LOG_TAG_DATA
     });
 
-    const dataFilesAll = await libraryFileGetFilesFromPattern(PATH_FILE_PROJECT_IN_DATA);
+    const dataFilesAll = libraryFileGetFilesFromPatternSync(PATH_FILE_PROJECT_IN_DATA);
     const dataFilesToProcess = dataFilesAll.filter((filePath) =>
       cacheProjectFile.shouldProcessSync(CACHE_NAMESPACE_DATA, filePath)
     );
     dataTotalFiles = dataFilesToProcess.length;
-
   } catch (err) {
     log.error(LOG_TAG_DATA, 'During prune:', err);
     log.end(LOG_TAG_DATA, 'Complete.');
-    return done(err);
+    return Promise.reject(err);
   }
 
   /** @type {{ operation: string, startedAt: number, detail: object }} */
@@ -5672,6 +5870,17 @@ async function primaryData(done) {
     output: PATH_DIR_PROJECT_OUT_DATA,
     total_files: dataTotalFiles
   });
+
+  if (dataTotalFiles === 0) {
+    logProcessingDone(LOG_TAG_DATA, dataPipelineOp, {
+      files_seen: 0,
+      total_files: dataTotalFiles,
+      skipped: true
+    });
+    log.end(LOG_TAG_DATA, 'Complete.');
+    return Promise.resolve();
+  }
+
   /** @type {any} */
   let pipeline = NODE_GULP.src(PATH_FILE_PROJECT_IN_DATA, { allowEmpty: true })
 
@@ -5688,7 +5897,7 @@ async function primaryData(done) {
       });
     });
 
-  // Dynamically add `NODE_GULP_REPLACE` pipes for each replacement
+  // Keep one explicit completion contract for the whole stream lifecycle.
   Object.entries(configProjectFlat).forEach(([placeholder, value]) => {
     pipeline = pipeline.pipe(
       NODE_GULP_REPLACE(
@@ -5698,25 +5907,29 @@ async function primaryData(done) {
     );
   });
 
-  return pipeline
+  const pipelineFinal = pipeline
     .pipe(libraryAppendBrandComment()) // Append comment before output
     .pipe(NODE_GULP.dest(PATH_DIR_PROJECT_OUT_DATA)) // Output to the specified directory
-    .pipe(libraryCacheStore(CACHE_NAMESPACE_DATA))
-    .on('end', () => {
+    .pipe(libraryCacheStore(CACHE_NAMESPACE_DATA));
+
+  const { finished } = require('stream/promises');
+
+  return finished(pipelineFinal)
+    .then(() => {
       logProcessingDone(LOG_TAG_DATA, dataPipelineOp, {
         files_seen: dataFilesSeen,
         total_files: dataTotalFiles
       });
       log.end(LOG_TAG_DATA, 'Complete.');
-      done();
     })
-    .on('error', (err) => {
+    .catch((err) => {
       logProcessingFail(LOG_TAG_DATA, dataPipelineOp, err, {
         files_seen: dataFilesSeen,
         total_files: dataTotalFiles
       });
       log.error(LOG_TAG_DATA, 'During pipeline:', err);
-      done(err);
+      log.end(LOG_TAG_DATA, 'Complete.');
+      throw err;
     });
 };
 
@@ -7067,6 +7280,16 @@ const MARKDOWN_FILE_INCLUDE_SENTINEL_ATAT = '__GFI_ATAT__';
 
 const PATTERN_RESET_HTML = `${PATH_DIR_PROJECT_OUT_HTML}${PATH_ALL}.html`
 
+function isGeneratedConfigIncludeOwnedByHandlebars(pathLike) {
+  const path = NODE_CURE_PATH.slashForward(String(pathLike || ''));
+  if (!path || !/\/_html\/config\/.+\.html$/i.test(path)) {
+    return false;
+  }
+
+  const siblingHandlebarsPath = path.replace(/\.html$/i, '.hbs');
+  return libraryPathExists(siblingHandlebarsPath);
+}
+
 function handleFilestreamMarkdownToHTML() {
   const NODE_THROUGH2 = require('through2');
 
@@ -7329,6 +7552,41 @@ async function handleHTML(done) {
     batch: handlebarsBatchMain,
     helpers: handlebarsHelpersMain,
   };
+
+  async function materializeConfigHandlebarsIncludes() {
+    const configRoot = NODE_CURE_PATH.join(PATH_DIR_PROJECT_IN_HTML_INCLUDE, 'config');
+    const legacyTemplateRoot = NODE_CURE_PATH.join(configRoot, 'template');
+
+    if (!NODE_FS.existsSync(configRoot)) {
+      return { compiled: 0 };
+    }
+
+    const hbsFiles = (await _collectFilesByExtensionRecursive(configRoot, ['.hbs']))
+      .filter((abs) => {
+        const normalized = NODE_CURE_PATH.slashForward(abs);
+        return !normalized.startsWith(NODE_CURE_PATH.slashForward(legacyTemplateRoot) + '/');
+      })
+      .sort((a, b) => a.localeCompare(b));
+
+    if (hbsFiles.length <= 0) {
+      return { compiled: 0 };
+    }
+
+    const NODE_GULP_RENAME = require('gulp-rename');
+
+    for (const srcPath of hbsFiles) {
+      await new Promise((resolve, reject) => {
+        NODE_GULP.src(srcPath, { base: configRoot })
+          .pipe(NODE_GULP_COMPILE_HANDLEBARS(configProjectMerge, HANDLEBARS_OPTIONS_MAIN))
+          .pipe(NODE_GULP_RENAME({ extname: '.html' }))
+          .pipe(NODE_GULP.dest(configRoot))
+          .on('end', resolve)
+          .on('error', reject);
+      });
+    }
+
+    return { compiled: hbsFiles.length };
+  }
 
   // ===============================================================================================
   // Helpers - Begin
@@ -7727,6 +7985,16 @@ async function handleHTML(done) {
   const htmlTagManifest = {
     files: (htmlTagManifestPrev && htmlTagManifestPrev.files) ? htmlTagManifestPrev.files : {}
   };
+
+  try {
+    const configIncludeMaterializeResult = await materializeConfigHandlebarsIncludes();
+    if (configIncludeMaterializeResult.compiled > 0) {
+      log.info(LOG_TAG_HTML, 'Materialized Handlebars config includes to sibling HTML files.', configIncludeMaterializeResult);
+    }
+  } catch (err) {
+    log.error(LOG_TAG_HTML, 'Failed while materializing Handlebars config includes.', err);
+    throw err;
+  }
 
   /**
    * Record <!--tag ...--> occurrences for this file into the manifest.
@@ -17552,6 +17820,16 @@ class SubWatcher {
   matcher(path) {
     // Normalize incoming path
     const pathNormalized = NODE_CURE_PATH.slashForward(path);
+
+    if (
+      this.taskname === TASK_BUILD_HTML &&
+      isGeneratedConfigIncludeOwnedByHandlebars(pathNormalized)
+    ) {
+      log.debug(LOG_TAG_WATCH_SUB, this.taskname, 'Ignored generated config include shadowed by sibling Handlebars source:', {
+        path: pathNormalized
+      });
+      return false;
+    }
 
     // Normalize root once
     const root = NODE_CURE_PATH.slashForward(this.pathRoot);

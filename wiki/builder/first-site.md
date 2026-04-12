@@ -10,18 +10,20 @@ Finish the [Synticore Builder Guide - Setup Guide](/wiki/builder/setup.md) first
 
 ## Step 1: Pick A Project
 
-For the fastest onboarding path, start with the bundled example project:
+For the fastest onboarding path, use the standalone example project repository:
 
-- `project/example`
+- [Synticore Website Compiler Example Repository](https://github.com/tempris/synticore-website-compiler-example)
 
-Synticore also ships multiple starter templates under `template/`, but those are scaffold sources for creating a new project rather than additional working sample sites. If you want to start from a template instead, use [Synticore Builder Guide - New Project](/wiki/builder/new-project.md).
+Check that repository out locally, then use its project root as your project path in the commands below.
+
+Synticore also ships multiple starter templates under `template/`, but those are scaffold sources for creating a new project rather than additional working sample sites. If you want to start from a template instead, use the new-project flow in [Synticore Builder Guide - New Project](/wiki/builder/new-project.md).
 
 If you use the GUI, select the example project from the project chooser.
 
 If you use the terminal, pass the project path explicitly:
 
 ```bash
-npm run gulp build -- --project "./project/example"
+npm run gulp build -- --project "<example-project-dir>"
 ```
 
 ---
@@ -31,7 +33,7 @@ npm run gulp build -- --project "./project/example"
 Run:
 
 ```bash
-npm run gulp build -- --project "./project/example"
+npm run gulp build -- --project "<example-project-dir>"
 ```
 
 This compiles the project from `in/` to `out/`.
@@ -49,7 +51,7 @@ What to check after the build:
 When you are ready to work interactively:
 
 ```bash
-npm run gulp watch -- --project "./project/example"
+npm run gulp watch -- --project "<example-project-dir>"
 ```
 
 Typical loop:
@@ -79,7 +81,7 @@ If you need configuration snippets, use the [Synticore Builder Guide - Configura
 When the site builds the way you want:
 
 ```bash
-npm run gulp package -- --project "./project/example"
+npm run gulp package -- --project "<example-project-dir>"
 ```
 
 Packaged artifacts are written under `<project>/_package/` unless your config changes the package destinations.

@@ -16,7 +16,7 @@ For the shortest first-install and first-build path, use [Synticore Builder Guid
 
 If you need the browser-side development model, dev panel, or BrowserSync context, use [Synticore Builder Guide - Browser And Watch Tools](/wiki/builder/browser.md).
 
-If you want to scaffold a fresh project instead of working from the bundled example project, use [Synticore Builder Guide - New Project](/wiki/builder/new-project.md).
+If you want to scaffold a fresh project instead of working from the standalone example project repository, use [Synticore Builder Guide - New Project](/wiki/builder/new-project.md).
 
 If you want help choosing a starting point before scaffolding, use [Synticore Builder Guide - Templates](/wiki/builder/templates.md).
 
@@ -27,7 +27,7 @@ If you want help choosing a starting point before scaffolding, use [Synticore Bu
 Use watch mode for active development:
 
 ```bash
-npm run gulp watch -- --project "./project/example"
+npm run gulp watch -- --project "<project-dir>"
 ```
 
 Typical loop:
@@ -40,7 +40,7 @@ Typical loop:
 If behavior looks stale:
 
 ```bash
-npm run gulp rebuild -- --project "./project/example"
+npm run gulp rebuild -- --project "<project-dir>"
 ```
 
 For project-specific watch trigger rules, see the user-facing [Synticore Builder Guide - Watch Triggers Guide](/wiki/builder/example-watch-triggers.md).
@@ -54,15 +54,15 @@ Use this when `config.json` changes and you want the lowest-friction refresh pat
 When changing `config.json`:
 
 ```bash
-npm run gulp sort_config -- --project "./project/example"
-npm run gulp build_config -- --project "./project/example"
-npm run gulp build -- --project "./project/example"
+npm run gulp sort_config -- --project "<project-dir>"
+npm run gulp build_config -- --project "<project-dir>"
+npm run gulp build -- --project "<project-dir>"
 ```
 
 If needed, force a clean config refresh:
 
 ```bash
-npm run gulp rebuild_config -- --project "./project/example"
+npm run gulp rebuild_config -- --project "<project-dir>"
 ```
 
 ---
@@ -74,9 +74,9 @@ Use these scoped rebuilds when only one asset family changed and you want faster
 Use scoped rebuild tasks to keep feedback fast:
 
 ```bash
-npm run gulp rebuild_stylesheet -- --project "./project/example"
-npm run gulp rebuild_javascript -- --project "./project/example"
-npm run gulp rebuild_image -- --project "./project/example"
+npm run gulp rebuild_stylesheet -- --project "<project-dir>"
+npm run gulp rebuild_javascript -- --project "<project-dir>"
+npm run gulp rebuild_image -- --project "<project-dir>"
 ```
 
 Other common targets:
@@ -97,14 +97,14 @@ Use this when you want a clean package artifact from known-good project output r
 1. Run a clean full build:
 
 ```bash
-npm run gulp reset -- --project "./project/example"
-npm run gulp build -- --project "./project/example"
+npm run gulp reset -- --project "<project-dir>"
+npm run gulp build -- --project "<project-dir>"
 ```
 
 2. Produce package outputs:
 
 ```bash
-npm run gulp package -- --project "./project/example"
+npm run gulp package -- --project "<project-dir>"
 ```
 
 3. Collect artifacts from project `_package/` or other configured package outputs.

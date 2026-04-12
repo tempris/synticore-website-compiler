@@ -38,8 +38,8 @@ If an SVG filename ends with `-RRGGBB`, Synticore also generates color utility v
 Useful commands:
 
 ```bash
-npm run gulp build_font_icon -- --project "./project/example"
-npm run gulp rebuild_font_icon -- --project "./project/example"
+npm run gulp build_font_icon -- --project "<project-dir>"
+npm run gulp rebuild_font_icon -- --project "<project-dir>"
 ```
 
 For active development, normal `watch` mode also tracks font-icon inputs and rebuilds them when related source files change.
@@ -69,7 +69,7 @@ If expected icons or classes are missing:
 
 1. Confirm icon files exist under `in/asset/font-icon/<set>/`.
 2. Confirm naming follows expected lower-hyphen patterns.
-3. Run `npm run gulp rebuild_font_icon -- --project "./project/example"`.
+3. Run `npm run gulp rebuild_font_icon -- --project "<project-dir>"`.
 4. Inspect:
 - `<project>/_log/task_build_font_icon.log`
 - `<compiler>/_log/gulpfile.log`

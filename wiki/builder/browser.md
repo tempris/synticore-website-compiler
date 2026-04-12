@@ -21,7 +21,7 @@ Use `browser` only when you intentionally want the BrowserSync-serving layer wit
 Example:
 
 ```bash
-npm run gulp watch -- --project "./project/example"
+npm run gulp watch -- --project "<project-dir>"
 ```
 
 ---

@@ -98,7 +98,9 @@ Use this checklist after setup:
 1. `python --version` or `python3 --version`
 2. `node -v`
 3. `npm -v`
-4. `npm run gulp about -- --project "./project/example"` exits cleanly
+4. `npm run gulp about -- --project "<project-dir>"` exits cleanly
+
+Use a real checked-out project for `<project-dir>`, such as the [Synticore Website Compiler Example Repository](https://github.com/tempris/synticore-website-compiler-example) or a project you created through the new-project flow.
 
 If those checks pass, continue with [Synticore Builder Guide - Build Your First Site](/wiki/builder/first-site.md).
 
@@ -159,6 +161,6 @@ git commit -m "Normalize line endings via .gitattributes"
 
 ### Toolchain Validation Fails
 
-- Run `npm run gulp about -- --project "./project/example"` directly
+- Run `npm run gulp about -- --project "<project-dir>"` directly
 - If that still fails, use [Synticore Builder Guide - Log Guide](/wiki/builder/log.md) to inspect the relevant logs
 - Use [Synticore Builder Guide - Troubleshooting](/wiki/builder/troubleshooting.md) if you need the symptom-first recovery path after the basic toolchain checks

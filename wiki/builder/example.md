@@ -4,7 +4,7 @@
 
 This page provides practical, copy-ready configuration examples for common use cases.
 
-All examples use current key namespaces for Synticore `v1.1.4`.
+All examples use current key namespaces for Synticore `v1.1.5`.
 
 ---
 
@@ -251,13 +251,13 @@ All examples use current key namespaces for Synticore `v1.1.4`.
 After applying config changes:
 
 ```bash
-npm run gulp sort_config -- --project "./project/example"
-npm run gulp build_config -- --project "./project/example"
-npm run gulp build -- --project "./project/example"
+npm run gulp sort_config -- --project "<project-dir>"
+npm run gulp build_config -- --project "<project-dir>"
+npm run gulp build -- --project "<project-dir>"
 ```
 
 For a full refresh when testing config-heavy changes:
 
 ```bash
-npm run gulp rebuild -- --project "./project/example"
+npm run gulp rebuild -- --project "<project-dir>"
 ```

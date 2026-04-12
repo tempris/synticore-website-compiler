@@ -22,10 +22,34 @@
         });
     };
 
+    GUI.getProjectWatchSignature = function getProjectWatchSignature(version) {
+        const source = version && typeof version === 'object' ? version : {};
+        return JSON.stringify({
+            selectedProject: String(STATE.selectedProject || ''),
+            projectDir: String(source.projectDir || ''),
+            projectDirAbsolute: String(source.projectDirAbsolute || ''),
+            exists: Boolean(source.exists),
+            version: String(source.version || ''),
+            relation: String(source.relation || ''),
+            status: String(source.status || ''),
+            detail: String(source.detail || ''),
+            advice: String(source.advice || ''),
+            infoPath: String(source.infoPath || ''),
+            infoMtimeMs: Number(source.infoMtimeMs || 0)
+        });
+    };
+
     GUI.stopConfigWatch = function stopConfigWatch() {
         if (STATE.configWatchTimer) {
             window.clearInterval(STATE.configWatchTimer);
             STATE.configWatchTimer = null;
+        }
+    };
+
+    GUI.stopProjectWatch = function stopProjectWatch() {
+        if (STATE.projectWatchTimer) {
+            window.clearInterval(STATE.projectWatchTimer);
+            STATE.projectWatchTimer = null;
         }
     };
 
@@ -80,6 +104,46 @@
         STATE.configWatchTimer = window.setInterval(() => {
             GUI.pollConfigModel().catch(() => {});
         }, Number(STATE.configWatchIntervalMs) || 3000);
+    };
+
+    GUI.pollProjectVersion = async function pollProjectVersion() {
+        if (!STATE.selectedProject) {
+            STATE.projectWatchSignature = '';
+            return;
+        }
+
+        try {
+            const version = await api(`/api/project-info?dir=${encodeURIComponent(STATE.selectedProject)}`);
+            const nextSignature = GUI.getProjectWatchSignature(version);
+            if (!STATE.projectWatchSignature) {
+                STATE.projectWatchSignature = nextSignature;
+                return;
+            }
+            if (nextSignature === STATE.projectWatchSignature) return;
+
+            STATE.projectWatchSignature = nextSignature;
+            GUI.renderVersion(version);
+            logEvent('info', 'Reloaded project version after info.json changed on disk.', {
+                selectedProject: STATE.selectedProject,
+                infoPath: String(version.infoPath || '')
+            });
+        } catch (error) {
+            logEvent('warn', 'Project info watch refresh failed.', {
+                selectedProject: STATE.selectedProject,
+                message: String(error.message || error)
+            });
+        }
+    };
+
+    GUI.startProjectWatch = function startProjectWatch() {
+        GUI.stopProjectWatch();
+        if (!STATE.selectedProject) {
+            STATE.projectWatchSignature = '';
+            return;
+        }
+        STATE.projectWatchTimer = window.setInterval(() => {
+            GUI.pollProjectVersion().catch(() => {});
+        }, Number(STATE.projectWatchIntervalMs) || 3000);
     };
 
     GUI.normalizeWikiPath = function normalizeWikiPath(path = '/wiki') {
@@ -1315,6 +1379,8 @@
             : [];
         STATE.bootstrap = bootstrapData;
         STATE.selectedProject = bootstrapData.selectedProject || '';
+        STATE.configWatchIntervalMs = Number(bootstrapData.watcherIntervalMs) || STATE.configWatchIntervalMs || 3000;
+        STATE.projectWatchIntervalMs = Number(bootstrapData.watcherIntervalMs) || STATE.projectWatchIntervalMs || 3000;
         STATE.wikiPath = GUI.normalizeWikiPath((bootstrapData.guiConfig && bootstrapData.guiConfig.wiki_path) || '/wiki');
         GUI.cacheGuiConfig(bootstrapData.guiConfig || {});
         GUI.applyLogPreferenceState(bootstrapData.guiConfig || {});
@@ -1327,6 +1393,8 @@
         GUI.applyTasksPayload(bootstrapData.tasksByCategory || [], { previousTasksByCategory });
         GUI.renderTemplates(bootstrapData.templates || []);
         GUI.renderVersion(bootstrapData.projectVersion || {});
+        STATE.projectWatchSignature = GUI.getProjectWatchSignature(bootstrapData.projectVersion || {});
+        GUI.startProjectWatch();
         GUI.activateConfigMode((bootstrapData.guiConfig && bootstrapData.guiConfig.config_mode) || 'project');
         GUI.activateTopTab((bootstrapData.guiConfig && bootstrapData.guiConfig.current_tab) || 'task');
         await GUI.loadConfigModel().catch((error) => {
@@ -1857,6 +1925,8 @@
         const requested = String(dir || '').trim();
         if (!requested) {
             STATE.selectedProject = '';
+            GUI.stopProjectWatch();
+            STATE.projectWatchSignature = '';
             GUI.renderProjectInput(STATE.bootstrap.guiConfig || {}, '');
             GUI.applyTasksPayload((STATE.bootstrap && STATE.bootstrap.tasksByCategory) || [], { notice: false });
             GUI.renderVersion({
@@ -1882,13 +1952,16 @@
         try {
             const projectVersion = await api(`/api/project-info?dir=${encodeURIComponent(payload.selectedProject)}`);
             GUI.renderVersion(projectVersion);
+            STATE.projectWatchSignature = GUI.getProjectWatchSignature(projectVersion);
         } catch (error) {
             GUI.renderVersion(payload.projectVersion || {});
+            STATE.projectWatchSignature = GUI.getProjectWatchSignature(payload.projectVersion || {});
             logEvent('warn', 'Explicit project version refresh failed after selection.', {
                 selectedProject: payload.selectedProject,
                 message: String(error.message || error)
             });
         }
+        GUI.startProjectWatch();
         await GUI.loadConfigModel();
         logEvent('success', 'Selected project.', {
             requested,

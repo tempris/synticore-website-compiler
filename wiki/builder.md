@@ -23,7 +23,7 @@ If you need compiler internals, maintenance notes, or full reference material, u
    Use this to understand what belongs in your project, what gets generated, and what is safe to delete.
 
 5. **[Synticore Builder Guide - Templates](/wiki/builder/templates.md)**
-   Use this to compare the bundled templates and see how they differ from the example project.
+   Use this to compare the bundled templates and see how they differ from the separate example project repository.
 
 6. **[Synticore Builder Guide - New Project](/wiki/builder/new-project.md)**
    Use this to create a fresh project from a bundled template through the GUI or terminal.
@@ -90,5 +90,6 @@ If you need compiler internals, maintenance notes, or full reference material, u
 - [Synticore Builder Guide - Migration Guide](/wiki/builder/migration.md) for upgrading older projects to the current compiler.
 - [Synticore Developer Docs](/wiki/developer.md) for compiler internals, maintainer workflows, migration internals, and release notes.
 - [Synticore Example Site](https://example.synticore.cureinteractive.com) to inspect a running Synticore-built site.
+- [Synticore Website Compiler Example Repository](https://github.com/tempris/synticore-website-compiler-example) for the standalone example project source.
 - [Synticore Website Compiler Releases](https://github.com/cureinteractive/synticore-website-compiler/releases) for downloads.
 - [Synticore Website Compiler Issue Tracker](https://github.com/cureinteractive/synticore-website-compiler/issues) for bugs and missing features.

@@ -48,7 +48,7 @@ For browser GUI internals and maintainer-facing details, use [Synticore Develope
 - `setup.cmd` / `setup.sh` - repository npm setup helpers
 - `config/` - compiler defaults and app settings
 - `source/` - bundled resources, custom modules, migration/test data
-- `project/` - example and template projects
+- `template/` - starter templates and shared scaffold content
 - `wiki/builder/` - builder-facing documentation pages
 - `wiki/developer/` - developer-facing documentation pages
 

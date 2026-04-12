@@ -1,6 +1,6 @@
 {
   "name": "synticore-website-compiler",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Synticore Website Compiler - modular Gulp build pipeline for HTML, SCSS, JS, and assets",
   "author": "Cure Interactive <main@cureinteractive.com> (https://cureinteractive.com)",
   "homepage": "https://synticore.cureinteractive.com",

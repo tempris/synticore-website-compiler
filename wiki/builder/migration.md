@@ -62,6 +62,9 @@ The current project-migration set in `gulpfile.js` covers these concrete upgrade
   - syntax-highlight config migration for the newer theme bundle/default behavior
 - `1.1.4`
   - ensure `_cache/project/dev-panel.json` is ignored in project `.gitignore`
+- `1.1.5`
+  - move legacy `_html/config/template/*.hbs` project templates into `_html/config/`
+  - regenerate sibling `_html/config/*.html` include files from `_html/config/*.hbs` during the HTML pipeline
 
 This migration flow is intentionally compatibility-focused. Broader cleanup tasks such as path normalization are separate maintenance commands, not part of the normal migration chain.
 

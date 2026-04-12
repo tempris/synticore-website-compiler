@@ -48,9 +48,9 @@ Read these in order:
 Typical commands:
 
 ```bash
-npm run gulp about -- --project "./project/example"
-npm run gulp rebuild -- --project "./project/example"
-npm run gulp package -- --project "./project/example"
+npm run gulp about -- --project "<project-dir>"
+npm run gulp rebuild -- --project "<project-dir>"
+npm run gulp package -- --project "<project-dir>"
 ```
 
 ### Change Config-Oriented Behavior
@@ -64,9 +64,9 @@ npm run gulp package -- --project "./project/example"
 Typical commands:
 
 ```bash
-npm run gulp sort_config -- --project "./project/example"
-npm run gulp build_config -- --project "./project/example"
-npm run gulp build -- --project "./project/example"
+npm run gulp sort_config -- --project "<project-dir>"
+npm run gulp build_config -- --project "<project-dir>"
+npm run gulp build -- --project "<project-dir>"
 ```
 
 ### Investigate Watch Problems

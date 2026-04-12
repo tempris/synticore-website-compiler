@@ -6,7 +6,7 @@ This is the compiler-shipped project-side key-by-key configuration reference for
 
 - Schema source: `config/default/project/config.schema.json`
 - Default value source: `config/default/project/config.json`
-- Compiler version context: `source/resource/info.json` (`v1.1.4`)
+- Compiler version context: `source/resource/info.json` (`v1.1.5`)
 
 This page covers the default config surface shipped by the compiler itself.
 

@@ -6,6 +6,8 @@ This page explains how to create a new project from one of the bundled templates
 
 If you want the fastest path to a successful build without creating a new project yet, use [Synticore Builder Guide - Build Your First Site](/wiki/builder/first-site.md).
 
+If you want a prebuilt reference project instead of a fresh scaffold, use the [Synticore Website Compiler Example Repository](https://github.com/tempris/synticore-website-compiler-example).
+
 ---
 
 ## Ways To Create A Project
@@ -16,6 +18,7 @@ You can create a new project through:
 - the standalone terminal scaffold command
 
 Both paths use the same template registry under `template/`.
+This is the normal starting-new-project path for Synticore users.
 
 ---
 
